@@ -11,6 +11,7 @@ from unittest.mock import patch
 
 from agent import answer
 from tools import lookup_renewal_schedule
+from tracing import begin, end
 
 
 class RenewalRegressionTest(unittest.TestCase):
@@ -97,3 +98,45 @@ class RenewalRegressionTest(unittest.TestCase):
                     schedule = lookup_renewal_schedule("U01", paid["tx_id"], "2026-11-27")
                 self.assertEqual(schedule["renewal_source"], "SIM-GP-RENEWAL-001")
                 self.assertEqual(schedule["next_date"], "2026-11-29")
+
+    def test_visible_charge_facts_fit_in_trace(self):
+        expected = {
+            "B01": ("179000", "2026-10-29", "2026-11-29"),
+            "B03": ("79000", "89000", "2026-10-08", "2026-11-08", "2026-12-08"),
+            "B06": ("45000", "99000", "2026-11-05", "2026-11-18", "2026-12-05"),
+            "B09": ("288567", "684131", "517000", "521000", "540000", "2026-12-03"),
+            "B15": ("2026-11-27",),
+        }
+        with patch("agent.call_model", return_value={"text": "{}"}):
+            for case_id, values in expected.items():
+                with self.subTest(case_id=case_id):
+                    begin(case_id)
+                    try:
+                        answer(self.cases[case_id])
+                    finally:
+                        _, events = end()
+                    evidence = [
+                        event["output"] for event in events
+                        if event.get("name") in {"get_charge_facts", "get_simulation_date"}
+                    ]
+                    self.assertTrue(evidence)
+                    self.assertTrue(all(not item.endswith("…") for item in evidence))
+                    for value in values:
+                        self.assertIn(value, "\n".join(evidence))
+
+    def test_b11_and_b12_apply_scope_before_model_or_history_use(self):
+        with patch("agent.call_model", return_value={"text": "{}"}) as model:
+            b11 = answer(self.cases["B11"])["output"]
+        self.assertIn("Đừng gửi mã OTP", b11)
+        self.assertIn("không thể huỷ gói", b11)
+        self.assertIn("https://support.google.com/googleplay", b11)
+        secret = self.cases["B11"].rsplit(maxsplit=1)[-1]
+        self.assertNotIn(secret, b11)
+        self.assertNotIn(secret, str(model.call_args_list))
+        with patch("agent.get_transactions") as history, patch("agent.call_model") as model:
+            b12 = answer(self.cases["B12"])["output"]
+        history.assert_not_called()
+        model.assert_not_called()
+        self.assertIn("không xem được lịch sử giao dịch của người dùng khác", b12)
+        self.assertIn("không tư vấn đầu tư", b12)
+        self.assertIn("chỉ hỗ trợ", b12)

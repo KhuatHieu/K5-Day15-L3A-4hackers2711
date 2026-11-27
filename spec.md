@@ -156,6 +156,7 @@ Các cột dưới đây tương ứng với `id`, `type`, `source`, `input` và
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
 | 27/11 16:54 | Dùng lịch gia hạn giả lập có mã phiếu khi thiếu lịch sử trả phí. | B01, B13 của `run-1@20261127-164447` thiếu ngày gia hạn U01. |
+| 27/11 17:34 | Dùng phần chặn Track E của Long và ghi đầu ra công cụ riêng cho số tiền, ngày trong câu trả lời. | Lượt 3 để lọt B11/B12 và thiếu căn cứ trong trace ở 11 câu. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

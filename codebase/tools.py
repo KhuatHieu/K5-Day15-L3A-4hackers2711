@@ -183,6 +183,27 @@ def detect_recurring(transactions: list[dict], as_of_date: str | date) -> list[d
 
 
 @tool
+def get_charge_facts(series: dict, charges: list[dict]) -> dict:
+    """Trả số tiền và ngày dùng trong câu trả lời, từ một chuỗi và các giao dịch của chuỗi.
+
+    Đầu ra giữ gọn để trace ghi đủ. Công cụ chỉ tính trên dữ liệu đầu vào.
+    """
+    facts = {key: series[key] for key in ("amount_vnd", "last_date", "next_date")}
+    paid_rows = [row for row in charges if int(row["amount_vnd"]) > 0]
+    amounts = [int(row["amount_vnd"]) for row in paid_rows]
+    price_levels = set(amounts)
+    if len(price_levels) < 2:
+        return facts
+    if len(price_levels) == 2 and amounts == sorted(amounts, key=amounts.index):
+        change = next(index for index, amount in enumerate(amounts) if amount != amounts[0])
+        facts.update(old_amount_vnd=amounts[0], new_amount_vnd=amounts[change],
+                     change_date=paid_rows[change]["time"][:10])
+    else:
+        facts.update(min_amount_vnd=min(price_levels), max_amount_vnd=max(price_levels))
+    return facts
+
+
+@tool
 def lookup_renewal_schedule(user_id: str, tx_id: str, as_of_date: str) -> dict | None:
     """Tra lịch gia hạn giả lập theo mã người dùng, mã giao dịch và ngày mô phỏng.
 

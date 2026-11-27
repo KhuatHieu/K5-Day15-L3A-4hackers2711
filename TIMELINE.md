@@ -21,7 +21,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~C2 · H · Push, mở repo bằng cửa sổ ẩn danh, **nộp CP1**~~ ✅ 15:45 · đã nộp, commit 0e90494
 
 ## 🟠 CP2 · 19:30 Thứ Sáu 27/11 · 4 điểm
-- [ ] I1 · mỗi người · 1 cuộc phỏng vấn (10–15 phút), ghi `evidence/interviews/P1–P4.md` — 17:00–18:00 · ⚠ Thông: đã ghi trao đổi ngắn ngày 27/11/2026 vào `evidence/interviews/P4.md`; còn thiếu thông tin và chưa xác nhận đủ 10–15 phút; chưa hoàn thành I1.
+- [ ] I1 · mỗi người · 1 cuộc phỏng vấn (10–15 phút), ghi `evidence/interviews/P1–P4.md` — 17:00–18:00 · ⚠ Thông: đã ghi trao đổi ngắn ngày 27/11/2026 vào `evidence/interviews/P4.md`; còn thiếu thông tin và chưa xác nhận đủ 10–15 phút; chưa hoàn thành I1. · ✅ H: `P1.md` 18:15 (người ngoài nhóm) · ✅ L: `P2.md` 17:50 · ⏳ N: P3 · ngoài nhóm mới có 2/3
 - [ ] G1 · cả nhóm · 18:00–18:20 tổng hợp: phỏng vấn + số khảo sát đến lúc đó → chốt lát cắt + vẽ sơ đồ cùng nhau
 - [x] ~~D1 · N · `spec.md` §4 sơ đồ + công cụ + chỗ chặn rủi ro + chỗ người duyệt — trước 19:00~~ ✅ 15:32 · [spec.md](spec.md)
 - [x] ~~D2 · N · `spec.md` §5 ≥6 chỗ khó + 2 câu tấn công~~ ✅ 15:32 · [spec.md](spec.md)
@@ -33,7 +33,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~V2 · H · `eval/metric_spec.yaml` 6 metric + chuẩn "đạt" §7 (≥70%, 100% tu_choi, 0 số lệch)~~ ✅ 15:40 · **KHÔNG sửa nữa**
 - [ ] V5 · T · Người thứ hai chấm thử 5 output (≥4/5)
 - [ ] G2 · cả nhóm · 19:00–19:15 đổi chéo review X ↔ Y; `python run.py check` không lỗi
-- [ ] C4 · H · Canvas cập nhật (số đầu tiên + 1 trích dẫn + dòng "đã đổi gì so với CP1")
+- [x] ~~C4 · H · Canvas cập nhật (số đầu tiên + 1 trích dẫn + dòng "đã đổi gì so với CP1")~~ ✅ 18:15 · số khảo sát tạm (n=33) + P2 + review
 - [ ] C2 · H · Push + **nộp CP2** — 19:25
 - [x] ~~X3 · L · Lấy API key, gọi thử 1 câu — **trước khi rời lớp**~~ ✅ 16:00 · ad4bcc5 (Gemini `gemini-3.1-flash-lite`)
 
@@ -45,7 +45,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~X4 · L · Nối model thật (`codebase/ai.py`), `run.py eval --try` chạy được — **tối 27/11**~~ ✅ 17:22 · 92b0f33 (Claude Haiku 5.5; `eval --try` 3/3 câu, token > 0, ~630 vào / ~40 ra mỗi câu)
 - [x] ~~X5 · L · Chặn rủi ro Track E (số từ công cụ, không OTP, không tư vấn đầu tư, huỷ chỉ đưa hướng dẫn)~~ ✅ 17:19 · 0c9633e (B11, B12 qua với AI giả + Claude Haiku; 13 câu khác không đổi; `codebase/test_scope.py`)
 - [ ] V6 · H+T · Bộ câu thử lên 20–30 câu (≥5 `kho`, ≥2 `tu_choi`)
-- [ ] E4 · T · Chốt khảo sát 09:30, xuất `evidence/survey/results.csv` (đã xoá thông tin cá nhân)
+- [ ] E4 · T · Chốt khảo sát 09:30, xuất `evidence/survey/results.csv` (đã xoá thông tin cá nhân) · bản tạm 18:15: 34 phản hồi → `count.py` → `results.csv` (cột `cach_thu`: 30 hỏi miệng, 4 tự điền) · ⚠ chạy lại `count.py` với bản xuất 09:30 (sửa danh sách `TU_DIEN` cho người tự điền mới); xác nhận không có thành viên nhóm và câu 11 trùng ở dòng 26/30
 - [ ] E5 · H · `evidence/summary.md`: số chính + ≥5 trích dẫn + kết luận đúng / sai / phải đổi; cập nhật bảng impact
 - [ ] R1 · cả nhóm · 09:00–09:45 chạy **lượt 1** cùng nhau → `eval/run-1.csv`, chấm `pass`
 - [ ] C2 · H · Push + **nộp CP3** — 09:55

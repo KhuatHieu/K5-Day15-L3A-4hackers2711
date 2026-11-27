@@ -11,6 +11,9 @@
 | Giờ mở | 15:28 27/11 |
 | Giờ chốt | 09:30 28/11 (trước CP3) |
 | Người giữ form, xuất kết quả | Trương Văn Thông |
+| Cách thu thực tế | **2 cách** (cột `cach_thu` trong `results.csv`, Thông xác nhận 27/11 ~18:15): **`tu_dien`** 4 người tự điền form · **`hoi_mieng`** 30 người do Thông hỏi miệng trực tiếp theo đúng bộ câu dưới đây, ghi lại, rồi nhập vào form bằng script theo từng đợt (vì vậy giờ nộp cách nhau 1–3 giây). Lý do Thông đưa ra: người được hỏi không mất thời gian, và hỏi trực tiếp thì ít bị từ chối. Ghi chép gốc do Thông giữ, **không commit**. |
+| Hạn chế | Hỏi miệng thì người trả lời có thể nói theo ý người hỏi. Người được hỏi là người quen hoặc ngồi gần, nên mẫu không ngẫu nhiên. Script nhập bỏ qua bước rẽ nhánh của form, nên `count.py` làm sạch lại theo đúng quy tắc rẽ nhánh. ⚠ Dòng 26 và 30 có câu 11 trùng nguyên văn, đang hỏi Thông, chưa dùng làm trích dẫn. ⚠ 5 người chọn "học viên AI20K", cần xác nhận không có thành viên nhóm. |
+| Bản xuất lần 1 | 27/11 ~18:10, 34 phản hồi → `raw-responses-1900.csv` (không commit) → `python evidence/survey/count.py` → `results.csv` |
 
 ## Lời mở đầu (dán vào mô tả form)
 
@@ -37,6 +40,6 @@ Cài đặt Google Form: câu 2 chọn "không dùng" → chuyển tới trang n
 
 ## Lưu kết quả
 
-- `results.csv` — bản xuất **đã xoá** cột thời gian chi tiết và cột liên hệ của câu 12. Bản gốc có liên hệ **không** commit (đặt tên `raw-*.csv` để `.gitignore` chặn).
+- `results.csv` — do `count.py` tạo từ bản gốc: **đã xoá** giờ nộp chi tiết (chỉ giữ ngày) và toàn bộ câu 12, thêm cột `cach_thu`, `lam_sach`. Bản gốc có liên hệ **không** commit (đặt tên `raw-*.csv` để `.gitignore` chặn).
 - Số chính lấy từ câu 4, 6, 7, 9 kèm ≥3 câu trả lời nguyên văn từ câu 11 → `evidence/summary.md`. Mẫu số = số người qua câu 2 (có dùng ví). Dưới 10 người thì ghi x/n, không ghi %.
 - Đối chiếu với giả thuyết: `evidence/hypothesis.md` → ghi "đúng / sai / phải đổi" ở `evidence/summary.md`.

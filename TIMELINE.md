@@ -35,7 +35,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [ ] G2 · cả nhóm · 19:00–19:15 đổi chéo review X ↔ Y; `python run.py check` không lỗi
 - [ ] C4 · H · Canvas cập nhật (số đầu tiên + 1 trích dẫn + dòng "đã đổi gì so với CP1")
 - [ ] C2 · H · Push + **nộp CP2** — 19:25
-- [ ] X3 · L · Lấy API key, gọi thử 1 câu — **trước khi rời lớp**
+- [x] ~~X3 · L · Lấy API key, gọi thử 1 câu — **trước khi rời lớp**~~ ✅ 16:00 · ad4bcc5 (Gemini `gemini-3.1-flash-lite`)
 
 ## 🟡 CP3 · 10:00 Thứ Bảy 28/11
 - [ ] E3 · L · Kiểm 100 nhãn AI → `human_check.py merge` → điền `data-mining.md` mục 3b — trước 23:00 27/11

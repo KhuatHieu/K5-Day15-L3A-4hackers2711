@@ -39,7 +39,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~X3 · L · Lấy API key, gọi thử 1 câu — **trước khi rời lớp**~~ ✅ 16:00 · ad4bcc5 (Gemini `gemini-3.1-flash-lite`)
 
 ## 🟡 CP3 · 10:00 Thứ Bảy 28/11
-- [ ] E3 · L · Kiểm 100 nhãn AI → `human_check.py merge` → điền `data-mining.md` mục 3b — trước 23:00 27/11
+- [x] ~~E3 · L · Kiểm 100 nhãn AI → `human_check.py merge` → điền `data-mining.md` mục 3b — trước 23:00 27/11~~ ✅ 19:05 · e5e32fa (khớp 87/100: goi 28/33 · tu_tru 28/30 · khác 31/37; ⚠ người gắn từng thấy nhãn AI ở lần thử, ghi ở 3b)
 - [ ] E2c · T · Khảo sát: kiểm số người lúc 22:00 (mục tiêu ≥20), nhắc lại nếu thiếu
 - [x] ~~X2 · N · `detect_recurring` (code thuần) chạy đúng trên data synthetic~~ ✅ 15:57 · [kiểm công cụ](codebase/test_tools.py)
 - [x] ~~X6 · N · Bảng hướng dẫn huỷ ≥8 dịch vụ, có link chính thức + ngày xem; `lookup_cancel_guide`~~ ✅ 15:57 · [bảng hướng dẫn](data/cancel_guides.csv)

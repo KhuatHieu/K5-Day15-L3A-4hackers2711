@@ -11,7 +11,7 @@
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | Khuất Duy Hiếu | 2A202603560 | Đội trưởng | ____ |
+| 1 | Khuất Duy Hiếu | 2A202603383 | Đội trưởng | ____ |
 | 2 | Đoàn Gia Long | 2A202603443 | Thành viên | ____ |
 | 3 | Nguyễn Đắc Tuấn Nghĩa | 2A202603442 | Thành viên | ____ |
 | 4 | Trương Văn Thông | 2A202603560 | Thành viên | ____ |

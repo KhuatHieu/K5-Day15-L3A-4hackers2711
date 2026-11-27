@@ -38,6 +38,16 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~C2 · H · Push + **nộp CP2** — 19:25~~ ✅ 18:55 · đã nộp, commit 9cfa94c (§7 có kết quả lượt 1: 18/20, đạt)
 - [x] ~~X3 · L · Lấy API key, gọi thử 1 câu — **trước khi rời lớp**~~ ✅ 16:00 · ad4bcc5 (Gemini `gemini-3.1-flash-lite`)
 
+## ✅ Đã xong ngoài kế hoạch (chiều 27/11, ghi bù để không ai làm lại)
+- [x] ~~N · `spec.md` §3 giải pháp tương tự (Google Play / Apple)~~ ✅ 15:41 · 5b20c90
+- [x] ~~N · Lịch gia hạn giả lập có nguồn (`data/renewal_schedules.csv`, `lookup_renewal_schedule`) cho U01~~ ✅ 16:55 · 6c6e4ec
+- [x] ~~L · Đổi model sang Claude Haiku 5.5 + thêm giá vào `cost/personas.yaml`~~ ✅ 16:56 · 92b0f33
+- [x] ~~N · Trace ghi đủ số tiền và ngày (để chấm `so_lieu_khop_cong_cu`) + thêm `test_agent.py`~~ ✅ 17:40 · 99c744a
+- [x] ~~N · B16–B20 + lượt 1 OpenAI `gpt-6.2-sol` (18/20) + `eval/report.md`, `eval/README.md`~~ ✅ 18:45 · 7b3f098
+- [x] ~~H · Mã phòng / mã zone demo trong `spec.md`~~ ✅ 18:26 · 01f9fca
+- [x] ~~H · Khảo sát: `count.py` làm sạch + `results.csv` có cột `cach_thu`; `summary.md`, canvas CP2~~ ✅ 18:16 · 6b6fedc
+- [x] ~~H · `spec.md` §0, §2 (impact từ khảo sát tạm), nháp §6, §10; B21–B23 nguồn `nguoi_dung`~~ ✅ 21:05 · fe0aa6c
+
 ## 🟡 CP3 · 10:00 Thứ Bảy 28/11
 - [x] ~~E3 · L · Kiểm 100 nhãn AI → `human_check.py merge` → điền `data-mining.md` mục 3b — trước 23:00 27/11~~ ✅ 19:05 · e5e32fa (khớp 87/100: goi 28/33 · tu_tru 28/30 · khác 31/37; ⚠ người gắn từng thấy nhãn AI ở lần thử, ghi ở 3b)
 - [ ] E2c · T · Khảo sát: kiểm số người lúc 22:00 (mục tiêu ≥20), nhắc lại nếu thiếu
@@ -53,21 +63,34 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [ ] X8 · N · Commit đoạn gọi OpenAI trong `codebase/ai.py` (**không** kèm `.env` / key) để chạy lại được `run-1@20261127-183503`; commit lượt Gemini 16:44 nguyên file với tên riêng (vd `eval/run-gemini-1644.csv`, `traces/run-gemini-1644.jsonl`) và sửa `eval/README.md` (lúc 16:44 bộ câu mới có 15 câu)
 - [ ] X7a · cả nhóm · Chọn cải tiến lượt 2 (đề xuất: bước đưa hướng dẫn cho B14 thiếu link, B19 thiếu bước đối chiếu hoá đơn) → `eval/run-2.csv` trên 23 câu, cùng model · ghi §10
 - [ ] P3 · L · **Video 30 giây** bản chạy thử gọi AI thật (`python run.py`: B01, B13 `kiem_tra`, B11 từ chối) → YouTube "Không công khai", mở thử bằng cửa sổ ẩn danh — **bắt buộc CP3**, trước 09:30
+- [ ] K0 · T · `python run.py simulate --try` (10 phiên) để kiểm khung mô phỏng chi phí — guide 3.4 yêu cầu thử trước CP3
+- [ ] Q1 · cả nhóm · Trước khi nộp: `git log -p | grep -iE "api[_-]?key|sk-|AIza"` không ra gì; không có file `.env`, `raw-*` trên repo
 - [ ] C2 · H · Push + **nộp CP3** — 09:55 · kèm link video + kết quả lượt 1 + run ID
 
 ## 🟢 CP4 · 14:30 Thứ Bảy 28/11
 - [ ] R2 · cả nhóm · 10:00–10:30 ngồi chung đọc các câu trượt → chọn 1 cải tiến
 - [ ] X7 · L+N · Cải tiến → **lượt 2** (`eval/run-2.csv`), ghi `spec.md` §10
 - [ ] K1 · T · `run.py simulate` ≥50 phiên + 3 kịch bản quy mô thật (`cost/`)
+- [ ] K2 · T · `cost/personas.yaml`: ≥3 persona (ít · vừa · nhiều), số lần / tháng lấy từ khảo sát câu 4 + câu 3 (`count.py`), không đủ thì ghi *(tự ước tính)*
+- [ ] K3 · T+L · ⚠ **Giá model phải khớp model chạy lượt 2.** Lượt 1 chạy `gpt-6.2-sol` nhưng `personas.yaml` chỉ có giá Claude / Gemini → thêm giá model đó từ `further-reading/model-prices.md` (≥2 mức: rẻ + mạnh)
+- [ ] K4 · T · Quy mô thật: số người dùng MoMo / ZaloPay **có link nguồn công khai** (không dùng số 700 của khoá) → chi phí / tháng 3 kịch bản; chi phí / task thành công = chi phí / phiên ÷ tỉ lệ đạt **lượt 2**
+- [ ] S2 · T · `spec.md` §8 chi phí: điền từ `cost/cost-estimate.md`, so với impact / người / tháng ở §2 → 1 dòng "đáng làm không"
+- [ ] S3 · L · `spec.md` §9 rủi ro & an toàn: dữ liệu (synthetic, không gửi gì thật), AI không được làm gì (OTP, huỷ thay, đầu tư, dữ liệu người khác), ai bị hại nếu sai và chặn ở đâu (`check_scope`, số từ công cụ)
+- [ ] S4 · H · `spec.md` §10: dòng "Phân công có tên" + "Dùng AI vào việc gì" (2–3 dòng)
+- [ ] R3 · N+L · `eval/report.md` + `eval/README.md` mục 5–6: lượt 1 → lượt 2 (x/N → y/N), đổi gì, vì sao, câu nào đổi kết quả
+- [ ] D4 · H · `README.md` của repo vẫn là khung ("[Tên nhóm]", mục 0): điền tên nhóm, lát cắt, cách chạy, link các file chính; xoá mục 0
+- [ ] A1 · mỗi người · `docs/ai-usage.md`: mỗi người tự thêm dòng việc mình dùng AI (dòng "Prompt / thiết kế lời gọi mô hình", "Slide, văn bản" còn trống)
 - [ ] B1 · mỗi người · *(bonus)* 1 người ngoài nhóm dùng thử, ghi `validation/log.md`
 - [ ] G3 · cả nhóm · 13:00 kết luận go / iterate / stop dựa trên số
-- [ ] P1 · H+N · Slide (có trang "Đánh giá thế nào" + "Chi phí khi dùng thật")
+- [ ] P1 · H+N · Slide (có trang "Đánh giá thế nào" + "Chi phí khi dùng thật"), từ `slides/outline.md` · xuất **`demo-slides.pdf` ở thư mục gốc** (guide 5.2) hoặc link ai cũng xem được
 - [ ] P2 · L+T · Video demo dự phòng
-- [ ] G4 · cả nhóm · Tập demo, mỗi người nói 1 phần
-- [ ] C2 · H · Push + **nộp CP4** — 14:25
+- [ ] G4 · cả nhóm · Tập demo, mỗi người nói 1 phần · ai cũng trả lời được 4 câu (guide 5.2): *Vì sao chọn hình dạng này? · Lỗi nguy hiểm nhất là gì? · Chi phí / task thành công tính thế nào? · Phần bạn làm là gì?*
+- [ ] C2 · H · Push + **nộp CP4** — 14:25 · form cần: phòng demo + link repo, tích 7 hạng mục, lượt 1 → lượt 2, chi phí / task thành công kèm tên model, link slide + video dự phòng, phần chưa xong
 
 ## 🏁 Demo · hạn chót 23:59 Thứ Bảy 28/11
 - [ ] Demo Zone 14:30–16:00 (Demo Phòng 16:00–18:00 nếu lọt top)
 - [ ] Sửa theo góp ý → ghi `spec.md` §10 (giờ · đổi gì · vì sao), chạy thêm thì ghi thành `run-3`
 - [ ] Reflection: `reflection/khuat-duy-hieu.md` · `reflection/doan-gia-long.md` · `reflection/nguyen-dac-tuan-nghia.md` · `reflection/truong-van-thong.md`
+- [ ] H · Dọn repo: `CHOT-1600.md` giữ làm biên bản hay xoá; sửa `AGENTS.md` mục Quy trình git cho khớp cách làm thật (nhánh + PR)
+- [ ] (tuỳ chọn) E6 · ai rảnh · Ảnh chụp trang Gói thuê bao Google Play / mục thanh toán tự động trong ví (che thông tin) để bỏ ⏳ ở `spec.md` §0
 - [ ] Push lần cuối trước 23:59

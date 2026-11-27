@@ -38,6 +38,14 @@ personas:           # ≥3 kiểu người dùng; share cộng lại = 1
 #     inputs: ["câu hỏi kiểu 1", "câu hỏi kiểu 2"]
 
 prices:             # USD / 1 triệu token — chép từ further-reading/model-prices.md của repo đề. ≥2 mức model
+  - model: claude-haiku-5-5        # model bản chạy thử đang dùng (từ 27/11 tối)
+    input: 0.10
+    output: 0.50
+    source: "bảng giá Anthropic API (giá cho prompt ≤100K token) · xem 27/11/2026 — đối chiếu lại https://www.anthropic.com/pricing"
+  - model: claude-sonnet-5-5       # mức cao hơn để so sánh
+    input: 2.00
+    output: 10.00
+    source: "bảng giá Anthropic API · xem 27/11/2026 — đối chiếu lại https://www.anthropic.com/pricing"
   - model: gemini-3.1-flash-lite
     input: 0.25
     output: 1.50

@@ -8,12 +8,17 @@ Ba ví dụ dưới đây (OpenAI, Claude, Ollama) **đã chạy với key thậ
 
 ## 0. Nhóm 4hackers2711 đang dùng (X3 · Long)
 
-- **Nhà cung cấp:** Google Gemini, gói miễn phí AI Studio, key cá nhân của Long (không chia sẻ lên repo).
-- **`.env`:** `MODEL_PROVIDER=gemini` · `MODEL_NAME=gemini-3.1-flash-lite`.
-- **Code:** `call_gemini()` trong `codebase/ai.py` gọi REST API `v1beta/models/<model>:generateContent` bằng `urllib` (không cần SDK, không thêm vào `requirements.txt`).
-- **Token:** vào = `usageMetadata.promptTokenCount`; ra = `candidatesTokenCount` + `thoughtsTokenCount` (token suy nghĩ tính như token ra).
-- **Đã gọi thử 27/11/2026:** 1 câu qua `call_model` (token vào 31 / ra 108) và 1 câu qua `python run.py` (token vào 47 / ra 519) — chạy được.
-- Người khác muốn chạy trên máy mình: tự lấy key ở https://aistudio.google.com/apikey, điền `.env` như trên.
+**Từ 27/11 tối: Claude Haiku 5.5** (đổi từ Gemini vì Gemini báo quá tải 503 / timeout khi chạy thử; chốt trước lượt 1 để `run-1` và `run-2` cùng một model).
+
+- **Nhà cung cấp:** Anthropic, key cá nhân của Long (không chia sẻ lên repo).
+- **`.env`:** `MODEL_PROVIDER=anthropic` · `MODEL_NAME=claude-haiku-5-5`.
+- **Code:** `call_claude()` trong `codebase/ai.py` gọi `POST https://api.anthropic.com/v1/messages` bằng `urllib` (không cần SDK, không thêm vào `requirements.txt`). `output_config.effort = "low"` vì model chỉ trả JSON nhận diện dịch vụ.
+- **Token:** vào = `usage.input_tokens`; ra = `usage.output_tokens` (đã gồm token suy nghĩ). Chỉ lấy chữ ở khối `type: "text"`, bỏ khối `thinking`.
+- **Giá:** 0,10$ / 0,50$ cho 1 triệu token vào / ra — đã thêm vào `cost/personas.yaml`.
+- **Đã gọi thử 27/11/2026:** 1 câu B03 qua `python run.py` — token vào 626 / ra 44 (≈ 0,00009$), chạy được.
+- Người khác muốn chạy trên máy mình: tự lấy key ở https://console.anthropic.com, điền `.env` như trên. Không có key thì để `MODEL_PROVIDER=fake`.
+
+**Trước đó (X3, 16:00):** Gemini `gemini-3.1-flash-lite` qua `call_gemini()` — nhánh này vẫn giữ trong `ai.py`, đổi `.env` sang `MODEL_PROVIDER=gemini` là dùng lại được.
 
 ## 1. Điền `.env`
 

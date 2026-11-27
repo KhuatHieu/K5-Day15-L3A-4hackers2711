@@ -15,7 +15,6 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~E1 · H · `evidence/hypothesis.md` (giả thuyết cho khảo sát)~~ ✅ 15:14 · 108e535
 - [ ] E2 · H+T · Tạo Google Form từ `evidence/survey/questions.md`, điền link / kênh / giờ mở — **gửi trước 16:00**
 - [ ] E2b · cả nhóm · Mỗi người gửi link form cho ≥5 người quen có dùng ví — trước 16:30
-- [ ] T0 · T · Sửa mã học viên của Thông trong `TEAMS.md` (đang trùng mã của Hiếu)
 - [ ] C0 · cả nhóm · 16:00–16:20 chốt **bài toán 1–2 câu (không có chữ AI)** + **lát cắt 1 câu** (xem `TASKS.md`)
 - [ ] C3 · cả nhóm · Điền cột "Phần việc chính" trong `TEAMS.md` (lấy từ `TASKS.md`), chạy `python run.py check`
 - [x] ~~C1 · H · `canvas.md` đủ 7 dòng (bản nháp — cả nhóm xem lại lúc chốt C0)~~ ✅ 15:14 · 108e535

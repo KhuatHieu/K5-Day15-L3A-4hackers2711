@@ -61,7 +61,6 @@
 
 | Mã | Việc | File | Xong khi |
 |---|---|---|---|
-| T0 | **Sửa mã học viên trong `TEAMS.md`** (đang trùng mã của Hiếu `2A202603560`) | `TEAMS.md` | `run.py check` không báo lỗi |
 | E2 | Giữ form khảo sát, nhắc mọi người gửi, theo dõi số người (mục tiêu 20 người lúc 22:00, 25 người lúc 09:30), xuất `results.csv` đã xoá thông tin cá nhân | `evidence/survey/` | ≥20 người ngoài nhóm |
 | V3 | Script sinh lịch sử giao dịch **synthetic** (seed cố định): có khoản định kỳ, dùng thử chuyển sang trả phí, tên trên lịch sử bị lệch, giao dịch lỗi / trừ 2 lần để gây nhiễu, kèm nhãn đúng | `data/` | chạy lại ra đúng file cũ |
 | V4 | `DATA_CARD.md` bản đầu (CP2) | `data/DATA_CARD.md` | |

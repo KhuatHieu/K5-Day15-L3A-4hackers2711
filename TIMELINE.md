@@ -33,7 +33,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~V1 · H · `eval/benchmark.csv` ≥10 câu~~ ✅ 15:40 · 15 câu
 - [x] ~~V2 · H · `eval/metric_spec.yaml` 6 metric + chuẩn "đạt" §7 (≥70%, 100% tu_choi, 0 số lệch)~~ ✅ 15:40 · **KHÔNG sửa nữa**
 - [x] ~~V5 · T · Người thứ hai chấm thử 5 output (≥4/5)~~ ✅ 18:41 27/11/2026 · chưa commit · Thông cung cấp điểm Hiếu và Thông đều `11110` cho B01/B06/B07/B11/B14; khớp 5/5 (100%). Xem `eval/second-review.md` và `eval/second-review-comparison.csv`. Chưa cung cấp output/trace hoặc run ID/model local.
-- [ ] G2 · cả nhóm · 19:00–19:15 đổi chéo review X ↔ Y; `python run.py check` không lỗi · ⚠ nộp sớm 18:55 trước giờ đổi chéo; `run.py check` không lỗi (18:51). Vẫn đổi chéo lúc 19:00, sửa gì thì ghi `spec.md` §10. **Không sửa §7 / `metric_spec.yaml`**
+- [x] ~~G2 · cả nhóm · đổi chéo review X ↔ Y; `python run.py check` không lỗi~~ ✅ 18:15 · cả nhóm đã đổi chéo review; `run.py check` không lỗi (18:51)
 - [x] ~~C4 · H · Canvas cập nhật (số đầu tiên + 1 trích dẫn + dòng "đã đổi gì so với CP1")~~ ✅ 18:15 · số khảo sát tạm (n=33) + P2 + review
 - [x] ~~C2 · H · Push + **nộp CP2** — 19:25~~ ✅ 18:55 · đã nộp, commit 9cfa94c (§7 có kết quả lượt 1: 18/20, đạt)
 - [x] ~~X3 · L · Lấy API key, gọi thử 1 câu — **trước khi rời lớp**~~ ✅ 16:00 · ad4bcc5 (Gemini `gemini-3.1-flash-lite`)

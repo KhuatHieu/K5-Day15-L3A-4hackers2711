@@ -27,8 +27,8 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~D2 · N · `spec.md` §5 ≥6 chỗ khó + 2 câu tấn công~~ ✅ 15:32 · [spec.md](spec.md)
 - [x] ~~X1 · L · `codebase/` khung chạy hết luồng với AI giả (`python run.py`) — trước 19:00~~ ✅ 16:16 · 6303988 (đã nối công cụ thật của Nghĩa; B11–B12 chờ X5)
 - [x] ~~S1 · H · `spec.md` §0–§2 bài toán + bảng impact 4 hướng~~ ✅ 15:20 (agent) · ⚠ các thừa số impact đang *(tự ước tính)*, thay bằng số khảo sát lúc 09:30
-- [x] ~~V3 · T · Script sinh data synthetic có seed + nhãn (`data/gen_transactions.py`)~~ ✅ 15:20 (agent làm theo lời H; T đọc lại)
-- [x] ~~V4 · T · `data/DATA_CARD.md` bản đầu~~ ✅ 15:20 (agent) · ⚠ còn trống mục "Người kiểm" — T kiểm tay 10 chuỗi
+- [x] ~~V3 · T · Script sinh data synthetic có seed + nhãn (`data/gen_transactions.py`)~~ ✅ 15:20 (bản đầu); cập nhật 16:39 · chưa commit · v2: 200 dòng = 150 tình huống + 50 nhiễu; nguồn nội dung review, tái tạo giống từng byte; Trương Văn Thông đã kiểm tra và xác nhận ngày 27/11/2026; xem `data/DATA_CARD.md`
+- [x] ~~V4 · T · `data/DATA_CARD.md` bản đầu~~ ✅ 15:20 (bản đầu); cập nhật 16:39 · chưa commit · mô tả dữ liệu v2, kiểm tương thích công cụ; Trương Văn Thông đã kiểm tra và xác nhận ngày 27/11/2026
 - [x] ~~V1 · H · `eval/benchmark.csv` ≥10 câu~~ ✅ 15:40 · 15 câu
 - [x] ~~V2 · H · `eval/metric_spec.yaml` 6 metric + chuẩn "đạt" §7 (≥70%, 100% tu_choi, 0 số lệch)~~ ✅ 15:40 · **KHÔNG sửa nữa**
 - [ ] V5 · T · Người thứ hai chấm thử 5 output (≥4/5)

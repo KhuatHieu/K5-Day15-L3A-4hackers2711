@@ -1,11 +1,14 @@
 """Sinh lịch sử giao dịch ví GIẢ LẬP (synthetic) cho bản chạy thử. Chỉ dùng thư viện chuẩn.
 
 Chạy:  python data/gen_transactions.py
-  → data/transactions.csv       lịch sử giao dịch 10 người dùng giả, 28/05 → 27/11/2026 (6 tháng)
+  → data/transactions.csv       200 giao dịch: 150 tình huống + 50 nhiễu, 11 người dùng giả
   → data/recurring_truth.csv    ĐÁP ÁN: các chuỗi trừ định kỳ / ca đặc biệt cài vào mỗi người dùng
 
 Seed cố định (SEED) → chạy lại ra đúng hai file cũ. KHÔNG có giao dịch thật của ai.
 "Hôm nay" trong mô phỏng: TODAY = 2026-11-27. Mô tả: data/DATA_CARD.md.
+Nguồn gợi ý tình huống từ nội dung review được ghi trong data/DATA_CARD.md.
+Thêm --output-dir để sinh vào thư mục khác; --max-rows mặc định 200 (không tính tiêu đề).
+Giữ toàn bộ giao dịch kịch bản; chỉ lấy mẫu giao dịch nhiễu. Không sao chép text hay thông tin người viết review.
 
 Cách dựng:
   - Chi tiêu hằng ngày (nhiễu): nơi bán tên DỰNG, mỗi nơi ghi vài kiểu lộn xộn như ngoài đời
@@ -18,6 +21,7 @@ Cách dựng:
   - Tên nền tảng (Google Play, App Store, Spotify, YouTube, Netflix, ChatGPT) giữ tên thật vì hướng dẫn huỷ
     trỏ về trang chính thức của họ; tên app con bán qua nền tảng và mọi nơi bán khác là tên DỰNG.
 """
+import argparse
 import csv
 import os
 import random
@@ -27,8 +31,6 @@ SEED = 2711
 TODAY = date(2026, 11, 27)
 START = date(2026, 5, 28)
 HERE = os.path.dirname(os.path.abspath(__file__))
-TX_OUT = os.path.join(HERE, "transactions.csv")
-TRUTH_OUT = os.path.join(HERE, "recurring_truth.csv")
 
 # Nơi bán DỰNG cho chi tiêu hằng ngày: (nhóm chi, [các kiểu mô tả], (min, max) nghìn đồng)
 NOISE = [
@@ -141,10 +143,29 @@ SCENARIOS = {
          "Lingo Fast (app học ngoại ngữ, tên dựng)", "Google Play", "khong_ro", None, "",
          "mới 9 ngày lịch sử, 1 lần trừ → chưa đủ căn cứ nói định kỳ", "vi"),
     ]},
+    # Bổ sung theo yêu cầu 150 giao dịch tình huống + 50 nhiễu.
+    # Hai chuỗi độc lập để kiểm lịch dài, không thêm dữ kiện cho các ca thiếu căn cứ.
+    "U11": {"persona": "kiem_thu_lich_dai", "series": [
+        ("U11-S1", "GOOGLE *LuyenTriNho", every("2026-06-05", 7, TODAY, 19000),
+         "LuyenTriNho (app, tên dựng) — gói tuần", "Google Play", "goi_dang_ky", 7, "",
+         "ca bổ sung giả lập: 26 lần trả phí theo tuần", "vi"),
+        ("U11-S2", "TT DV GTGT 4x17", every("2026-06-08", 4, TODAY, 12000),
+         "không rõ", "", "khong_ro", 4, "",
+         "ca bổ sung giả lập: 44 lần trừ mỗi bốn ngày, không đoán tên dịch vụ", "vi"),
+    ]},
 }
 
 
-def main():
+# Chỉ lấy ý từ nội dung review; không tái dựng lịch sử tài khoản của người viết review.
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", default=HERE, help="Thư mục nhận dữ liệu synthetic")
+    parser.add_argument("--max-rows", type=int, default=200, help="Số dòng giao dịch, không tính tiêu đề (mặc định 200)")
+    args = parser.parse_args(argv)
+    output_dir = os.path.abspath(args.output_dir)
+    os.makedirs(output_dir, exist_ok=True)
+    tx_out = os.path.join(output_dir, "transactions.csv")
+    truth_out = os.path.join(output_dir, "recurring_truth.csv")
     rnd = random.Random(SEED)
     tx, truth = [], []
     for uid, sc in SCENARIOS.items():
@@ -178,17 +199,33 @@ def main():
                 last_t = t
                 tx.append([uid, t, text, amt, src, "thanh_cong", sid])
             paid = [c for c in charges if start <= c[0] <= TODAY]
-            if sid == "U06-S1" or sid == "U07-S2":   # chu kỳ ngắn: ngày kế tiếp = lần cuối + chu kỳ
+            if sid in {"U06-S1", "U07-S2", "U11-S1", "U11-S2"}:   # chu kỳ ngắn: lần cuối + chu kỳ
                 nxt = (paid[-1][0] + timedelta(days=cycle)).isoformat()
             truth.append({"user_id": uid, "persona": sc["persona"], "series_id": sid,
                           "description_vi_du": desc if isinstance(desc, str) else " | ".join(desc),
                           "service": service, "platform": platform, "kind": kind,
                           "cycle_days": cycle or "", "so_lan_trong_data": len(paid),
                           "last_date": paid[-1][0].isoformat(), "next_date": nxt, "nguon_tien": src, "ghi_chu": note})
+    # Không cắt mất tình huống kiểm thử. Lấy mẫu nhiễu riêng để lịch và số tiền kịch bản
+    # không phụ thuộc giới hạn số dòng. Mỗi người có tối thiểu hai dòng nhiễu nếu đủ chỗ.
+    scenario_tx = [row for row in tx if row[6] is not None]
+    noise_tx = [row for row in tx if row[6] is None]
+    if not len(scenario_tx) <= args.max_rows <= len(tx):
+        parser.error("--max-rows phải từ %d đến %d để giữ đủ các tình huống." % (len(scenario_tx), len(tx)))
+    sample_rng = random.Random(SEED + 1)
+    noise_budget = args.max_rows - len(scenario_tx)
+    selected = []
+    if noise_budget >= 2 * len(SCENARIOS):
+        for uid in SCENARIOS:
+            selected.extend(sample_rng.sample([row for row in noise_tx if row[0] == uid], 2))
+    selected_ids = {id(row) for row in selected}
+    selected.extend(sample_rng.sample([row for row in noise_tx if id(row) not in selected_ids],
+                                      noise_budget - len(selected)))
+    tx = scenario_tx + selected
     tx.sort(key=lambda r: (r[0], r[1]))
     ids = {}   # series_id → [tx_id] — chỉ ghi vào file đáp án, KHÔNG ghi vào transactions.csv (công cụ không được thấy)
-    with open(TX_OUT, "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
+    with open(tx_out, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["tx_id", "user_id", "time", "description", "amount_vnd", "source", "status"])
         for i, r in enumerate(tx, 1):
             w.writerow(["T%05d" % i, r[0], r[1].strftime("%Y-%m-%d %H:%M:%S")] + r[2:6])
@@ -196,12 +233,12 @@ def main():
                 ids.setdefault(r[6], []).append("T%05d" % i)
     for t in truth:
         t["tx_ids"] = " ".join(ids.get(t["series_id"], []))
-    with open(TRUTH_OUT, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=list(truth[0].keys()))
+    with open(truth_out, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=list(truth[0].keys()), lineterminator="\n")
         w.writeheader()
         w.writerows(truth)
     print("%d giao dịch · %d người dùng · %d chuỗi đáp án · seed %d" % (len(tx), len(SCENARIOS), len(truth), SEED))
-    print("→ %s · %s" % (os.path.relpath(TX_OUT), os.path.relpath(TRUTH_OUT)))
+    print("→ %s · %s" % (tx_out, truth_out))
 
 
 if __name__ == "__main__":

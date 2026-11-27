@@ -1,59 +1,74 @@
-# Data card — dữ liệu bản chạy thử dùng
+﻿# Data card — V3/V4 · giao dịch ví giả lập
 
-> Bản đầu (CP2). Một trang, mỗi dataset một mục. Không có dữ liệu cá nhân thật, không có giao dịch thật của ai, kể cả của thành viên nhóm.
+Cập nhật 27/11/2026. Dữ liệu chỉ dùng chạy thử, không có giao dịch thật hay thông tin cá nhân của người viết review.
 
-## Dataset 1 · Lịch sử giao dịch ví giả lập — `data/transactions.csv`
+## Nguồn và cách tạo
 
-| | |
+Nguồn gợi ý là file `raw-reviews-1star.csv` người dùng cung cấp: 1.000 review, gồm 500 MoMo và 500 ZaloPay, ngày trong CSV từ 14/10 đến 26/11/2026. Đây là review, không phải sao kê. Chỉ dùng nội dung và các cột `id`, `app`, `date`, `score`, `text`; không dùng hay đánh giá cột nhãn AI. File đầy đủ được giữ ở Downloads, không sao chép vào repo.
+
+Bảng tình huống dưới đây ghi nguồn review và phần bổ sung giả lập. Tên app con, số tiền và lịch thu là **giả lập (tự ước tính)**, không chứng minh giá hay lịch thanh toán thật. Riêng số 758.889đ và mốc 16/11 được lấy ý từ `zalopay-089`; tên app và giả thiết gói năm vẫn là dựng.
+
+## Cách chạy lại
+
+```powershell
+python data/gen_transactions.py
+python -m unittest discover -s codebase -v
+```
+
+Lệnh đầu tạo lại hai CSV synthetic. Chỉ cần thư viện chuẩn Python, không cần API hay file review trên máy để chạy. Nội dung review đã được đối chiếu khi dựng kịch bản. `--output-dir` cho phép sinh thử vào thư mục riêng. `--max-rows` mặc định 200, không tính dòng tiêu đề; nhỏ hơn 150 sẽ báo lỗi vì không được cắt mất giao dịch tình huống.
+
+Seed sinh giao dịch là **2711**. Nhiễu được sinh theo lịch rồi chọn lại bằng seed **2712**, giữ tối thiểu hai dòng nhiễu cho mỗi người. Cùng cấu hình và script sinh lại giống từng byte; đã đối chiếu hai lần chạy trong thư mục tạm.
+
+## Dataset 1 — transactions.csv
+
+| Mục | Mô tả |
 |---|---|
-| Dùng để làm gì | Nguồn cho công cụ `get_transactions` và `detect_recurring` (`codebase/tools.py`). Là nền cho bộ câu thử: mỗi câu trỏ tới một người dùng `U01`…`U10`. |
-| Từ đâu | **Sinh có seed:** `python data/gen_transactions.py`, `SEED = 2711`. Chạy lại ra đúng file cũ (đã kiểm md5 hai lần chạy giống nhau). |
-| Xử lý những bước gì | Không có bước làm sạch (data tự dựng). "Hôm nay" trong mô phỏng là `2026-11-27`. Cửa sổ dữ liệu: 28/05 → 27/11/2026 (6 tháng). Riêng `U10` là người dùng mới, chỉ có dữ liệu từ 19/11. |
-| Số dòng | 2.551 giao dịch · 10 người dùng (khoảng 260–300 giao dịch / người, riêng U10 có 18) |
-| Cột | `tx_id`, `user_id`, `time`, `description` (mô tả như trên sao kê, cố ý lộn xộn), `amount_vnd` (số tiền chi, VND), `source` (`vi` / `tra_sau`), `status` |
-| Phiên bản / ngày lấy | v1 · 27/11/2026 |
-| Nhãn | **`synthetic`** |
-| Giới hạn | Chỉ có giao dịch **chi**, chưa có nạp tiền vào ví hay hoàn tiền; `status` toàn `thanh_cong`. Nhiễu chi tiêu hằng ngày rải đều, không có mùa vụ. Số tiền gói đăng ký là **tự ước tính** theo giá phổ biến, không lấy từ bảng giá chính thức. Mỗi kiểu khó chỉ có 1–2 người dùng → bộ câu thử nhỏ. |
+| Mục đích | Input của `get_transactions` ở `codebase/agent.py` và `detect_recurring` ở `codebase/tools.py`. |
+| Quy mô | **200 dòng dữ liệu = 150 giao dịch tình huống + 50 giao dịch nhiễu**; 11 hồ sơ giả lập U01–U11. Không tính tiêu đề. |
+| Nhãn nguồn | `synthetic`, sinh bằng code; không phải sao kê thật. |
+| Thời gian | Ngày mô phỏng `2026-11-27`; cửa sổ cấu hình 28/05–27/11/2026, riêng U10 từ 19/11. Dữ liệu sau lấy mẫu không phải lịch sử chi tiêu đầy đủ từng ngày. |
+| Cột | `tx_id`: ID giao dịch; `user_id`: hồ sơ giả; `time`: thời điểm; `description`: mô tả; `amount_vnd`: số tiền chi, VND; `source`: `vi`/`tra_sau`; `status`: trạng thái. |
+| Phiên bản | v2, 27/11/2026; giới hạn theo yêu cầu 150 + 50. |
+| Giới hạn | Có một dòng dùng thử 0đ, còn lại là khoản chi; chưa có nạp vào ví hay hoàn tiền. `status` đều là `thanh_cong`, kể cả giao dịch bị trừ trùng. Không có mùa vụ, không đại diện tần suất hay tỷ lệ người gặp pain. |
 
-`detect_recurring` cần ít nhất ba lần trả phí theo lịch tháng hoặc cách đều theo ngày. Công cụ bỏ các giao dịch sau ngày mô phỏng và tách các lần trừ cùng số tiền trong vòng hai phút thành dấu hiệu trừ trùng. Dùng `tx_ids` để đối chiếu lịch sử số tiền khi giá thay đổi.
-
-**Cách dựng** (chi tiết trong docstring của script):
-- **Nhiễu:** 0–3 giao dịch mỗi ngày từ 10 nơi bán **tên dựng**. Mỗi nơi bán có 2–3 kiểu mô tả khác nhau, ví dụ `XEMAU*BIKE` · `xe mau` · `XE MAU HN 2211`. Có thêm chuyển khoản không rõ nội dung và nạp điện thoại.
-- **Chuỗi trừ định kỳ và ca khó:** cài theo kịch bản, mô phỏng đúng các kiểu đã thấy trong review 1★ (`evidence/data-mining.md`):
-
-| User | Kịch bản | Lấy ý từ review |
-|---|---|---|
-| U01 | Dùng thử 7 ngày, chuyển sang trả phí 29/10, **kỳ 2 trừ 29/11** (ca chính của lát cắt) + Spotify ghi 3 kiểu mô tả | `zalopay-340`, `momo-019` |
-| U02 | Hai chuỗi cùng mô tả `APPLE.COM/BILL`, khác số tiền, không ghi tên gói | `momo-498` |
-| U03 | Netflix ghi 3 kiểu mô tả · YouTube Premium **đổi giá** 79k → 89k | — |
-| U04 | Đăng ký dùng thử từ tháng 5 (trước cửa sổ dữ liệu), bị trừ **gói năm 758.889đ** ngày 16/11 | `zalopay-089` |
-| U05 | **Trừ 2 lần** cùng một lần nạp, cách nhau 40 giây. Đây là giao dịch lỗi, **không** phải gói định kỳ | nhãn `giao_dich_loi` |
-| U06 | Gói **tuần** trong game, mỗi lần 22k | `bi_tru_nhieu_ky` |
-| U07 | `PAYPAL *XKLDIGI` và `TT DV GTGT 9x29`: mô tả **không đoán được**, AI phải nói "không rõ" | `khong_biet_ai_tru` |
-| U08 | ChatGPT trả bằng USD nên số VND **dao động** · **tiền điện** định kỳ, thiết yếu, không được gợi ý huỷ | — |
-| U09 | Gói truyện trừ từ **ví trả sau** | `nguon_tra_sau` |
-| U10 | Người dùng mới, 1 lần trừ, **chưa đủ dữ liệu** để nói là định kỳ | — |
-
-- **Tên:** nền tảng (Google Play, App Store, Spotify, YouTube, Netflix, ChatGPT / OpenAI, PayPal) giữ tên thật, vì hướng dẫn huỷ phải trỏ về trang chính thức của họ. App bán qua nền tảng và mọi nơi bán khác là **tên dựng**.
-
-## Dataset 2 · Đáp án chuỗi định kỳ — `data/recurring_truth.csv`
-
-| | |
+| Hồ sơ | Tình huống và nguồn gợi ý |
 |---|---|
-| Dùng để làm gì | **Đáp án** để chấm bộ câu thử và kiểm `detect_recurring`: dịch vụ nào, nền tảng nào, loại khoản (`goi_dang_ky` · `dung_thu_chuyen_tra_phi` · `hoa_don_thiet_yeu` · `khong_ro` · `giao_dich_loi`), chu kỳ, lần trừ cuối, ngày trừ kế tiếp, nguồn tiền, danh sách `tx_ids`. |
-| Từ đâu | Cùng script, cùng seed |
-| Số dòng | 15 chuỗi |
-| Nhãn | **`synthetic`** |
-| Giới hạn | Chỉ bộ chấm và người viết câu thử dùng file này. Công cụ chỉ đọc lịch sử được truyền vào. Kịch bản U01-S1 và U04-S1 có ngày gia hạn giả lập trong bảng đáp án, nhưng mỗi chuỗi chỉ có một lần trả phí trong lịch sử. Công cụ ghi thiếu căn cứ và để trống dự báo cho hai chuỗi này. |
+| U01 | Dùng thử chuyển trả phí, khó tìm chỗ hủy (`zalopay-340`); quên hủy (`momo-019`). App, giá, lịch và biến thể tên Spotify là dựng. |
+| U02 | Hai khoản Apple khác giá, không rõ gói. `zalopay-402`/`zalopay-495` nói về dịch vụ Apple; mô tả sao kê và lịch là dựng. |
+| U03 | Netflix nhiều tên (ca bổ sung); YouTube đổi giá (lịch và giá dựng, `momo-314` chỉ gợi ý dịch vụ). |
+| U04 | Đăng ký từ lâu rồi mới thấy trừ (`zalopay-089`); chỉ một lần trả phí. Review không xác nhận gói năm. |
+| U05 | Trừ hai lần, không phải gia hạn. `momo-424` gợi ý bị trừ lần nữa; nạp điện thoại và khoảng cách 40 giây là dựng. |
+| U06 | Gói game theo tuần, ca bổ sung giả lập. |
+| U07 | Khoản trừ không nhận ra (`momo-147`, `zalopay-209`); PayPal, mã GTGT và chu kỳ là dựng. |
+| U08 | ChatGPT (`momo-424`); dao động VND và hóa đơn điện thiết yếu là bổ sung giả lập. |
+| U09 | Ví trả sau tự được chọn (`momo-033`); gói truyện và lịch là dựng. |
+| U10 | Một lần trừ, lịch sử ngắn, chưa đủ căn cứ dự báo; ca bổ sung. |
+| U11 | Ca bổ sung: 26 lần thu gói tuần + 44 lần thu GTGT mỗi bốn ngày, đủ 70 giao dịch tình huống bổ sung. |
 
-## Dataset 3 · Hướng dẫn hủy theo kênh thanh toán
+## Dataset 2 — recurring_truth.csv
 
-[`data/cancel_guides.csv`](cancel_guides.csv) có 9 kênh gồm App Store, Google Play, YouTube, Spotify, Netflix, ChatGPT, PayPal, Microsoft 365 và Disney+. Mỗi dòng có mã kênh, tên, bí danh, bước tự kiểm tra hoặc tự hủy, URL trợ giúp chính thức và ngày đối chiếu. Các trang được kiểm ngày 27/11/2026. Với PayPal, hướng dẫn xử lý ủy quyền thanh toán tự động và chỉ người dùng đối chiếu tình trạng gói với bên bán.
+Có **17 chuỗi đáp án** liên kết đủ **150 giao dịch tình huống** qua `tx_ids`. Các dòng còn lại trong transactions.csv là 50 giao dịch nhiễu.
 
-### Kiểm công cụ CP3
+Các cột gồm hồ sơ/persona, mã chuỗi, ví dụ mô tả, dịch vụ, nền tảng, loại khoản, chu kỳ danh nghĩa, số lần xuất hiện, lần trừ cuối, ngày kế tiếp của kịch bản, nguồn tiền, ghi chú và danh sách ID. Chỉ người kiểm và bộ kiểm dùng file này. App không được đọc đáp án.
 
-Chạy `python -m unittest discover -s codebase -v` từ thư mục gốc để đối chiếu 15 cụm trong dữ liệu giả lập và kiểm bảng hướng dẫn.
+`cycle_days = 30` của lịch tháng là giá trị danh nghĩa; ngày kế tiếp theo lịch tháng, không luôn bằng ngày cuối cộng 30. U01-S1 và U04-S1 chỉ có một lần trả phí: `next_date` trong đáp án là **lịch cài trong kịch bản**, không thể suy ra từ giao dịch. Công cụ phải báo thiếu căn cứ và không đưa dự báo cho hai chuỗi này. Các ca trừ trùng hoặc thiếu lịch sử khác để trống ngày kế tiếp.
 
----
+## Tương thích kỹ thuật của nhóm
 
-**Người kiểm:** __ (đọc tay 10 chuỗi trong `recurring_truth.csv` và đối chiếu từng chuỗi với `transactions.csv`; ghi số chuỗi đã kiểm). Data tự dựng **không phải bằng chứng pain**: bằng chứng ở `evidence/`.
+Giữ nguyên schema hai CSV, ngày mô phỏng và các giao dịch tình huống U01–U10. Bổ sung U11 được nhận bởi bộ đọc theo `user_id`. Sau lấy mẫu, `tx_id` được đánh lại và `tx_ids` cập nhật tương ứng; không dùng ID của v1 để đối chiếu v2.
+
+Công cụ cần tối thiểu ba lần trả phí để xác nhận chu kỳ, tách trừ trùng trong hai phút. Giữ đủ dữ liệu cho các ca đổi giá, nhiều kiểu tên, ví trả sau và thiếu căn cứ. Không thêm nhãn dịch vụ vào CSV app đọc. File đáp án không được đưa vào luồng trả lời.
+
+B01/B13 vốn kỳ vọng dự báo ngày 29/11 từ một lần trả phí, chưa khớp yêu cầu đủ căn cứ của công cụ; V3/V4 giữ nguyên ca thiếu căn cứ, không thêm giao dịch để làm câu thử qua và không sửa `expected`. Nhóm cần xử lý điểm này trong phần tích hợp/đánh giá theo quy định đã chốt.
+
+## Dataset 3 — cancel_guides.csv (phần X6 của Nghĩa)
+
+Giữ nguyên bảng 9 kênh hướng dẫn hủy hiện có. Mỗi dòng có kênh, bí danh, bước tự kiểm tra/hủy, URL trợ giúp chính thức và ngày đối chiếu. V3/V4 không thay nội dung hay xác nhận lại nguồn của bảng này.
+
+## Kiểm tra và người duyệt
+
+Đã kiểm tự động: tái tạo hai lần giống dữ liệu hiện tại, ID duy nhất, cửa sổ ngày, số tiền, nguồn tiền, liên kết đáp án và số dòng 150 + 50. Năm kiểm thử công cụ hiện có đã qua với 17 chuỗi v2. Dùng lại bộ kiểm của đội bằng lệnh `python -m unittest discover -s codebase -v`.
+
+**Người kiểm:** Trương Văn Thông — đã kiểm tra và xác nhận bộ dữ liệu giả lập cùng tài liệu V3/V4 ngày 27/11/2026.
+
+Dữ liệu synthetic dùng kiểm kỹ thuật; bằng chứng pain nằm ở review, khảo sát và phỏng vấn thật trong `evidence/`.

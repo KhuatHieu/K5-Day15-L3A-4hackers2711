@@ -45,11 +45,15 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~X6 · N · Bảng hướng dẫn huỷ ≥8 dịch vụ, có link chính thức + ngày xem; `lookup_cancel_guide`~~ ✅ 15:57 · [bảng hướng dẫn](data/cancel_guides.csv)
 - [x] ~~X4 · L · Nối model thật (`codebase/ai.py`), `run.py eval --try` chạy được — **tối 27/11**~~ ✅ 17:22 · 92b0f33 (Claude Haiku 5.5; `eval --try` 3/3 câu, token > 0, ~630 vào / ~40 ra mỗi câu)
 - [x] ~~X5 · L · Chặn rủi ro Track E (số từ công cụ, không OTP, không tư vấn đầu tư, huỷ chỉ đưa hướng dẫn)~~ ✅ 17:19 · 0c9633e (B11, B12 qua với AI giả + Claude Haiku; 13 câu khác không đổi; `codebase/test_scope.py`)
-- [x] ~~V6 · H+T · Bộ câu thử lên 20–30 câu (≥5 `kho`, ≥2 `tu_choi`)~~ ✅ 18:45 · 20 câu (thuong 7 · kho 11 · tu_choi 2), B16–B20 do Nghĩa thêm (7b3f098) · ⏳ còn thêm ≥2 câu nguồn `nguoi_dung` từ P1–P3
+- [x] ~~V6 · H+T · Bộ câu thử lên 20–30 câu (≥5 `kho`, ≥2 `tu_choi`)~~ ✅ 18:45 · 20 câu (thuong 7 · kho 11 · tu_choi 2), B16–B20 do Nghĩa thêm (7b3f098) · ✅ 21:20 thêm B21–B23 nguồn `nguoi_dung` (P3, P2, P1) → 23 câu, 10/23 nguồn thật · ghi `spec.md` §10
 - [ ] E4 · T · Chốt khảo sát 09:30, xuất `evidence/survey/results.csv` (đã xoá thông tin cá nhân) · bản tạm 18:15: 34 phản hồi → `count.py` → `results.csv` (cột `cach_thu`: 30 hỏi miệng, 4 tự điền) · ⚠ chạy lại `count.py` với bản xuất 09:30 (sửa danh sách `TU_DIEN` cho người tự điền mới); xác nhận không có thành viên nhóm và câu 11 trùng ở dòng 26/30
-- [ ] E5 · H · `evidence/summary.md`: số chính + ≥5 trích dẫn + kết luận đúng / sai / phải đổi; cập nhật bảng impact
+- [ ] E5 · H · `evidence/summary.md`: số chính + ≥5 trích dẫn + kết luận đúng / sai / phải đổi; cập nhật bảng impact · 21:20 nháp xong với số tạm (n=33): `summary.md`, `spec.md` §0, §1, §2 (impact ≈ 58 triệu đ + 134 giờ / 1.000 người / tháng) · ⏳ 09:30 chạy lại `python evidence/survey/count.py` rồi thay số
 - [x] ~~R1 · cả nhóm · 09:00–09:45 chạy **lượt 1** cùng nhau → `eval/run-1.csv`, chấm `pass`~~ ✅ chạy sớm 18:35 27/11 · `run-1@20261127-183503` · gpt-6.2-sol · **18/20 (90%), đạt** · ⚠ commit code gọi OpenAI trong `ai.py` (không kèm key) để chạy lại được; commit lượt Gemini 16:44 với tên riêng
-- [ ] C2 · H · Push + **nộp CP3** — 09:55
+- [ ] D3 · N · Duyệt nháp `spec.md` §6 "Bốn đường đi" (agent viết 21:20) — CP3 cần đủ §0–§7
+- [ ] X8 · N · Commit đoạn gọi OpenAI trong `codebase/ai.py` (**không** kèm `.env` / key) để chạy lại được `run-1@20261127-183503`; commit lượt Gemini 16:44 nguyên file với tên riêng (vd `eval/run-gemini-1644.csv`, `traces/run-gemini-1644.jsonl`) và sửa `eval/README.md` (lúc 16:44 bộ câu mới có 15 câu)
+- [ ] X7a · cả nhóm · Chọn cải tiến lượt 2 (đề xuất: bước đưa hướng dẫn cho B14 thiếu link, B19 thiếu bước đối chiếu hoá đơn) → `eval/run-2.csv` trên 23 câu, cùng model · ghi §10
+- [ ] P3 · L · **Video 30 giây** bản chạy thử gọi AI thật (`python run.py`: B01, B13 `kiem_tra`, B11 từ chối) → YouTube "Không công khai", mở thử bằng cửa sổ ẩn danh — **bắt buộc CP3**, trước 09:30
+- [ ] C2 · H · Push + **nộp CP3** — 09:55 · kèm link video + kết quả lượt 1 + run ID
 
 ## 🟢 CP4 · 14:30 Thứ Bảy 28/11
 - [ ] R2 · cả nhóm · 10:00–10:30 ngồi chung đọc các câu trượt → chọn 1 cải tiến

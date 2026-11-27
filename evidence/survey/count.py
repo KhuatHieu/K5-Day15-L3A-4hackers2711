@@ -74,6 +74,32 @@ def report(rows, label):
         print("  %s (n=%d): %s" % (name, len(base), dict(Counter(r[k] for r in base).most_common())))
 
 
+# Thừa số impact cho spec.md §2 — điểm giữa mỗi khoảng (tự chọn, ghi rõ ở §2).
+# "3 lần trở lên" tính là 3 (cận dưới), "trên 500k" tính 500k (cận dưới), "hơn 1 giờ" tính 60 phút (cận dưới).
+SO_LAN = {"1": 1, "2": 2, "3 lần trở lên": 3}
+TIEN_K = {"Dưới 50k": 25, "50 đến 100k": 75, "100 đến 200k": 150, "200 đến 500k": 350, "trên 500k": 500}
+PHUT = {"Dưới 5 phút": 2.5, "5 đến 15 phút": 10, "15 đến 60 phút": 37.5, "hơn 1 giờ": 60}
+
+
+def impact(rows):
+    vi = [r for r in rows if r[4] != "không dùng"]
+    gap = [r for r in vi if r[6] in SO_LAN]
+    if not gap:
+        return
+    lan_thang = sum(SO_LAN[r[6]] for r in gap) / len(vi) / 3
+    tien = sum(TIEN_K[r[11]] for r in gap if r[11] in TIEN_K) / max(1, sum(r[11] in TIEN_K for r in gap))
+    phut = sum(PHUT[r[9]] for r in gap if r[9] in PHUT) / max(1, sum(r[9] in PHUT for r in gap))
+    doi_duoc = sum("đòi được tiền về" in r[10] for r in gap)
+    lan = 1000 * lan_thang
+    print("\n== Thừa số impact §2 (trên 1.000 người dùng ví / thẻ)")
+    print("  người gặp (câu 4): %d/%d → %.0f / 1.000" % (len(gap), len(vi), 1000 * len(gap) / len(vi)))
+    print("  số lần / người / tháng (câu 4 ÷ 3 tháng, tính trên mọi người dùng ví): %.2f → %.0f lần / tháng" % (lan_thang, lan))
+    print("  tiền mỗi lần (câu 9, điểm giữa): %.0fk · đòi lại được (câu 8): %d/%d" % (tien, doi_duoc, len(gap)))
+    print("  thời gian mỗi lần (câu 7, điểm giữa): %.0f phút" % phut)
+    print("  impact / tháng: %.0f lần × %.0fk ≈ %.1f triệu đ (không đòi lại được ≈ %.1f triệu) + %.0f giờ"
+          % (lan, tien, lan * tien / 1000, lan * tien * (1 - doi_duoc / len(gap)) / 1000, lan * phut / 60))
+
+
 def main():
     with RAW.open(encoding="utf-8-sig", newline="") as f:
         raw = list(csv.reader(f))[1:]
@@ -84,6 +110,7 @@ def main():
         w.writerows(rows)
     print("Đã ghi %s (%d dòng)\n" % (OUT.relative_to(HERE.parents[1]), len(rows)))
     report(rows, "TẤT CẢ")
+    impact(rows)
     report([r for r in rows if r[2] == "hoi_mieng"], "hoi_mieng")
     report([r for r in rows if r[2] == "tu_dien"], "tu_dien")
     dup = Counter(r[13] for r in rows if r[13])

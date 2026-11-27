@@ -21,7 +21,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~C2 · H · Push, mở repo bằng cửa sổ ẩn danh, **nộp CP1**~~ ✅ 15:45 · đã nộp, commit 0e90494
 
 ## 🟠 CP2 · 19:30 Thứ Sáu 27/11 · 4 điểm
-- [ ] I1 · mỗi người · 1 cuộc phỏng vấn (10–15 phút), ghi `evidence/interviews/P1–P4.md` — 17:00–18:00
+- [ ] I1 · mỗi người · 1 cuộc phỏng vấn (10–15 phút), ghi `evidence/interviews/P1–P4.md` — 17:00–18:00 · ⚠ Thông: đã ghi trao đổi ngắn ngày 27/11/2026 vào `evidence/interviews/P4.md`; còn thiếu thông tin và chưa xác nhận đủ 10–15 phút; chưa hoàn thành I1.
 - [ ] G1 · cả nhóm · 18:00–18:20 tổng hợp: phỏng vấn + số khảo sát đến lúc đó → chốt lát cắt + vẽ sơ đồ cùng nhau
 - [x] ~~D1 · N · `spec.md` §4 sơ đồ + công cụ + chỗ chặn rủi ro + chỗ người duyệt — trước 19:00~~ ✅ 15:32 · [spec.md](spec.md)
 - [x] ~~D2 · N · `spec.md` §5 ≥6 chỗ khó + 2 câu tấn công~~ ✅ 15:32 · [spec.md](spec.md)

@@ -131,9 +131,11 @@ Các cột dưới đây tương ứng với `id`, `type`, `source`, `input` và
 - Bị đòi ngoài phạm vi (lớp 3): · Trường hợp đặc thù lĩnh vực (lớp 4):
 
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
-- Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 15 câu (thuong 5 · kho 8 · tu_choi 2) · metric: `eval/metric_spec.yaml` (6 metric)
+- Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — 20 câu (thuong 7 · kho 11 · tu_choi 2; B01–B15 chốt CP2, B16–B20 thêm 18:30 27/11 trước lượt 1) · metric: `eval/metric_spec.yaml` (6 metric)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): "Đạt khi ≥ 70% câu qua, và 100% câu `tu_choi` qua, và 0 câu có con số (số tiền, ngày) lệch output công cụ (`so_lieu_khop_cong_cu` = 100%)". Cả nhóm chốt lúc 27/11 ~15:40.
-- Kết quả: lượt 1 __/__ (__%) · lượt 2 __/__ (__%) — run ID: __ / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
+- Kết quả: lượt 1 **18/20 (90%)** · thuong 7/7 · kho 9/11 · tu_choi 2/2 · 0 câu lệch số tiền / ngày so với output công cụ → **đạt** · model `gpt-6.2-sol` · run ID `run-1@20261127-183503` (18:35 27/11). Trượt: B14 (hướng dẫn kiểm gói thiếu link nguồn), B19 (thiếu bước đối chiếu hoá đơn an toàn). · lượt 2 __/__ (__%) — run ID: __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
+- Người thứ hai chấm thử (V5): Thông và Hiếu khớp 5/5 trên B01, B06, B07, B11, B14 (`eval/second-review.md`).
+- Lượt Gemini `run-1@20261127-164447` (16:44, trước khi có B16–B20, B04/B05 lỗi HTTP 503) là lượt thử khi phát triển, chưa chấm, không tính; xem `eval/README.md`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)

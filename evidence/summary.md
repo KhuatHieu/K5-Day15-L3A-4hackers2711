@@ -8,13 +8,13 @@
 | Nguồn | Đạt ngưỡng? | File |
 |---|---|---|
 | Đào data (x/N, %, cách đếm chạy lại được, ≥5 ví dụ) | ☑ 1.000 review 1★, 7 ví dụ · ⏳ người kiểm nhãn AI (mục 3b) | `evidence/data-mining.md` |
-| Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ⏳ **2/3** người ngoài nhóm (P1, P2). P4 là thành viên nhóm nên không tính. P3 chưa có | `evidence/interviews/P1.md`, `P2.md`, `P4.md` |
+| Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ☑ **3/3** người ngoài nhóm (P1, P2, P3). P4 là thành viên nhóm nên không tính | `evidence/interviews/P1.md`, `P2.md`, `P3.md`, `P4.md` |
 | Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☑ **tạm**: 34 phản hồi, 33 người dùng ví / thẻ (bản xuất 18:10 27/11). **30 người hỏi miệng, 4 người tự điền** (xem cách thu ở `questions.md`). Số chốt 09:30 28/11. ⚠ còn kiểm: có thành viên nhóm không, câu 11 trùng ở dòng 26/30 | `evidence/survey/results.csv`, `count.py` |
 
 ## 2. Số chính
 
 - Đào data (review 1★ MoMo + ZaloPay, Google Play, 18/10–26/11/2026): khoản trừ tự động **147/1000 (14,7%)** — ZaloPay 110/500 (22,0%), MoMo 37/500 (7,4%); trong 147: không biết ai trừ **57 (38,8%)**, đã liên hệ không xong 26 (17,7%), trách nhầm ví 22 (15,0%). So sánh: giao dịch lỗi 167/1000, lỗi kỹ thuật 387/1000. Độ khớp người–AI: ⏳
-- Phỏng vấn (ngoài nhóm): **2/2** người kể được một lần cụ thể · P1 ~2 lần / 6 tháng, P2 ~2–3 lần / tháng · mỗi lần mất **~15 phút** để tìm ra khoản gì / chỗ huỷ · P1 phát hiện sau ~2 tuần (250k, không đòi lại được), P2 bị trừ 2 kỳ (~99k / kỳ) mới phát hiện.
+- Phỏng vấn (ngoài nhóm): **3/3** người kể được một lần cụ thể · P1 ~2 lần / 6 tháng, P2 ~2–3 lần / tháng, P3 1 lần trong tháng · mỗi lần mất **~10–15 phút** để tìm ra khoản gì / chỗ huỷ · P1 phát hiện sau ~2 tuần (250k, không đòi lại được), P2 bị trừ 2 kỳ (~99k / kỳ) mới phát hiện, P3 thấy "Google Play" trên thông báo ví (59k) nhưng không biết app nào, phải tra email.
 - Khảo sát (**tạm**, n = 33 người dùng ví / thẻ, `python evidence/survey/count.py`):
   - Câu 4: **21/33 (64%)** có ≥1 lần trong 3 tháng thấy khoản trừ tự động không nhận ra (hỏi miệng 18/29 · tự điền 3/4).
   - Trong 21 người đó: **14/21** phát hiện sau ≥1 tuần **hoặc** mất ≥15 phút (sau ≥1 tuần 7/21 · mất ≥15 phút 10/21). **Cả 14 người đều thuộc nhóm hỏi miệng**, 3 người tự điền đều phát hiện ngay và mất 5–15 phút.
@@ -29,7 +29,7 @@ Phỏng vấn nhiều vai thì đếm theo từng vai, không cộng chung.
 |---|---|---|---|---|---|
 | P1 | người dùng MoMo + thẻ Visa | có (qua thẻ, biết app nhưng quên ngày và khó huỷ) | ~2 lần / 6 tháng | ~15 phút tìm chỗ huỷ, phát hiện sau ~2 tuần | không có cách nhắc |
 | P2 | nhân viên văn phòng dùng MoMo | có (tên trên lịch sử khó hiểu) | ~2–3 lần | ~15 phút tra Google + email | tự kiểm lịch sử và gói đăng ký |
-| P3 | ⏳ chưa có | | | | |
+| P3 | người dùng ZaloPay có liên kết Google Play | có (biết kênh Google Play, không biết app nào) | 1 lần | ~10 phút tra email + Gói thuê bao Google Play | đợi thông báo ví rồi mới kiểm |
 | P4 | thành viên nhóm (không tính) | chưa đủ dữ liệu | chưa cung cấp | chưa cung cấp | vào app kiểm tra |
 
 ## 3. ≥5 trích dẫn hoặc ví dụ nguyên văn (có nguồn, bỏ tên)
@@ -59,7 +59,7 @@ Thêm 2 ví dụ: `evidence/data-mining.md` mục 4.
 - **H1 đúng** (64%, ngưỡng ≥25%).
 - **H2 đúng nhưng yếu** (14/21, ngưỡng ≥50%): toàn bộ đến từ nhóm hỏi miệng, và vế "mất ≥15 phút" đóng góp nhiều hơn vế "phát hiện muộn".
 - **H3 đúng** (17 so với 2).
-- Phỏng vấn: 2/2 người ngoài nhóm kể được một lần cụ thể, nhưng chưa đủ 3 người.
+- Phỏng vấn: 3/3 người ngoài nhóm kể được một lần cụ thể. P2 và P3 không nhận ra ngay khoản trừ là app nào (đúng phần "xác định dịch vụ"); P1 biết app nhưng quên ngày trừ và khó huỷ. Cả 3 đều chỉ biết **sau khi** đã bị trừ (đúng phần "cảnh báo trước kỳ trừ").
 
 **Điều vẫn chưa biết:** số tự điền còn ít (n=4), cần thêm ≥10 người tự điền để so với nhóm hỏi miệng. Chưa biết bao nhiêu người thật sự "không nhận ra dịch vụ" so với "biết dịch vụ nhưng quên ngày".
 

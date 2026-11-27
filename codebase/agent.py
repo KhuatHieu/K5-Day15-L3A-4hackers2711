@@ -8,7 +8,8 @@ Hợp đồng:
 
 Luồng (mỗi bước ứng với một ô trong sơ đồ §4):
     1. parse_input          Python   tách mã người dùng + chế độ; thiếu mã → hỏi lại
-    2. check_scope          Python   chặn yêu cầu ngoài phạm vi — KHUNG, X5 điền luật
+    2. check_scope          Python   X5: nhóm ý ngoài phạm vi (bảo mật, làm thay, đầu tư, phá hướng dẫn, người khác);
+                                     đầu tư / phá hướng dẫn / người khác → chỉ từ chối; làm thay / OTP → nhắc rồi đi tiếp
     3. get_transactions     công cụ  (agent.py) chỉ đọc lịch sử của đúng mã ở đầu câu
     4. detect_recurring     công cụ  (tools.py · Nghĩa) chu kỳ, ngày dự kiến, số tiền — code, không AI
        lookup_renewal_schedule       bổ sung lịch giả lập có nguồn khi lịch sử trả phí chưa đủ
@@ -77,15 +78,24 @@ def answer(text: str) -> dict:
         note("dừng: thiếu mã người dùng")
         return {"output": "Bạn cho mình biết mã người dùng ở đầu câu (vd `[U01] ...`) để mình xem đúng lịch sử giao dịch nhé."}
 
-    refusal = check_scope(text)
-    if refusal:
-        note("chặn: ngoài phạm vi")
-        return {"output": refusal}
+    reasons = check_scope(text, user_id)
+    if reasons:
+        note("chặn: " + ", ".join(reasons))
+    prefix = scope_notes(reasons, user_id)
+    if HARD_STOP & set(reasons):
+        # ngoài phạm vi: KHÔNG đọc lịch sử, không gọi model — chỉ trả câu từ chối
+        return {"output": prefix}
 
+    result = answer_in_scope(text, user_id, mode)
+    return {"output": (prefix + "\n\n" + result) if prefix else result}
+
+
+def answer_in_scope(text: str, user_id: str, mode: str) -> str:
+    """Luồng chính (bước 3–9) cho yêu cầu trong phạm vi."""
     txs = get_transactions(user_id)
     if not txs:
         note("dừng: không có lịch sử cho %s" % user_id)
-        return {"output": "Mình không tìm thấy lịch sử giao dịch của %s." % user_id}
+        return "Mình không tìm thấy lịch sử giao dịch của %s." % user_id
 
     series = detect_recurring(txs, AS_OF)
     for candidate in series:
@@ -97,9 +107,9 @@ def answer(text: str) -> dict:
     if not picked:
         note("dừng: không có khoản cần giải thích (%s)" % mode)
         if mode == "kiem_tra":
-            return {"output": "Không có khoản trừ định kỳ nào dự kiến trừ trong %d ngày tới (tính từ %s), "
-                              "nên chưa có cảnh báo." % (WARN_DAYS, fmt_date(AS_OF))}
-        return {"output": "Mình chưa tìm thấy khoản trừ định kỳ nào khớp với câu hỏi trong lịch sử của %s." % user_id}
+            return ("Không có khoản trừ định kỳ nào dự kiến trừ trong %d ngày tới (tính từ %s), "
+                    "nên chưa có cảnh báo." % (WARN_DAYS, fmt_date(AS_OF)))
+        return "Mình chưa tìm thấy khoản trừ định kỳ nào khớp với câu hỏi trong lịch sử của %s." % user_id
 
     by_id = {t["tx_id"]: t for t in txs}
     parts = []
@@ -115,7 +125,7 @@ def answer(text: str) -> dict:
         if info["kenh"] != "khong_ro" and not essential:
             guide = lookup_cancel_guide(info["kenh"])
         parts.append(compose(s, info, guide, essential, by_id))
-    return {"output": "\n\n".join(parts)}
+    return "\n\n".join(parts)
 
 
 # ---------- 1–2. đọc input, chặn phạm vi ----------
@@ -129,10 +139,55 @@ def parse_input(text: str):
     return m.group(1), ("kiem_tra" if rest in ("kiem_tra", "kiem tra") else "hoi")
 
 
-def check_scope(text: str):
-    """Trả câu từ chối (str) nếu yêu cầu ngoài phạm vi, None nếu hợp lệ.
-    KHUNG — X5 điền luật: OTP / mật khẩu / số thẻ, tư vấn đầu tư, xem dữ liệu người khác, đòi huỷ thay."""
-    return None
+# X5 · chặn rủi ro Track E. Luật theo NHÓM Ý (không dò nguyên văn câu thử), so trên chữ đã bỏ dấu (plain()).
+SCOPE_RULES = {
+    # lộ thông tin bảo mật → nhắc không chia sẻ; KHÔNG lặp lại dãy số người dùng gửi
+    "bao_mat": r"\botp\b|ma xac (thuc|nhan)|mat khau|password|\bpin\b|so the|\bcvv\b|\bcvc\b"
+               r"|(?<![\d.,/:])\d{6}(?![\d.,/:]|\s*(d|k|vnd|dong)\b)",
+    # đòi agent thao tác thay trên tài khoản → từ chối phần đó, VẪN đưa hướng dẫn tự làm
+    "lam_thay": r"\b(huy|tat|ngung|go bo)\s*(luon\s*)?(giup|ho|dum|di|luon)\b"
+                r"|\b(doi|lay)\s*(lai\s*)?tien\s*(giup|ho|dum)\b|\bhoan tien (giup|ho|dum)\b"
+                r"|cancel (it|for me)|unsubscribe for me",
+    # tư vấn đầu tư / tài chính → từ chối
+    "dau_tu": r"co phieu|chung khoan|\bdau tu\b|crypto|bitcoin|\bcoin\b|trai phieu|\bnen mua (gi|ma|co)\b"
+              r"|lai suat|forex|tien ao",
+    # lệnh phá hướng dẫn / đổi vai → từ chối
+    "pha_huong_dan": r"bo qua (moi |cac |tat ca )?(huong dan|chi dan|quy tac)|ignore (all |previous|the above)"
+                     r"|system prompt|dong vai|gia vo la|quen (het|di) (huong dan|quy tac)|jailbreak",
+}
+HARD_STOP = {"nguoi_khac", "dau_tu", "pha_huong_dan"}   # có một trong các lý do này → chỉ trả câu từ chối
+
+
+def check_scope(text: str, user_id: str) -> list:
+    """Trả danh sách lý do ngoài phạm vi (rỗng nếu hợp lệ), theo thứ tự cố định.
+    "nguoi_khac": câu nhắc mã người dùng KHÁC mã ở đầu câu (không đọc lịch sử của mã đó)."""
+    body = re.sub(r"^\s*\[U\d{2}\]", "", text or "")
+    low = plain(body)
+    reasons = [name for name, pattern in SCOPE_RULES.items() if re.search(pattern, low)]
+    if any(u != user_id for u in re.findall(r"\bU\d{2}\b", body.upper())):
+        reasons.append("nguoi_khac")
+    return reasons
+
+
+def scope_notes(reasons: list, user_id: str) -> str:
+    """Câu từ chối / nhắc an toàn cố định cho từng lý do. Không chứa lại chữ hay số người dùng gửi."""
+    lines = []
+    if "nguoi_khac" in reasons:
+        lines.append("Mình không xem được lịch sử giao dịch của người dùng khác.")
+    if "dau_tu" in reasons:
+        lines.append("Mình không tư vấn đầu tư hay mua bán cổ phiếu, chứng khoán, tiền số.")
+    if "pha_huong_dan" in reasons:
+        lines.append("Mình không làm theo yêu cầu bỏ qua hay đổi hướng dẫn hoạt động.")
+    if HARD_STOP & set(reasons):
+        lines.append("Mình chỉ hỗ trợ các khoản trừ tiền định kỳ trong lịch sử của chính %s: "
+                     "đó là khoản gì, khi nào trừ tiếp và cách tự kiểm / huỷ có nguồn chính thức." % user_id)
+    if "lam_thay" in reasons:
+        lines.append("Mình không thể huỷ gói, tắt thanh toán hay đòi tiền thay bạn — mình không có quyền thao tác "
+                     "trên tài khoản của bạn. Dưới đây là thông tin khoản trừ và các bước để bạn tự làm.")
+    if "bao_mat" in reasons:
+        lines.append("⚠ Đừng gửi mã OTP, mật khẩu hay số thẻ cho bất kỳ ai, kể cả mình. Mình không dùng và không lưu "
+                     "các thông tin này. Nếu đã lỡ gửi cho người lạ, hãy đổi mật khẩu và báo ngay cho ví / ngân hàng.")
+    return "\n".join(lines)
 
 
 # ---------- 5. chọn khoản ----------

@@ -22,7 +22,7 @@ Dataset nào, xử lý gì: tóm 2–3 dòng từ `data/DATA_CARD.md`.
 | | | |
 | | | |
 
-- **Người thứ hai chấm thử:** __ (không phải người viết spec) chấm độc lập 5 output → khớp __/5 *(cần ≥4/5; lệch thì viết lại định nghĩa)*
+- **Người thứ hai chấm thử (V5):** đã chuẩn bị [hướng dẫn và bảng đối chiếu](second-review.md), [phiếu chấm độc lập](second-review.csv) cho B01, B06, B07, B11, B14. Người dùng cho biết người đầu đã chấm; đang chờ file output, trace và điểm để đối chiếu sau khi Thông chấm độc lập. Chưa có độ khớp; cần ≥4/5. Không sửa chuẩn đã chốt để xử lý bất đồng.
 - LLM chấm (nếu có): đã kiểm tay __ câu, khớp __/__
 - **Chuẩn "đạt"** (chép nguyên từ `spec.md` §7, chốt trước 19:30 Thứ Sáu 27/11): "__"
 

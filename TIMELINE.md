@@ -12,13 +12,13 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~Nháp `evidence/data-mining.md` + mẫu 100 dòng để người kiểm nhãn~~ ✅ `1b93f1d`
 
 ## 🔴 CP1 · 17:00 Thứ Sáu 27/11 · 3 điểm
-- [x] ~~E1 · H · `evidence/hypothesis.md` (giả thuyết cho khảo sát)~~ ✅ 15:20
+- [x] ~~E1 · H · `evidence/hypothesis.md` (giả thuyết cho khảo sát)~~ ✅ 15:14 · 108e535
 - [ ] E2 · H+T · Tạo Google Form từ `evidence/survey/questions.md`, điền link / kênh / giờ mở — **gửi trước 16:00**
 - [ ] E2b · cả nhóm · Mỗi người gửi link form cho ≥5 người quen có dùng ví — trước 16:30
 - [ ] T0 · T · Sửa mã học viên của Thông trong `TEAMS.md` (đang trùng mã của Hiếu)
 - [ ] C0 · cả nhóm · 16:00–16:20 chốt **bài toán 1–2 câu (không có chữ AI)** + **lát cắt 1 câu** (xem `TASKS.md`)
 - [ ] C3 · cả nhóm · Điền cột "Phần việc chính" trong `TEAMS.md` (lấy từ `TASKS.md`), chạy `python run.py check`
-- [x] ~~C1 · H · `canvas.md` đủ 7 dòng (bản nháp — cả nhóm xem lại lúc chốt C0)~~ ✅ 15:25
+- [x] ~~C1 · H · `canvas.md` đủ 7 dòng (bản nháp — cả nhóm xem lại lúc chốt C0)~~ ✅ 15:14 · 108e535
 - [ ] C2 · H · Push, mở repo bằng cửa sổ ẩn danh, **nộp CP1** — 16:50–16:55
 
 ## 🟠 CP2 · 19:30 Thứ Sáu 27/11 · 4 điểm
@@ -27,9 +27,9 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [ ] D1 · N · `spec.md` §4 sơ đồ + công cụ + chỗ chặn rủi ro + chỗ người duyệt — trước 19:00
 - [ ] D2 · N · `spec.md` §5 ≥6 chỗ khó + 2 câu tấn công
 - [ ] X1 · L · `codebase/` khung chạy hết luồng với AI giả (`python run.py`) — trước 19:00
-- [ ] S1 · H · `spec.md` §1–§2 bài toán + bảng impact ≥3 hướng
-- [ ] V3 · T · Script sinh data synthetic có seed + nhãn
-- [ ] V4 · T · `data/DATA_CARD.md` bản đầu
+- [x] ~~S1 · H · `spec.md` §0–§2 bài toán + bảng impact 4 hướng~~ ✅ 15:20 (agent) · ⚠ các thừa số impact đang *(tự ước tính)*, thay bằng số khảo sát lúc 09:30
+- [x] ~~V3 · T · Script sinh data synthetic có seed + nhãn (`data/gen_transactions.py`)~~ ✅ 15:20 (agent làm theo lời H; T đọc lại)
+- [x] ~~V4 · T · `data/DATA_CARD.md` bản đầu~~ ✅ 15:20 (agent) · ⚠ còn trống mục "Người kiểm" — T kiểm tay 10 chuỗi
 - [ ] V1 · H · `eval/benchmark.csv` ≥10 câu
 - [ ] V2 · H · `eval/metric_spec.yaml` ≥3 metric + **chuẩn "đạt" §7 — commit trước 19:30, KHÔNG sửa sau**
 - [ ] V5 · T · Người thứ hai chấm thử 5 output (≥4/5)

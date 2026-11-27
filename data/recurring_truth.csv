@@ -1,0 +1,16 @@
+user_id,persona,series_id,description_vi_du,service,platform,kind,cycle_days,so_lan_trong_data,last_date,next_date,nguon_tien,ghi_chu,tx_ids
+U01,sinh_vien,U01-S1,GOOGLE *BaoThuc Pro,"BaoThuc Pro (app báo thức, tên dựng)",Google Play,dung_thu_chuyen_tra_phi,30,2,2026-10-29,2026-11-29,vi,dùng thử 0đ 22/10 → trả phí 29/10; mới 1 lần trả phí,T00214 T00228
+U01,sinh_vien,U01-S2,SPOTIFY P3B1C9 | Spotify AB | SPOTIFY*STUDENT,Spotify Premium Student,Spotify,goi_dang_ky,30,6,2026-11-12,2026-12-12,vi,mô tả đổi kiểu mỗi tháng,T00021 T00057 T00097 T00147 T00197 T00248
+U02,nhan_vien_vp,U02-S1,APPLE.COM/BILL,Apple — chưa rõ gói (mô tả không ghi tên gói),App Store,goi_dang_ky,30,6,2026-11-05,2026-12-05,vi,đã trừ 6 tháng; chỉ biết là Apple,T00283 T00329 T00367 T00414 T00459 T00498
+U02,nhan_vien_vp,U02-S2,APPLE.COM/BILL,Apple — chưa rõ gói (mô tả không ghi tên gói),App Store,goi_dang_ky,,1,2026-11-18,,vi,"khoản Apple MỚI, khác số tiền chuỗi S1; 1 lần, chưa rõ chu kỳ",T00514
+U03,nhan_vien_vp,U03-S1,NETFLIX.COM | NETFLIX.COM SG | Netflix Intl,Netflix,Netflix,goi_dang_ky,30,6,2026-11-20,2026-12-20,vi,,T00571 T00610 T00656 T00704 T00758 T00813
+U03,nhan_vien_vp,U03-S2,GOOGLE *YouTubePremium,YouTube Premium,Google Play,goi_dang_ky,30,6,2026-11-08,2026-12-08,vi,giá đổi 79k → 89k từ 08/10,T00548 T00595 T00639 T00687 T00736 T00792
+U04,nhan_vien_vp,U04-S1,GOOGLE *PhotoEdit Studio,"PhotoEdit Studio (app sửa ảnh, tên dựng) — gói năm",Google Play,dung_thu_chuyen_tra_phi,365,1,2026-11-16,2027-11-16,vi,dùng thử từ 19/05 (trước cửa sổ dữ liệu); chỉ 1 lần trả phí → chu kỳ KHÔNG suy ra được từ data,T01087
+U05,sinh_vien,U05-S1,NAP TIEN DIEN THOAI,Nạp tiền điện thoại — trừ 2 lần,,giao_dich_loi,,2,2026-11-20,,vi,2 giao dịch cách nhau 40 giây; không phải gói định kỳ → hướng dẫn tra soát với ví,T01386 T01387
+U06,sinh_vien,U06-S1,GOOGLE *Kingdom Clash,"Kingdom Clash (game, tên dựng) — gói tuần",Google Play,goi_dang_ky,7,9,2026-11-27,2026-12-04,vi,trừ mỗi 7 ngày; next_date tính bằng code từ lần cuối,T01597 T01610 T01625 T01636 T01645 T01656 T01671 T01684 T01696
+U07,nhan_vien_vp,U07-S1,PAYPAL *XKLDIGI,không rõ,PayPal,khong_ro,30,4,2026-11-14,2026-12-14,vi,"PayPal trả cho bên thứ ba, tên không đoán được",T01805 T01844 T01890 T01950
+U07,nhan_vien_vp,U07-S2,TT DV GTGT 9x29,"không rõ (dịch vụ giá trị gia tăng, có thể của nhà mạng)",,khong_ro,3,20,2026-11-27,2026-11-30,vi,"trừ mỗi 3 ngày, mô tả không rõ bên bán",T01864 T01869 T01877 T01882 T01888 T01893 T01897 T01902 T01909 T01916 T01924 T01929 T01935 T01939 T01946 T01953 T01961 T01965 T01970 T01975
+U08,lo_chi_tieu_gia_dinh,U08-S1,OPENAI *CHATGPT SUBSCR,ChatGPT Plus,OpenAI,goi_dang_ky,30,6,2026-11-03,2026-12-03,vi,"trả USD, VND dao động 515k–540k",T01990 T02037 T02079 T02124 T02171 T02218
+U08,lo_chi_tieu_gia_dinh,U08-S2,EVN HN TIEN DIEN | TIEN DIEN KY T{m} | EVNHANOI HD,Hoá đơn tiền điện,,hoa_don_thiet_yeu,30,6,2026-11-10,2026-12-10,vi,định kỳ nhưng thiết yếu — KHÔNG gợi ý huỷ,T01999 T02046 T02089 T02132 T02183 T02227
+U09,sinh_vien,U09-S1,GOOGLE *TruyenHay VIP,"TruyenHay VIP (app truyện, tên dựng)",Google Play,goi_dang_ky,30,4,2026-11-25,2026-12-25,tra_sau,nguồn tiền: ví trả sau,T02388 T02442 T02484 T02527
+U10,sinh_vien,U10-S1,GOOGLE *Lingo Fast,"Lingo Fast (app học ngoại ngữ, tên dựng)",Google Play,khong_ro,,1,2026-11-21,,vi,"mới 9 ngày lịch sử, 1 lần trừ → chưa đủ căn cứ nói định kỳ",T02537

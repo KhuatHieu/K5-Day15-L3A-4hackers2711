@@ -1,33 +1,55 @@
-# AI SPEC — [Tên lát cắt] · Nhóm [tên nhóm] · Phòng [XXX] · Zone [X]
+# AI SPEC — Cảnh báo khoản trừ định kỳ trước kỳ tiếp theo · Nhóm 4hackers2711 · Phòng [XXX] · Zone [X]
 
 > Mốc nộp: §7 chốt chuẩn "đạt" tại **CP2 19:30 Thứ Sáu 27/11** · §0–§7 nộp **CP3 10:00 Thứ Bảy 28/11** · đủ §0–§10 **CP4 14:30 Thứ Bảy 28/11** · §10 changelog ghi tiếp đến **23:59 Thứ Bảy 28/11**.
 > Đầu mỗi mục ghi bước guide (`02-guide.md` trong repo đề) chỉ cách điền. Mỗi mục ngắn, có số và nguồn; chi tiết để ở file được trỏ tới. Xoá dòng hướng dẫn trong ngoặc vuông khi điền xong.
 
-Track: [ ] A · [ ] B · [ ] C · [ ] D · [ ] E — bài toán: [đề gợi ý trong file track, hoặc bài toán nhóm tự mở rộng] __
-Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
+Track: [ ] A · [ ] B · [ ] C · [ ] D · [x] E — bài toán: E4 "Subscription & Auto-debit Guard" (nhóm tự mở rộng trong bối cảnh Track E): người dùng ví bị trừ tiền định kỳ cho gói đăng ký / dùng thử mà không biết đó là khoản gì.
+Data BTC cấp đã dùng (nếu có — không commit nguyên file): không có (Track E không có data BTC cấp). Bằng chứng lấy từ review công khai trên Google Play. Dữ liệu chạy thử là synthetic, xem `data/DATA_CARD.md`.
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
-- Luồng hiện tại của việc này, trong khoá hoặc trên app thật (3–5 bước; ảnh chụp từ tài khoản của mình, đã che thông tin):
-- Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm":
+- Luồng hiện tại *(⏳ chưa kiểm, cần ảnh chụp tài khoản của thành viên, đã che thông tin)*:
+  1. Người dùng đăng ký dùng thử / gói trên Google Play, App Store hoặc web, và chọn ví MoMo / ZaloPay (hoặc thẻ liên kết với ví) làm nguồn thanh toán.
+  2. Hết thời gian dùng thử hoặc tới kỳ gia hạn, nền tảng tự trừ tiền qua ví. Ví chỉ báo biến động số dư với mô tả của bên bán (vd `GOOGLE *<tên app>`, `APPLE.COM/BILL`).
+  3. Người dùng thấy khoản lạ, hỏi CSKH của ví. Ví thường trả lời đây là thanh toán theo yêu cầu của bên bán và bảo liên hệ bên bán. Theo review, 26/147 người đã liên hệ mà không xong (`evidence/data-mining.md`).
+  4. Người dùng tự tìm chỗ huỷ (Google Play → Gói thuê bao; iPhone → Cài đặt → Gói đăng ký; hoặc trang web của dịch vụ). Nếu không tìm ra thì bị trừ tiếp kỳ sau.
+- Công cụ đang có *(⏳ chưa kiểm)*: trang quản lý gói thuê bao của Google Play và App Store (liệt kê gói và ngày gia hạn, **chỉ các gói mua trên nền tảng đó**); mục quản lý "thanh toán tự động / liên kết" trong ví. Nhóm chưa thấy tính năng nào **cảnh báo trước** kỳ trừ tiếp theo, hay **nói ra khoản lạ là dịch vụ gì**. Cần kiểm lại bằng ảnh chụp app.
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
-- Người dùng chính (một vai cụ thể):
-- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI):
-- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ:
-- Pain (KHÔNG chữ AI): ai — đang làm gì — vướng đâu — hậu quả gì:
-- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): __
+- **Người dùng chính:** người dùng ví MoMo / ZaloPay đã liên kết ví làm nguồn thanh toán tự động cho dịch vụ khác (Google Play, App Store, gói nhạc / phim / AI / game).
+- **Việc họ cố làm xong:** *nhận ra một khoản bị trừ tự động là của dịch vụ nào, và dừng nó trước kỳ trừ tiếp theo.*
+- **Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ:**
+  - Hôm nay họ xem lịch sử ví, hỏi CSKH của ví, tự lên mạng tìm.
+  - Hỏng ở chỗ mô tả trên lịch sử không khớp với tên dịch vụ họ nhớ. Ví dụ: đăng ký từ nhiều tháng trước (`zalopay-089`: đăng ký 19/05, bị trừ 16/11); mô tả `APPLE.COM/BILL` không nói gói nào. Vì vậy họ **trách nhầm ví** (22/147), hỏi ví thì ví không huỷ giúp được, và họ **chỉ phát hiện sau khi tiền đã mất**.
+  - Chưa bỏ thanh toán tự động vì vẫn cần các gói đang dùng.
+- **Pain (không có chữ AI):** người dùng ví xem lịch sử giao dịch thì thấy một khoản bị trừ tự động, không biết đó là dịch vụ nào, nên mất thời gian hỏi sai chỗ và bị trừ thêm kỳ nữa trước khi tìm ra chỗ huỷ.
+- **Bằng chứng — số chính** (chi tiết: `evidence/data-mining.md`, tổng hợp: `evidence/summary.md`):
+  - **Đào review** (đạt ngưỡng): 1.000 review 1★ mới nhất của MoMo + ZaloPay trên Google Play, 18/10–26/11/2026, nhãn do AI gắn, **người đang kiểm 100 dòng**.
+  - Khoản trừ tự động chiếm **147/1000 (14,7%)**; ZaloPay 110/500 (22,0%), MoMo 37/500 (7,4%).
+  - Trong 147 review đó: **57 (38,8%) không biết khoản trừ là của ai**, 26 (17,7%) đã liên hệ mà không xong, 22 (15,0%) trách nhầm ví.
+  - Số tiền tự nêu trong 19 review có trung vị 500k. Số này lệch cao, chưa dùng cho bảng impact.
+  - **Khảo sát** ≥20 người (`evidence/survey/questions.md`) + **phỏng vấn** ≥3 người: ⏳ đang làm, dùng để kiểm lại giả thuyết ở `evidence/hypothesis.md`.
+  - Kết luận giả thuyết: ⏳ chờ khảo sát (09:30 28/11).
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
-| Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
-|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+Tính trên **1.000 người dùng ví có liên kết thanh toán tự động**. Ô có ⏳ đang là *(tự ước tính)*, sẽ thay bằng số khảo sát ghi trong ngoặc.
 
-- **Impact / tháng** của hướng chọn = __ người × __ lần × __ phút = __ — nguồn từng thừa số: __ (không có nguồn thì ghi rõ *(tự ước tính)*)
-- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá):
-- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8):
+| Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng (trên 1.000 người) | Làm kịp không | Chọn? |
+|---|---|---|---|---|---|---|
+| **A. Khoản trừ tự động không biết là gì** (gói đăng ký, dùng thử) | 250 ⏳ *(tự ước tính, bằng ngưỡng H1; thay bằng câu 4)* · review: 147/1000 phàn nàn 1★ | 0,33 ⏳ *(tự ước tính: 1 lần / 3 tháng; thay bằng câu 4)* | 1 kỳ tiền bị trừ thêm ~100k ⏳ *(tự ước tính; thay bằng câu 9)* + 30 phút tìm / hỏi ⏳ *(tự ước tính; thay bằng câu 7)* | ≈ 83 lần → **≈ 8,3 triệu đ + 41 giờ** | Kịp. Data giao dịch tự dựng được; phát hiện chu kỳ bằng code; AI đoán dịch vụ từ mô tả | ✅ |
+| B. Giao dịch lỗi (trừ tiền mà không thành công, trừ 2 lần, chờ hoàn tiền) | review: 167/1000 (16,7%) | chưa đo | số tiền bị treo + thời gian chờ ví xử lý | chưa tính | Khó. Lời giải thật nằm ở **hệ thống ví** (tra soát, hoàn tiền); bản chạy thử không được kết nối hệ thống thật, AI chỉ hướng dẫn chung | ❌ |
+| C. Ví trả sau: phí trễ hạn, ví trả sau tự được chọn làm nguồn tiền | review: 46/1000 (4,6%) | 1 kỳ / tháng *(theo kỳ sao kê)* | phí trễ hạn ⏳ chưa có nguồn | chưa tính | Kịp, nhưng nhắc hạn trả là **quy tắc thuần**, gần như không có quyết định AI | ❌ |
+| D. Lỗi kỹ thuật / eKYC / đăng nhập | review: 387/1000 (38,7%), lớn nhất | — | không mất tiền trực tiếp | — | Không. Lỗi nằm trong app ví, phía người dùng không sửa được | ❌ |
+
+- **Impact / tháng của hướng chọn (A)** = 250 người × 0,33 lần × (100k + 30 phút) ≈ **8,3 triệu đ + 41 giờ / 1.000 người dùng**.
+  - Nguồn từng thừa số: **cả bốn đều đang *(tự ước tính)***, sẽ thay bằng khảo sát (câu 4, 4, 9, 7) lúc 09:30 28/11.
+  - Review **chỉ** cho biết hướng A là loại phàn nàn về tiền lớn thứ hai trong review 1★, **không** cho biết % người dùng.
+- **Hướng đã loại và vì sao** (giữ lại, đừng xoá):
+  - **B** nhiều review hơn A, nhưng muốn giải thật thì phải can thiệp vào hệ thống ví. Ràng buộc chung của đề không cho kết nối hệ thống thật.
+  - **C** gần như không có quyết định AI.
+  - **D** không có chuyện mất tiền và nằm ngoài tầm tay người dùng.
+  - Ý ban đầu "nhắc huỷ dùng thử" (số hẹp `goi_dang_ky_an` chỉ 33/1000) được **mở rộng** thành "khoản trừ tự động không biết là gì" (147/1000), vì 38,8% trong số này không biết ai trừ.
+- **Số lần / tháng của từng kiểu người dùng** (dùng cho persona ở §8): ⏳ lấy từ khảo sát câu 4 (số lần trong 3 tháng) và câu 3 (có liên kết thanh toán tự động không).
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
 - [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì

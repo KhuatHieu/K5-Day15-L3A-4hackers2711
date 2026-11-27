@@ -6,6 +6,15 @@ Mục tiêu: `call_model()` trong `codebase/ai.py` gọi model thật và trả 
 
 Ba ví dụ dưới đây (OpenAI, Claude, Ollama) **đã chạy với key thật ngày 25/11/2026**: chép vào là chạy.
 
+## 0. Nhóm 4hackers2711 đang dùng (X3 · Long)
+
+- **Nhà cung cấp:** Google Gemini, gói miễn phí AI Studio, key cá nhân của Long (không chia sẻ lên repo).
+- **`.env`:** `MODEL_PROVIDER=gemini` · `MODEL_NAME=gemini-3.1-flash-lite`.
+- **Code:** `call_gemini()` trong `codebase/ai.py` gọi REST API `v1beta/models/<model>:generateContent` bằng `urllib` (không cần SDK, không thêm vào `requirements.txt`).
+- **Token:** vào = `usageMetadata.promptTokenCount`; ra = `candidatesTokenCount` + `thoughtsTokenCount` (token suy nghĩ tính như token ra).
+- **Đã gọi thử 27/11/2026:** 1 câu qua `call_model` (token vào 31 / ra 108) và 1 câu qua `python run.py` (token vào 47 / ra 519) — chạy được.
+- Người khác muốn chạy trên máy mình: tự lấy key ở https://aistudio.google.com/apikey, điền `.env` như trên.
+
 ## 1. Điền `.env`
 
 Chép `.env.example` thành `.env`, điền 3 dòng. Ví dụ:

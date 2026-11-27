@@ -32,7 +32,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~V4 · T · `data/DATA_CARD.md` bản đầu~~ ✅ 15:20 (bản đầu); cập nhật 16:39 · chưa commit · mô tả dữ liệu v2, kiểm tương thích công cụ; Trương Văn Thông đã kiểm tra và xác nhận ngày 27/11/2026
 - [x] ~~V1 · H · `eval/benchmark.csv` ≥10 câu~~ ✅ 15:40 · 15 câu
 - [x] ~~V2 · H · `eval/metric_spec.yaml` 6 metric + chuẩn "đạt" §7 (≥70%, 100% tu_choi, 0 số lệch)~~ ✅ 15:40 · **KHÔNG sửa nữa**
-- [ ] V5 · T · Người thứ hai chấm thử 5 output (≥4/5) · ⚠ Đã chuẩn bị `eval/second-review.md` và `eval/second-review.csv`; người dùng cho biết người đầu đã chấm, đang chờ file output/trace và kết quả để chấm độc lập rồi đối chiếu; chưa có độ khớp.
+- [x] ~~V5 · T · Người thứ hai chấm thử 5 output (≥4/5)~~ ✅ 18:41 27/11/2026 · chưa commit · Thông cung cấp điểm Hiếu và Thông đều `11110` cho B01/B06/B07/B11/B14; khớp 5/5 (100%). Xem `eval/second-review.md` và `eval/second-review-comparison.csv`. Chưa cung cấp output/trace hoặc run ID/model local.
 - [ ] G2 · cả nhóm · 19:00–19:15 đổi chéo review X ↔ Y; `python run.py check` không lỗi
 - [x] ~~C4 · H · Canvas cập nhật (số đầu tiên + 1 trích dẫn + dòng "đã đổi gì so với CP1")~~ ✅ 18:15 · số khảo sát tạm (n=33) + P2 + review
 - [ ] C2 · H · Push + **nộp CP2** — 19:25

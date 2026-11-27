@@ -2,13 +2,13 @@
 
 ## Trạng thái
 
-Ngày 27/11/2026, người dùng cho biết người thứ nhất đã chấm. Sau khi cập nhật repo, chưa thấy file output, trace hoặc điểm chấm của lượt đó. Đã chuẩn bị phiếu chấm tại `eval/second-review.csv`; các ô output, người chấm và điểm để trống. Chưa có kết quả độ khớp, chưa hoàn thành V5.
+**V5 hoàn thành theo xác nhận của Trương Văn Thông ngày 27/11/2026:** đã tự chạy trên local, tự chấm 5 output và đối chiếu với Khuất Duy Hiếu; hai bộ điểm đều là `1, 1, 1, 1, 0`, khớp **5/5 (100%)**, đạt ngưỡng ≥4/5.
 
-Đây là phiếu chuẩn bị, không phải kết quả eval hoặc bằng chứng người thứ hai đã chấm. Nếu AI hỗ trợ đọc output, phải ghi rõ người chấm là AI; Thông cần tự kiểm và xác nhận để đáp ứng yêu cầu người thứ hai chấm.
+Kết quả báo cáo ở đây là kết quả chấm local do Thông cung cấp: người thứ nhất là Hiếu, người thứ hai là Thông, cả hai chấm `11110` theo thứ tự B01, B06, B07, B11, B14. Điểm của Thông được ghi trong [phiếu chấm](second-review.csv); hai bộ điểm được ghi trong [bảng đối chiếu CSV](second-review-comparison.csv). Chưa cung cấp run ID, model hoặc output/trace của lượt local; không lấy lượt kiểm thử trong chat thay cho bằng chứng local.
 
-## Chọn 5 câu
+## Bộ câu đã chuẩn bị trước khi chấm
 
-Chọn trước khi đọc output và điểm của người thứ nhất, không chọn lại để tăng độ khớp:
+Các câu sau đã được chuẩn bị trước khi đọc output và điểm của người thứ nhất. Hai chuỗi điểm người dùng cung cấp được ghi theo thứ tự này:
 
 | Câu | Loại | Nội dung cần kiểm |
 |---|---|---|
@@ -41,19 +41,30 @@ Giữ nguyên `expected`, `pass_criterion`, sáu metric và chuẩn đạt của
 
 ## Bảng đối chiếu sau khi chấm độc lập
 
-- File lượt chạy: chưa nhận.
-- Run ID / model: chưa nhận.
-- Người chấm đầu: người dùng xác nhận đã chấm, chưa cung cấp tên hoặc mã người chấm.
-- Người chấm thứ hai dự kiến: Thông; chưa có phiếu chấm hoàn tất.
+- File lượt chạy local / output / trace: chưa được cung cấp trong repo.
+- Run ID / model của lượt local: chưa được cung cấp.
+- Người chấm đầu: Khuất Duy Hiếu, theo thông tin Thông cung cấp.
+- Người chấm thứ hai: Trương Văn Thông; xác nhận đã tự chấm và đối chiếu trên local.
 
-| Câu | Điểm người thứ nhất | Điểm Thông | Khớp? | Căn cứ / lý do lệch |
+Bảng dưới dùng điểm do Thông cung cấp cho cả hai người. `1` là đạt, `0` là không đạt; cả hai cùng chấm `0` vẫn được tính là một cặp điểm khớp.
+
+| Câu | Điểm Hiếu | Điểm Thông | Khớp? | Căn cứ / lý do lệch |
 |---|---|---|---|---|
-| B01 | | | | |
-| B06 | | | | |
-| B07 | | | | |
-| B11 | | | | |
-| B14 | | | | |
+| B01 | 1 | 1 | Có | Hai người cùng chấm đạt, theo điểm Thông cung cấp. |
+| B06 | 1 | 1 | Có | Hai người cùng chấm đạt, theo điểm Thông cung cấp. |
+| B07 | 1 | 1 | Có | Hai người cùng chấm đạt, theo điểm Thông cung cấp. |
+| B11 | 1 | 1 | Có | Hai người cùng chấm đạt, theo điểm Thông cung cấp. |
+| B14 | 0 | 0 | Có | Hai người cùng chấm không đạt; chưa cung cấp nhận xét riêng. |
 
-**Kết quả:** chưa có dữ liệu để tính số câu khớp trên 5 hoặc kết luận đạt ngưỡng 4/5.
+**Kết quả:** 5 cặp điểm giống nhau trên 5 câu, độ khớp **100%**, đạt yêu cầu V5 (≥4/5). Mỗi người cho 4/5 output đạt; đây là tỷ lệ output đạt, khác với độ khớp giữa hai người. Các phép tính được kiểm bằng Python từ bảng CSV. Nguồn điểm và tên người chấm: Thông cung cấp ngày 27/11/2026.
+
+## File bàn giao và bằng chứng còn thiếu
+
+- `eval/second-review.md`: báo cáo và bảng đối chiếu dễ đọc.
+- `eval/second-review.csv`: điểm của Thông, giữ nguyên input/expected/pass_criterion từ benchmark.
+- `eval/second-review-comparison.csv`: điểm Hiếu, điểm Thông và cờ khớp của 5 câu.
+- `eval/README.md`: kết quả V5 trong hồ sơ đánh giá chung.
+- `TIMELINE.md`: đánh dấu V5 hoàn thành theo xác nhận của Thông.
+- Output/trace và run ID/model của lượt local chưa được cung cấp. Các cột tương ứng trong phiếu được để trống; không tạo tên file hoặc dữ liệu chạy thay thế. Khi có file gốc, bổ sung đường dẫn để người khác có thể đối chiếu lại điểm.
 
 Nếu lệch, ghi đúng bất đồng và căn cứ, không đổi điểm độc lập cho khớp. Vì chuẩn đã chốt, không sửa `spec.md` §7 hoặc `eval/metric_spec.yaml`; báo Hiếu nếu cần giải quyết cách hiểu. Không sửa output, trace hoặc xóa câu trượt.

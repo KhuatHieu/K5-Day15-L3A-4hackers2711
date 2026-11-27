@@ -22,7 +22,7 @@ Dataset nào, xử lý gì: tóm 2–3 dòng từ `data/DATA_CARD.md`.
 | | | |
 | | | |
 
-- **Người thứ hai chấm thử (V5):** đã chuẩn bị [hướng dẫn và bảng đối chiếu](second-review.md), [phiếu chấm độc lập](second-review.csv) cho B01, B06, B07, B11, B14. Người dùng cho biết người đầu đã chấm; đang chờ file output, trace và điểm để đối chiếu sau khi Thông chấm độc lập. Chưa có độ khớp; cần ≥4/5. Không sửa chuẩn đã chốt để xử lý bất đồng.
+- **Người thứ hai chấm thử (V5):** Trương Văn Thông tự chạy/chấm trên local và cung cấp điểm để đối chiếu với Khuất Duy Hiếu ngày 27/11/2026. Cả hai chấm B01/B06/B07/B11/B14 là `1, 1, 1, 1, 0`: **khớp 5/5 (100%)**, đạt yêu cầu ≥4/5. Chi tiết: [báo cáo V5](second-review.md), [phiếu của Thông](second-review.csv), [bảng điểm hai người](second-review-comparison.csv). Nguồn: Thông xác nhận; chưa cung cấp output/trace hoặc run ID/model của lượt local.
 - LLM chấm (nếu có): đã kiểm tay __ câu, khớp __/__
 - **Chuẩn "đạt"** (chép nguyên từ `spec.md` §7, chốt trước 19:30 Thứ Sáu 27/11): "__"
 

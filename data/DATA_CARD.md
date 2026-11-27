@@ -54,6 +54,12 @@
 
 Chạy `python -m unittest discover -s codebase -v` từ thư mục gốc để đối chiếu 15 cụm trong dữ liệu giả lập và kiểm bảng hướng dẫn.
 
+## Dataset 4 · Lịch gia hạn từ kênh thanh toán giả lập
+
+[`data/renewal_schedules.csv`](renewal_schedules.csv) mô phỏng thông tin mà người dùng thấy trong mục gói thuê bao của bên thu tiền. Phiếu `SIM-GP-RENEWAL-001` là dữ liệu nhóm dựng cho BaoThuc Pro, quan sát tại ngày mô phỏng 27/11/2026. Phiếu ghi kỳ hằng tháng và ngày gia hạn 29/11/2026. Phiếu khớp với người dùng giả lập U01 và giao dịch trả phí `T00228`. Dữ liệu này không đến từ tài khoản Google Play thật.
+
+`lookup_renewal_schedule` chỉ trả phiếu khớp cả hai mã trong khoảng từ ngày quan sát đến ngày gia hạn. Workflow dùng phiếu khi lịch sử trả phí chưa đủ. Bộ chấm vẫn dùng `recurring_truth.csv` riêng.
+
 ---
 
 **Người kiểm:** __ (đọc tay 10 chuỗi trong `recurring_truth.csv` và đối chiếu từng chuỗi với `transactions.csv`; ghi số chuỗi đã kiểm). Data tự dựng **không phải bằng chứng pain**: bằng chứng ở `evidence/`.

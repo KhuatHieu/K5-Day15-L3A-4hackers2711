@@ -15,6 +15,8 @@
 | Nhãn | **`synthetic`** |
 | Giới hạn | Chỉ có giao dịch **chi**, chưa có nạp tiền vào ví hay hoàn tiền; `status` toàn `thanh_cong`. Nhiễu chi tiêu hằng ngày rải đều, không có mùa vụ. Số tiền gói đăng ký là **tự ước tính** theo giá phổ biến, không lấy từ bảng giá chính thức. Mỗi kiểu khó chỉ có 1–2 người dùng → bộ câu thử nhỏ. |
 
+`detect_recurring` cần ít nhất ba lần trả phí theo lịch tháng hoặc cách đều theo ngày. Công cụ bỏ các giao dịch sau ngày mô phỏng và tách các lần trừ cùng số tiền trong vòng hai phút thành dấu hiệu trừ trùng. Dùng `tx_ids` để đối chiếu lịch sử số tiền khi giá thay đổi.
+
 **Cách dựng** (chi tiết trong docstring của script):
 - **Nhiễu:** 0–3 giao dịch mỗi ngày từ 10 nơi bán **tên dựng**. Mỗi nơi bán có 2–3 kiểu mô tả khác nhau, ví dụ `XEMAU*BIKE` · `xe mau` · `XE MAU HN 2211`. Có thêm chuyển khoản không rõ nội dung và nạp điện thoại.
 - **Chuỗi trừ định kỳ và ca khó:** cài theo kịch bản, mô phỏng đúng các kiểu đã thấy trong review 1★ (`evidence/data-mining.md`):
@@ -42,11 +44,15 @@
 | Từ đâu | Cùng script, cùng seed |
 | Số dòng | 15 chuỗi |
 | Nhãn | **`synthetic`** |
-| Giới hạn | **Bản chạy thử không được đọc file này**, vì đọc vào là lộ đáp án. Chỉ bộ chấm và người viết câu thử dùng. Ô `next_date` để trống khi data không đủ căn cứ (U02-S2, U05, U10), và khi đó đáp án đúng là nói "chưa xác định được". |
+| Giới hạn | Chỉ bộ chấm và người viết câu thử dùng file này. Công cụ chỉ đọc lịch sử được truyền vào. Kịch bản U01-S1 và U04-S1 có ngày gia hạn giả lập trong bảng đáp án, nhưng mỗi chuỗi chỉ có một lần trả phí trong lịch sử. Công cụ ghi thiếu căn cứ và để trống dự báo cho hai chuỗi này. |
 
-## Dataset 3 · Hướng dẫn huỷ gói theo nền tảng *(chưa làm, việc X6 của Nghĩa)*
+## Dataset 3 · Hướng dẫn hủy theo kênh thanh toán
 
-Nguồn cho công cụ `lookup_cancel_guide`. Mỗi dòng gồm: nền tảng · các bước · **link trang trợ giúp chính thức** · ngày xem. Không có link chính thức thì không đưa vào.
+[`data/cancel_guides.csv`](cancel_guides.csv) có 9 kênh gồm App Store, Google Play, YouTube, Spotify, Netflix, ChatGPT, PayPal, Microsoft 365 và Disney+. Mỗi dòng có mã kênh, tên, bí danh, bước tự kiểm tra hoặc tự hủy, URL trợ giúp chính thức và ngày đối chiếu. Các trang được kiểm ngày 27/11/2026. Với PayPal, hướng dẫn xử lý ủy quyền thanh toán tự động và chỉ người dùng đối chiếu tình trạng gói với bên bán.
+
+### Kiểm công cụ CP3
+
+Chạy `python -m unittest discover -s codebase -v` từ thư mục gốc để đối chiếu 15 cụm trong dữ liệu giả lập và kiểm bảng hướng dẫn.
 
 ---
 

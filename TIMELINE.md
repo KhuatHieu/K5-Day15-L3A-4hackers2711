@@ -40,8 +40,8 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 ## 🟡 CP3 · 10:00 Thứ Bảy 28/11
 - [ ] E3 · L · Kiểm 100 nhãn AI → `human_check.py merge` → điền `data-mining.md` mục 3b — trước 23:00 27/11
 - [ ] E2c · T · Khảo sát: kiểm số người lúc 22:00 (mục tiêu ≥20), nhắc lại nếu thiếu
-- [ ] X2 · N · `detect_recurring` (code thuần) chạy đúng trên data synthetic
-- [ ] X6 · N · Bảng hướng dẫn huỷ ≥8 dịch vụ, có link chính thức + ngày xem; `lookup_cancel_guide`
+- [x] ~~X2 · N · `detect_recurring` (code thuần) chạy đúng trên data synthetic~~ ✅ 15:57 · [kiểm công cụ](codebase/test_tools.py)
+- [x] ~~X6 · N · Bảng hướng dẫn huỷ ≥8 dịch vụ, có link chính thức + ngày xem; `lookup_cancel_guide`~~ ✅ 15:57 · [bảng hướng dẫn](data/cancel_guides.csv)
 - [ ] X4 · L · Nối model thật (`codebase/ai.py`), `run.py eval --try` chạy được — **tối 27/11**
 - [ ] X5 · L · Chặn rủi ro Track E (số từ công cụ, không OTP, không tư vấn đầu tư, huỷ chỉ đưa hướng dẫn)
 - [ ] V6 · H+T · Bộ câu thử lên 20–30 câu (≥5 `kho`, ≥2 `tu_choi`)

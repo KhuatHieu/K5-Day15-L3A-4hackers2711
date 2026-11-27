@@ -6,7 +6,7 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 
 | Việc | Công cụ AI | AI làm gì | Người kiểm/sửa gì | Ai phụ trách |
 |---|---|---|---|---|
-| Code bản chạy thử | | | | |
+| Code bản chạy thử | Codex | Viết `detect_recurring`, `lookup_cancel_guide`, bộ kiểm thử và đối chiếu nguồn cho bảng hướng dẫn hủy. | Đã chạy kiểm tự động trên dữ liệu giả lập. Nghĩa đọc diff trước khi commit. | Nguyễn Đắc Tuấn Nghĩa (X2, X6) |
 | Prompt / thiết kế lời gọi mô hình | | | | |
 | Đào data (viết script đếm, gợi ý nhãn) | | | Kiểm tay __ dòng, khớp __ | |
 | Rà câu hỏi phỏng vấn / khảo sát | | Chỉ rà câu dẫn dắt | | |

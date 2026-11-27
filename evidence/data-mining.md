@@ -2,7 +2,7 @@
 
 > Nguồn: review công khai của ví MoMo và ZaloPay trên Google Play. Script, nhãn, cách chọn mẫu ở `evidence/reviews/`.
 > Repo chỉ chứa số đã tổng hợp, nhãn **không có text** (`evidence/reviews/labels.csv`) và trích dẫn ≤2 câu. Full text review **không commit** (luật dữ liệu: trích tối đa 2 câu / review).
-> ⚠️ **Bản nháp:** nhãn do AI gắn, **người chưa kiểm** — các ô `__` ở mục 3b điền sau khi chạy `human_check.py merge`.
+> Nhãn do AI gắn; **người đã kiểm 100 dòng** (27/11 tối) — độ khớp theo tầng và giới hạn của cách kiểm ở mục 3b.
 
 ## 1. Cách đếm
 
@@ -57,18 +57,25 @@
 
 **Số tiền người viết tự nêu** (19 review rộng có số rõ, đọc tay từ text — id để kiểm lại): 30k (`zalopay-101`, `zalopay-398`) · 179k (`zalopay-234`) · 250k (`momo-133`) · 300k (`zalopay-280`, `zalopay-369`) · 400k (`zalopay-050`) · 450k (`momo-299`) · 500k (`zalopay-106`, `zalopay-165`) · 543k (`momo-147`) · 600k (`momo-167`, `zalopay-159`) · 759k (`zalopay-089`) · 900k (`zalopay-331`) · 1 triệu (`zalopay-197`, `zalopay-379`) · 1,09 triệu (`zalopay-340`) · 1,2 triệu (`zalopay-404`). **Trung vị 500k / review.** Không tính `zalopay-468` ("gần cả triệu", cộng dồn 2–3 lần). Giới hạn: số tự báo, có thể là cộng dồn; người mất nhiều dễ viết review hơn → số này **lệch cao**, chỉ dùng để hình dung, không dùng làm "mỗi lần tốn" trong bảng impact nếu chưa kiểm bằng khảo sát.
 
-### 3b. Người kiểm nhãn AI *(điền sau khi chạy `python evidence/reviews/human_check.py merge`)*
+### 3b. Người kiểm nhãn AI *(E3 · 27/11 19:05, `python evidence/reviews/human_check.py merge`)*
 
-Mẫu 100 dòng, seed 2711, phân tầng (`evidence/reviews/human-check-ids.csv`): **tất cả** 33 dòng `goi_dang_ky_an` + 30 dòng ngẫu nhiên `tu_tru_khong_ro` + 37 dòng ngẫu nhiên nhãn khác. Người gắn không nhìn nhãn AI.
+Mẫu 100 dòng, seed 2711, phân tầng (`evidence/reviews/human-check-ids.csv`): **tất cả** 33 dòng `goi_dang_ky_an` + 30 dòng ngẫu nhiên `tu_tru_khong_ro` + 37 dòng ngẫu nhiên nhãn khác. Người gắn trên file chỉ có text (`raw-human-check.csv`, không có cột nhãn AI, không có cột tầng), theo `LABELS.md` bản 27/11 ~11:30. Kết quả ghép vào cột `label_2` / `flags_2` / `nguoi_gan_2` của `labels.csv`.
 
 | Tầng | Người khớp AI |
 |---|---|
-| `goi_dang_ky_an` (tất cả) | __/33 |
-| `tu_tru_khong_ro` (ngẫu nhiên) | __/30 |
-| nhãn khác (ngẫu nhiên) | __/37 |
-| **Chung** *(không đại diện cả 1000 dòng vì lấy dư 2 tầng đầu)* | __/100 |
+| `goi_dang_ky_an` (tất cả) | 28/33 (85%) |
+| `tu_tru_khong_ro` (ngẫu nhiên) | 28/30 (93%) |
+| nhãn khác (ngẫu nhiên) | 31/37 (84%) |
+| **Chung** *(không đại diện cả 1000 dòng vì lấy dư 2 tầng đầu)* | 87/100 (87%) |
 
-Người gắn: __ (vai, không tên) · Cặp lệch nhiều nhất: __
+Người gắn: 1 thành viên nhóm (cặp X, `nguoi_gan_2 = L`) · Cặp lệch nhiều nhất: `goi_dang_ky_an` ↔ `tu_tru_khong_ro` (3 dòng), `ky_thuat_ekyc` ↔ `khong_ro` (2), còn lại mỗi cặp 1 dòng (`giao_dich_loi` ↔ `khac_tieu_cuc`, `khong_ro` ↔ `khen_trung_tinh`, `ky_thuat_ekyc` ↔ `giao_dich_loi`). In bằng `python evidence/reviews/count_labels.py evidence/reviews/labels.csv`.
+
+**Đọc số:** cặp lệch nhiều nhất chính là ranh giới hẹp / rộng của hướng "khoản trừ tự động" (review có nêu gói / dịch vụ hay không), nên số **hẹp** (33) chắc chắn kém hơn số **rộng** (147, gộp cả hai nhãn nên lệch giữa chúng không làm đổi số rộng).
+
+**Ghi thật về cách kiểm:**
+- Người gắn **đã lỡ thấy nhãn AI** ở một lần gắn thử trước đó (gắn trên file đầy đủ có cột `label`). Lần đó **bỏ**, gắn lại từ đầu trên file ẩn nhãn ở trên. Vì đã từng thấy nhãn, độ khớp có thể **cao hơn** so với một người hoàn toàn chưa xem.
+- 4 dòng (`zalopay-343`, `zalopay-234`, `momo-442`, `zalopay-379`) được người gắn sửa thành `goi_dang_ky_an` sau khi đối chiếu lại định nghĩa trong `LABELS.md` (chữ "gói", "đăng ký", "app khác" đủ điều kiện) — đối chiếu với định nghĩa, **không** nhìn nhãn AI. Lý do ghi ở `ghi_chu` trong file gắn (không commit).
+- Người gắn là thành viên nhóm, không phải người ngoài; chưa có người thứ ba gắn để tính độ khớp giữa hai người.
 
 ## 4. Ví dụ nguyên văn (≤2 câu, bỏ tên người viết; nguồn: Google Play, review 1 sao, cào 27/11/2026)
 

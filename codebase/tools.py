@@ -183,6 +183,33 @@ def detect_recurring(transactions: list[dict], as_of_date: str | date) -> list[d
 
 
 @tool
+def lookup_renewal_schedule(user_id: str, tx_id: str, as_of_date: str) -> dict | None:
+    """Tra lịch gia hạn giả lập theo mã người dùng, mã giao dịch và ngày mô phỏng.
+
+    Trả lịch còn hiệu lực, kênh thanh toán và mã phiếu nguồn. Trả None nếu
+    thiếu căn cứ hoặc trùng phiếu. Công cụ chỉ đọc CSV cục bộ.
+    """
+    cutoff = date.fromisoformat(as_of_date)
+    with (DATA_DIR / "renewal_schedules.csv").open(encoding="utf-8", newline="") as file:
+        matches = [
+            row for row in csv.DictReader(file)
+            if (row["user_id"], row["tx_id"]) == (user_id, tx_id)
+            and row["source_ref"].strip()
+            and date.fromisoformat(row["observed_on"]) <= cutoff <= date.fromisoformat(row["next_date"])
+        ]
+    if len(matches) != 1:
+        return None
+    row = matches[0]
+    return {
+        "next_date": row["next_date"],
+        "cycle_unit": row["cycle_unit"],
+        "cycle_days": int(row["cycle_days"]),
+        "renewal_channel": row["channel"],
+        "renewal_source": row["source_ref"],
+    }
+
+
+@tool
 def lookup_cancel_guide(payment_channel: str) -> dict | None:
     """Tra kênh thanh toán đã xác minh trong bảng hướng dẫn hủy cục bộ.
 

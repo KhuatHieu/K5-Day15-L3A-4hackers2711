@@ -13,7 +13,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 
 ## 🔴 CP1 · 17:00 Thứ Sáu 27/11 · 3 điểm
 - [x] ~~E1 · H · `evidence/hypothesis.md` (giả thuyết cho khảo sát)~~ ✅ 15:14 · 108e535
-- [ ] E2 · H+T · Tạo Google Form từ `evidence/survey/questions.md`, điền link / kênh / giờ mở — **gửi trước 16:00**
+- [x] ~~E2 · H+T · Tạo Google Form từ `evidence/survey/questions.md`~~ ✅ 15:28 · https://forms.gle/q7rfiWSYTywBPX2U6 · đã gửi Zalo, Slack, Facebook cá nhân
 - [ ] E2b · cả nhóm · Mỗi người gửi link form cho ≥5 người quen có dùng ví — trước 16:30
 - [ ] T0 · T · Sửa mã học viên của Thông trong `TEAMS.md` (đang trùng mã của Hiếu)
 - [ ] C0 · cả nhóm · 16:00–16:20 chốt **bài toán 1–2 câu (không có chữ AI)** + **lát cắt 1 câu** (xem `TASKS.md`)

@@ -6,9 +6,9 @@
 
 | Mục | Ghi |
 |---|---|
-| Link form | __ |
-| Kênh gửi | __ (vd nhóm Zalo lớp L3A, nhóm bạn bè, gia đình — ghi từng kênh) |
-| Giờ mở | __ 27/11 |
+| Link form | https://forms.gle/q7rfiWSYTywBPX2U6 |
+| Kênh gửi | Zalo · Slack · bài Facebook cá nhân của thành viên |
+| Giờ mở | 15:28 27/11 |
 | Giờ chốt | 09:30 28/11 (trước CP3) |
 | Người giữ form, xuất kết quả | Trương Văn Thông |
 

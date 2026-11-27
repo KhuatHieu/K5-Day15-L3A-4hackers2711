@@ -11,15 +11,15 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~Đào review: 1.000 review 1★ MoMo + ZaloPay, bộ nhãn, đếm~~ ✅ `ad7b40c`
 - [x] ~~Nháp `evidence/data-mining.md` + mẫu 100 dòng để người kiểm nhãn~~ ✅ `1b93f1d`
 
-## 🔴 CP1 · 17:00 Thứ Sáu 27/11 · 3 điểm
+## ✅ CP1 · 17:00 Thứ Sáu 27/11 · 3 điểm — ĐÃ NỘP 15:45
 - [x] ~~E1 · H · `evidence/hypothesis.md` (giả thuyết cho khảo sát)~~ ✅ 15:14 · 108e535
 - [x] ~~E2 · H+T · Tạo Google Form từ `evidence/survey/questions.md`~~ ✅ 15:28 · https://forms.gle/q7rfiWSYTywBPX2U6 · đã gửi Zalo, Slack, Facebook cá nhân
-- [ ] E2b · cả nhóm · Mỗi người gửi link form cho ≥5 người quen có dùng ví — trước 16:30
+- [x] ~~E2b · cả nhóm · Mỗi người gửi link form cho ≥5 người quen có dùng ví~~ ✅ 15:45
 - [x] ~~T0 · T · Sửa mã học viên trong `TEAMS.md`~~ ✅ · c40f048
 - [x] ~~C0 · cả nhóm · chốt bài toán + lát cắt + chuẩn đạt + câu thử~~ ✅ 15:40 · biên bản `CHOT-1600.md`
 - [x] ~~C3 · cả nhóm · Điền cột "Phần việc chính" trong `TEAMS.md`~~ ✅ 15:40 · `run.py check` không lỗi
 - [x] ~~C1 · H · `canvas.md` đủ 7 dòng (bản nháp — cả nhóm xem lại lúc chốt C0)~~ ✅ 15:14 · 108e535
-- [ ] C2 · H · Push, mở repo bằng cửa sổ ẩn danh, **nộp CP1** — 16:50–16:55
+- [x] ~~C2 · H · Push, mở repo bằng cửa sổ ẩn danh, **nộp CP1**~~ ✅ 15:45 · đã nộp, commit 0e90494
 
 ## 🟠 CP2 · 19:30 Thứ Sáu 27/11 · 4 điểm
 - [ ] I1 · mỗi người · 1 cuộc phỏng vấn (10–15 phút), ghi `evidence/interviews/P1–P4.md` — 17:00–18:00

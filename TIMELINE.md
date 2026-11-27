@@ -23,8 +23,8 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 ## 🟠 CP2 · 19:30 Thứ Sáu 27/11 · 4 điểm
 - [ ] I1 · mỗi người · 1 cuộc phỏng vấn (10–15 phút), ghi `evidence/interviews/P1–P4.md` — 17:00–18:00
 - [ ] G1 · cả nhóm · 18:00–18:20 tổng hợp: phỏng vấn + số khảo sát đến lúc đó → chốt lát cắt + vẽ sơ đồ cùng nhau
-- [ ] D1 · N · `spec.md` §4 sơ đồ + công cụ + chỗ chặn rủi ro + chỗ người duyệt — trước 19:00
-- [ ] D2 · N · `spec.md` §5 ≥6 chỗ khó + 2 câu tấn công
+- [x] ~~D1 · N · `spec.md` §4 sơ đồ + công cụ + chỗ chặn rủi ro + chỗ người duyệt — trước 19:00~~ ✅ 15:32 · [spec.md](spec.md)
+- [x] ~~D2 · N · `spec.md` §5 ≥6 chỗ khó + 2 câu tấn công~~ ✅ 15:32 · [spec.md](spec.md)
 - [ ] X1 · L · `codebase/` khung chạy hết luồng với AI giả (`python run.py`) — trước 19:00
 - [x] ~~S1 · H · `spec.md` §0–§2 bài toán + bảng impact 4 hướng~~ ✅ 15:20 (agent) · ⚠ các thừa số impact đang *(tự ước tính)*, thay bằng số khảo sát lúc 09:30
 - [x] ~~V3 · T · Script sinh data synthetic có seed + nhãn (`data/gen_transactions.py`)~~ ✅ 15:20 (agent làm theo lời H; T đọc lại)

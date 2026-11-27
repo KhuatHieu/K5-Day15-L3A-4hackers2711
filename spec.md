@@ -150,10 +150,9 @@ Các cột dưới đây tương ứng với `id`, `type`, `source`, `input` và
 - Lượt Gemini `run-1@20261127-164447` (16:44, trước khi có B16–B20, B04/B05 lỗi HTTP 503) là lượt thử khi phát triển, chưa chấm, không tính; xem `eval/README.md`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
-- Chi phí / task thành công: __ (model __) · __ (model __)
-- Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
-- So với impact / người / tháng (§2): đáng làm không, vì sao:
+- K1 dùng kết quả Gemini Flash-Lite: `simulate-1@20261127-215058`, 50 phiên (mỗi phiên một lượt), 49 không lỗi API và 1 timeout; token quy giá **$0.00607025**.
+- Chi phí trung bình mỗi lượt không lỗi: **$0.000123883**, tính từ usage API. Báo cáo USD: `cost/cost-estimate.md`; cấu hình và ba kịch bản gốc: `cost/personas.yaml`. Dự toán GPT giả định đã gỡ theo yêu cầu của Thông.
+- Chi phí/task thành công chưa chốt vì thiếu eval cùng model. Chưa gồm hosting, phí công cụ, thuế và công người duyệt; không quy đổi sang VND.
 
 ## §9. Rủi ro & an toàn
 - Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
@@ -170,6 +169,11 @@ Các cột dưới đây tương ứng với `id`, `type`, `source`, `input` và
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
 | 27/11 16:54 | Dùng lịch gia hạn giả lập có mã phiếu khi thiếu lịch sử trả phí. | B01, B13 của `run-1@20261127-164447` thiếu ngày gia hạn U01. |
+| 27/11 21:58 | Thông: chạy K0 10 phiên và mô phỏng 50 phiên với Gemini Flash-Lite; cập nhật persona, nguồn giá Google, nền quy mô MoMo, báo cáo USD và script tạo báo cáo; điền §8. Rà khảo sát tạm, giữ E2c/E4 chưa xong vì thiếu bản xuất mới và xác nhận mẫu. | Người dùng yêu cầu hoàn thành phần CP3 của Thông và ước tính chi phí; model cục bộ `gemini-3.1-flash` lỗi 404 nên chỉ đổi model cho tiến trình sang `gemini-3.1-flash-lite` đã được API xác nhận. Không sửa §7, benchmark hoặc kết quả cũ. |
+| 27/11 22:03 | Thông: hoàn thiện K1 với bảng tính USD từng phiên, từng persona và từng kịch bản; bổ sung công thức người → phiên/tháng → USD/tháng vào báo cáo. | Người dùng yêu cầu tính toán đầy đủ K1; tái sử dụng token đã đo, kiểm bằng Decimal và đối chiếu CSV/trace, không gọi API thêm hoặc sửa lượt chạy gốc. |
+| 27/11 22:06 | Thông: bổ sung nháp reflection theo mẫu, kịch bản video dự phòng và rút gọn báo cáo chi phí, giữ đủ phép tính. | Người dùng yêu cầu ghi đủ file theo TASKS, ngắn gọn. Video chưa quay, khảo sát chưa chốt và reflection chưa được người dùng xác nhận; giữ đúng trạng thái. |
+| 27/11 22:12 | Từng thêm dự toán GPT theo lượt; đã gỡ ở cập nhật 22:19 theo yêu cầu tiếp theo của Thông. | Đơn giá tra OpenAI, token là giả định; không sửa CSV/trace đã chạy. |
+| 27/11 22:19 | Xoá các file dự toán GPT, bỏ bản báo cáo Gemini trùng và khôi phục `cost/cost-estimate.md` từ phép đo K1 Gemini. | Thông yêu cầu bỏ các file GPT; giữ nguyên CSV/trace và bằng chứng đánh giá của nhóm. |
 | 27/11 21:20 | Thêm B21–B23 (nguồn `nguoi_dung`: P3, P2, P1) vào bộ câu thử → 23 câu. Không sửa, không xoá câu cũ; §7 giữ nguyên. Lượt 2 chạy trên 23 câu, so với lượt 1 trên 20 câu chung B01–B20. | Bộ câu chưa có câu nào lấy từ lời người dùng thật (guide 2.4); P1–P3 xong lúc 18:39. |
 | 27/11 21:20 | §0 viết lại theo lời P1–P3 + khảo sát; §2 thay 4 thừa số *(tự ước tính)* bằng số khảo sát tạm (n=33); §6 có nháp. | Khảo sát và phỏng vấn đã có số (`evidence/summary.md`). Số §2 sẽ chạy lại sau khi chốt form 09:30 28/11. |
 | 27/11 17:34 | Dùng phần chặn Track E của Long và ghi đầu ra công cụ riêng cho số tiền, ngày trong câu trả lời. | Lượt 3 để lọt B11/B12 và thiếu căn cứ trong trace ở 11 câu. |

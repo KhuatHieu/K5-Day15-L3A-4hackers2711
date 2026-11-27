@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-11-27T21:52:14+07:00",
+  "command": "PowerShell: $env:MODEL_NAME = 'gemini-3.1-flash-lite'; python run.py simulate --try",
+  "run_id": "simulate-try@20261127-214818",
+  "sessions": 10,
+  "sessions_without_error": 8,
+  "sessions_with_error": 2,
+  "error_http_codes": [
+    "429"
+  ],
+  "models": [
+    "gemini-3.1-flash-lite"
+  ],
+  "tokens_in_all_sessions": 7798,
+  "tokens_out_all_sessions": 685,
+  "csv_sha256": "f20a2560e7446b98d3c9ea212795b516b7ad0b6cc3b7ec5fc932d68b7442a33f",
+  "trace_sha256": "6948f63add496452ab1a0b07429b8deedb4013faf2eabe07c338e639b21a63c6",
+  "config_note": "K0 dùng cấu hình persona cũ 1/3/5 lượt. Lượt đầy đủ dùng cấu hình mới một lượt mỗi phiên. K0 chỉ kiểm luồng, chưa phải ước tính chi phí cuối.",
+  "quality_note": "Phiên không lỗi API chưa có nghĩa đạt chất lượng. Chưa có lượt eval đã chấm cùng model."
+}

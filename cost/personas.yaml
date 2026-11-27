@@ -1,36 +1,37 @@
-# Mô phỏng chi phí khi dùng thật — điền ở guide bước 4.2.
+# Mô phỏng chi phí khi dùng thật — cấu hình 27/11/2026 của Thông.
 # Ôn lại: ngày 13, ngày 1, ngày 14 · lab ngày 13, lab ngày 14.
 # Mọi số phải có nguồn (data / phỏng vấn / khảo sát / quy mô khoá có nguồn) hoặc ghi rõ "(tự ước tính)".
 # Chạy: python run.py simulate --try   (10 phiên, kiểm khung — làm trước CP3)
 #       python run.py simulate         (đủ số phiên dưới đây — bản nộp CP4)
-# Thay mọi dòng "(ví dụ)" bằng số và nguồn của nhóm; simulate nhắc nếu còn sót.
+# PowerShell: $env:MODEL_NAME = 'gemini-3.1-flash-lite'
+# Token thực đo bằng Flash-Lite; Pro chỉ là so sánh giá trên cùng token.
 
 sessions: 50        # số phiên mô phỏng — bản nộp ≥50
 seed: 42            # giữ cố định để chạy lại ra cùng chuỗi phiên
 
 users:              # số người dùng thật nếu đưa vào dùng — 3 kịch bản, ở quy mô thật của sản phẩm
                     # track A: khoá học · track B–F: người dùng của sản phẩm / nhóm nhắm tới, nguồn công khai có link
-  low: 300
-  base: 700
-  high: 1000
-  source: "(ví dụ) track A — thay bằng số của nhóm. Cơ sở: lớp L3 hơn 700 học viên (README hackathon); thấp, cao: (tự ước tính)"
+  low: 3000
+  base: 30000
+  high: 300000
+  source: "MoMo hơn 30 triệu người dùng: https://www.momo.vn/tin-tuc/thong-cao-bao-chi/momo-dong-hanh-ngay-tai-chinh-so-2026-khang-dinh-8835 (xem 27/11/2026). Lấy nền 30 triệu; tỉ lệ tiếp cận 0,01% / 0,1% / 1% (tự ước tính), không phải khách hàng đã có. Không cộng ZaloPay để tránh trùng."
 
 personas:           # ≥3 kiểu người dùng; share cộng lại = 1
   - name: dung_it
-    share: 0.5              # tỉ lệ người dùng kiểu này
-    uses_per_month: 4       # số phiên / người / tháng
+    share: 0.36363636363636365  # 12/33 từ bản khảo sát tạm
+    uses_per_month: 1       # (tự ước tính)
     turns_per_session: 1    # số lượt hỏi trong một phiên
-    source: "(ví dụ) phỏng vấn P1, P3 — thay bằng nguồn của nhóm"
+    source: "results.csv tạm, câu 4: 9 người chọn 0 + 3 không nhớ = 12/33; gộp không nhớ vào nhóm ít là giả định. 1 phiên/tháng, 1 lượt/phiên (tự ước tính). Câu 3: 23 Có, 5 Không, 5 Không chắc; chưa đủ suy ra tần suất dùng sản phẩm."
   - name: dung_vua
-    share: 0.3
-    uses_per_month: 10
-    turns_per_session: 3
-    source: "(ví dụ) khảo sát n = 24, câu 3"
+    share: 0.3939393939393939
+    uses_per_month: 4
+    turns_per_session: 1
+    source: "results.csv tạm, câu 4: 13/33 gặp 1 lần trong 3 tháng. 4 phiên/tháng, 1 lượt/phiên (tự ước tính). Câu 4 không đo số phiên dùng sản phẩm tương lai."
   - name: dung_nhieu
-    share: 0.2
-    uses_per_month: 20
-    turns_per_session: 5
-    source: "(ví dụ) data/preclass: đếm số lượt / người — cách đếm ở evidence/data-mining.md"
+    share: 0.24242424242424243
+    uses_per_month: 12
+    turns_per_session: 1
+    source: "results.csv tạm, câu 4: 5 người gặp 2 lần + 3 người gặp 3 lần trở lên = 8/33. 12 phiên/tháng, 1 lượt/phiên (tự ước tính). Mẫu chưa chốt thành viên nhóm / trùng."
 # Mỗi lượt hỏi lấy ngẫu nhiên một đầu vào trong eval/benchmark.csv (type thuong và kho).
 # Persona hỏi kiểu riêng: thêm vào persona đó
 #     types: [thuong, kho, tu_choi]
@@ -38,23 +39,13 @@ personas:           # ≥3 kiểu người dùng; share cộng lại = 1
 #     inputs: ["câu hỏi kiểu 1", "câu hỏi kiểu 2"]
 
 prices:             # USD / 1 triệu token — chép từ further-reading/model-prices.md của repo đề. ≥2 mức model
-  - model: claude-haiku-5-5        # model bản chạy thử đang dùng (từ 27/11 tối)
-    input: 0.10
-    output: 0.50
-    source: "bảng giá Anthropic API (giá cho prompt ≤100K token) · xem 27/11/2026 — đối chiếu lại https://www.anthropic.com/pricing"
-  - model: claude-sonnet-5-5       # mức cao hơn để so sánh
-    input: 2.00
-    output: 10.00
-    source: "bảng giá Anthropic API · xem 27/11/2026 — đối chiếu lại https://www.anthropic.com/pricing"
   - model: gemini-3.1-flash-lite
     input: 0.25
     output: 1.50
-    source: "(ví dụ) https://ai.google.dev/gemini-api/docs/pricing · xem 25/11/2026"
-  - model: gemini-4-hydrogen
-    input: 1.50
-    output: 7.50
-    source: "(ví dụ) https://ai.google.dev/gemini-api/docs/pricing · xem 25/11/2026"
+    source: "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-lite · Standard trả phí, text, output gồm thinking · xem 27/11/2026"
+  - model: gemini-3.1-pro-preview
+    input: 2.00
+    output: 12.00
+    source: "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview · Standard, prompt <=200k token, output gồm thinking · xem 27/11/2026; chỉ so sánh giá trên token Flash-Lite"
 
-usd_to_vnd:         # tuỳ chọn: điền thì bản tóm tắt in thêm tiền Việt
-  rate:
-  source:
+# Chỉ báo cáo bằng USD theo yêu cầu của Thông, không quy đổi tiền Việt.

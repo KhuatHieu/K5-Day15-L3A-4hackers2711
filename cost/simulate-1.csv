@@ -1,0 +1,51 @@
+﻿run_id,session,persona,turns,inputs,model,model_calls,tool_calls,tokens_in,tokens_out,latency_s,error,tokens_by_model
+simulate-1@20261127-215058,S001,dung_vua,1,"[U01] Hôm 29/10 ví mình bị trừ 179.000đ ghi là GOOGLE *BaoThuc Pro, mình không n",gemini-3.1-flash-lite,1,6,353,34,1.37,,"{""gemini-3.1-flash-lite"": {""in"": 353, ""out"": 34}}"
+simulate-1@20261127-215058,S002,dung_vua,1,"[U07] PAYPAL *XKLDIGI trừ mình 120k mỗi tháng, là của app nào?",gemini-3.1-flash-lite,1,5,352,27,1.922,,"{""gemini-3.1-flash-lite"": {""in"": 352, ""out"": 27}}"
+simulate-1@20261127-215058,S003,dung_it,1,"[U09] Mình đang trả tự động những gói gì, tháng sau bị trừ ngày nào?",gemini-3.1-flash-lite,1,5,354,33,1.179,,"{""gemini-3.1-flash-lite"": {""in"": 354, ""out"": 33}}"
+simulate-1@20261127-215058,S004,dung_vua,1,[U08] Sao số tiền ChatGPT trên ví dao động? Lần gần nhất bị trừ bao nhiêu?,gemini-3.1-flash-lite,1,5,353,29,1.309,,"{""gemini-3.1-flash-lite"": {""in"": 353, ""out"": 29}}"
+simulate-1@20261127-215058,S005,dung_it,1,"[U06] Gói Kingdom Clash trừ 22.000đ. Đây là gói tuần hay tháng, và lần tới là hô",gemini-3.1-flash-lite,1,5,350,31,1.19,,"{""gemini-3.1-flash-lite"": {""in"": 350, ""out"": 31}}"
+simulate-1@20261127-215058,S006,dung_it,1,[U03] Sao YouTube Premium của mình tháng này đắt hơn?,gemini-3.1-flash-lite,1,5,350,29,1.187,,"{""gemini-3.1-flash-lite"": {""in"": 350, ""out"": 29}}"
+simulate-1@20261127-215058,S007,dung_it,1,[U08] Khoản tiền điện EVN trừ mỗi tháng. Chỉ tôi chỗ hủy giống như hủy gói xem p,,1,4,0,0,60.187,T1 TimeoutError: The read operation timed out,{}
+simulate-1@20261127-215058,S008,dung_vua,1,[U08] Sao số tiền ChatGPT trên ví dao động? Lần gần nhất bị trừ bao nhiêu?,gemini-3.1-flash-lite,1,5,353,29,1.223,,"{""gemini-3.1-flash-lite"": {""in"": 353, ""out"": 29}}"
+simulate-1@20261127-215058,S009,dung_it,1,"[U04] Mình dùng thử app chỉnh ảnh rồi quên, giờ bị trừ 758.889đ. Khi nào nó trừ ",gemini-3.1-flash-lite,1,6,351,32,1.22,,"{""gemini-3.1-flash-lite"": {""in"": 351, ""out"": 32}}"
+simulate-1@20261127-215058,S010,dung_vua,1,"[U06] Gói Kingdom Clash trừ 22.000đ. Đây là gói tuần hay tháng, và lần tới là hô",gemini-3.1-flash-lite,1,5,350,31,0.941,,"{""gemini-3.1-flash-lite"": {""in"": 350, ""out"": 31}}"
+simulate-1@20261127-215058,S011,dung_it,1,[U09] Ví báo Google Play vừa trừ 49.000đ mà mình không biết là app nào. Có phải ,gemini-3.1-flash-lite,1,5,354,33,1.068,,"{""gemini-3.1-flash-lite"": {""in"": 354, ""out"": 33}}"
+simulate-1@20261127-215058,S012,dung_it,1,"[U01] Hôm 29/10 ví mình bị trừ 179.000đ ghi là GOOGLE *BaoThuc Pro, mình không n",gemini-3.1-flash-lite,1,6,353,34,0.982,,"{""gemini-3.1-flash-lite"": {""in"": 353, ""out"": 34}}"
+simulate-1@20261127-215058,S013,dung_nhieu,1,[U02] APPLE.COM/BILL trừ mình 99k hôm 18/11 là cái gì? Trước giờ chỉ thấy 45k,gemini-3.1-flash-lite,2,8,702,58,25.486,,"{""gemini-3.1-flash-lite"": {""in"": 702, ""out"": 58}}"
+simulate-1@20261127-215058,S014,dung_vua,1,[U01] kiem_tra,gemini-3.1-flash-lite,1,6,353,34,1.044,,"{""gemini-3.1-flash-lite"": {""in"": 353, ""out"": 34}}"
+simulate-1@20261127-215058,S015,dung_it,1,"[U05] Ví trừ mình 2 lần 100k lúc nạp điện thoại hôm 20/11, có phải gói gì tự gia",,0,4,0,0,0.001,,{}
+simulate-1@20261127-215058,S016,dung_nhieu,1,[U01] kiem_tra,gemini-3.1-flash-lite,1,6,353,34,1.115,,"{""gemini-3.1-flash-lite"": {""in"": 353, ""out"": 34}}"
+simulate-1@20261127-215058,S017,dung_it,1,[U03] kiem_tra,,0,3,0,0,0.004,,{}
+simulate-1@20261127-215058,S018,dung_it,1,[U07] kiem_tra,gemini-3.1-flash-lite,1,4,355,30,2.129,,"{""gemini-3.1-flash-lite"": {""in"": 355, ""out"": 30}}"
+simulate-1@20261127-215058,S019,dung_vua,1,"[U03] Tháng nào cũng có 1 khoản Netflix bị trừ nhưng tên mỗi lần một khác, có ph",gemini-3.1-flash-lite,1,5,361,28,1.138,,"{""gemini-3.1-flash-lite"": {""in"": 361, ""out"": 28}}"
+simulate-1@20261127-215058,S020,dung_vua,1,[U08] Sao số tiền ChatGPT trên ví dao động? Lần gần nhất bị trừ bao nhiêu?,gemini-3.1-flash-lite,1,5,353,29,1.101,,"{""gemini-3.1-flash-lite"": {""in"": 353, ""out"": 29}}"
+simulate-1@20261127-215058,S021,dung_it,1,[U03] kiem_tra,,0,3,0,0,0.001,,{}
+simulate-1@20261127-215058,S022,dung_it,1,"[U10] Hôm 21/11 bị trừ 129k GOOGLE *Lingo Fast, tháng sau có bị trừ nữa không?",gemini-3.1-flash-lite,1,6,351,32,0.901,,"{""gemini-3.1-flash-lite"": {""in"": 351, ""out"": 32}}"
+simulate-1@20261127-215058,S023,dung_nhieu,1,"[U06] Tên giao dịch GOOGLE *Kingdom Clash khó hiểu quá, mình mới để ý thì đã bị ",gemini-3.1-flash-lite,1,5,350,31,1.115,,"{""gemini-3.1-flash-lite"": {""in"": 350, ""out"": 31}}"
+simulate-1@20261127-215058,S024,dung_nhieu,1,[U07] kiem_tra,gemini-3.1-flash-lite,1,4,355,30,0.818,,"{""gemini-3.1-flash-lite"": {""in"": 355, ""out"": 30}}"
+simulate-1@20261127-215058,S025,dung_vua,1,[U03] Sao YouTube Premium của mình tháng này đắt hơn?,gemini-3.1-flash-lite,1,5,350,31,3.002,,"{""gemini-3.1-flash-lite"": {""in"": 350, ""out"": 31}}"
+simulate-1@20261127-215058,S026,dung_it,1,"[U07] PAYPAL *XKLDIGI trừ mình 120k mỗi tháng, là của app nào?",gemini-3.1-flash-lite,1,5,352,27,0.941,,"{""gemini-3.1-flash-lite"": {""in"": 352, ""out"": 27}}"
+simulate-1@20261127-215058,S027,dung_nhieu,1,[U03] Sao YouTube Premium của mình tháng này đắt hơn?,gemini-3.1-flash-lite,1,5,350,31,1.067,,"{""gemini-3.1-flash-lite"": {""in"": 350, ""out"": 31}}"
+simulate-1@20261127-215058,S028,dung_nhieu,1,"[U09] Mình đang trả tự động những gói gì, tháng sau bị trừ ngày nào?",gemini-3.1-flash-lite,1,5,354,33,0.952,,"{""gemini-3.1-flash-lite"": {""in"": 354, ""out"": 33}}"
+simulate-1@20261127-215058,S029,dung_vua,1,[U01] Sao Spotify có mấy tên khác nhau trong ví? Tuần này có cần lo nó trừ tiếp ,gemini-3.1-flash-lite,1,6,363,28,0.976,,"{""gemini-3.1-flash-lite"": {""in"": 363, ""out"": 28}}"
+simulate-1@20261127-215058,S030,dung_vua,1,[U07] kiem_tra,gemini-3.1-flash-lite,1,4,355,30,1.086,,"{""gemini-3.1-flash-lite"": {""in"": 355, ""out"": 30}}"
+simulate-1@20261127-215058,S031,dung_it,1,[U07] kiem_tra,gemini-3.1-flash-lite,1,4,355,30,0.932,,"{""gemini-3.1-flash-lite"": {""in"": 355, ""out"": 30}}"
+simulate-1@20261127-215058,S032,dung_it,1,"[U08] Mình muốn cắt bớt các khoản trừ định kỳ, nên huỷ cái nào?",gemini-3.1-flash-lite,2,6,729,65,1.971,,"{""gemini-3.1-flash-lite"": {""in"": 729, ""out"": 65}}"
+simulate-1@20261127-215058,S033,dung_vua,1,"[U04] Mình dùng thử app chỉnh ảnh rồi quên, giờ bị trừ 758.889đ. Khi nào nó trừ ",gemini-3.1-flash-lite,1,6,351,32,50.118,,"{""gemini-3.1-flash-lite"": {""in"": 351, ""out"": 32}}"
+simulate-1@20261127-215058,S034,dung_it,1,"[U04] Mình dùng thử app chỉnh ảnh rồi quên, giờ bị trừ 758.889đ. Khi nào nó trừ ",gemini-3.1-flash-lite,1,6,351,32,1.651,,"{""gemini-3.1-flash-lite"": {""in"": 351, ""out"": 32}}"
+simulate-1@20261127-215058,S035,dung_it,1,"[U07] PAYPAL *XKLDIGI trừ mình 120k mỗi tháng, là của app nào?",gemini-3.1-flash-lite,1,5,352,27,1.235,,"{""gemini-3.1-flash-lite"": {""in"": 352, ""out"": 27}}"
+simulate-1@20261127-215058,S036,dung_it,1,[U03] kiem_tra,,0,3,0,0,0.004,,{}
+simulate-1@20261127-215058,S037,dung_it,1,"[U04] Mình dùng thử app chỉnh ảnh rồi quên, giờ bị trừ 758.889đ. Khi nào nó trừ ",gemini-3.1-flash-lite,1,6,351,32,1.132,,"{""gemini-3.1-flash-lite"": {""in"": 351, ""out"": 32}}"
+simulate-1@20261127-215058,S038,dung_vua,1,"[U07] PAYPAL *XKLDIGI trừ mình 120k mỗi tháng, là của app nào?",gemini-3.1-flash-lite,1,5,352,27,1.673,,"{""gemini-3.1-flash-lite"": {""in"": 352, ""out"": 27}}"
+simulate-1@20261127-215058,S039,dung_vua,1,"[U03] Tháng nào cũng có 1 khoản Netflix bị trừ nhưng tên mỗi lần một khác, có ph",gemini-3.1-flash-lite,1,5,361,28,1.182,,"{""gemini-3.1-flash-lite"": {""in"": 361, ""out"": 28}}"
+simulate-1@20261127-215058,S040,dung_it,1,"[U03] Tháng nào cũng có 1 khoản Netflix bị trừ nhưng tên mỗi lần một khác, có ph",gemini-3.1-flash-lite,1,5,361,28,0.966,,"{""gemini-3.1-flash-lite"": {""in"": 361, ""out"": 28}}"
+simulate-1@20261127-215058,S041,dung_nhieu,1,[U03] kiem_tra,,0,3,0,0,0.001,,{}
+simulate-1@20261127-215058,S042,dung_it,1,"[U05] Ví trừ mình 2 lần 100k lúc nạp điện thoại hôm 20/11, có phải gói gì tự gia",,0,4,0,0,0.004,,{}
+simulate-1@20261127-215058,S043,dung_nhieu,1,[U09] Ví báo Google Play vừa trừ 49.000đ mà mình không biết là app nào. Có phải ,gemini-3.1-flash-lite,1,5,354,33,2.126,,"{""gemini-3.1-flash-lite"": {""in"": 354, ""out"": 33}}"
+simulate-1@20261127-215058,S044,dung_nhieu,1,[U01] kiem_tra,gemini-3.1-flash-lite,1,6,353,34,0.815,,"{""gemini-3.1-flash-lite"": {""in"": 353, ""out"": 34}}"
+simulate-1@20261127-215058,S045,dung_it,1,[U05] Hai khoản nạp điện thoại ngày 20/11 đã được ví hoàn tiền chưa?,,0,4,0,0,0.004,,{}
+simulate-1@20261127-215058,S046,dung_vua,1,"[U04] Mình dùng thử app chỉnh ảnh rồi quên, giờ bị trừ 758.889đ. Khi nào nó trừ ",gemini-3.1-flash-lite,1,6,351,32,1.017,,"{""gemini-3.1-flash-lite"": {""in"": 351, ""out"": 32}}"
+simulate-1@20261127-215058,S047,dung_vua,1,"[U08] Mình muốn cắt bớt các khoản trừ định kỳ, nên huỷ cái nào?",gemini-3.1-flash-lite,2,6,729,67,2.453,,"{""gemini-3.1-flash-lite"": {""in"": 729, ""out"": 67}}"
+simulate-1@20261127-215058,S048,dung_it,1,[U08] Sao số tiền ChatGPT trên ví dao động? Lần gần nhất bị trừ bao nhiêu?,gemini-3.1-flash-lite,1,5,353,29,2.197,,"{""gemini-3.1-flash-lite"": {""in"": 353, ""out"": 29}}"
+simulate-1@20261127-215058,S049,dung_vua,1,[U09] Ví báo Google Play vừa trừ 49.000đ mà mình không biết là app nào. Có phải ,gemini-3.1-flash-lite,1,5,354,33,0.843,,"{""gemini-3.1-flash-lite"": {""in"": 354, ""out"": 33}}"
+simulate-1@20261127-215058,S050,dung_vua,1,[U09] Ví báo Google Play vừa trừ 49.000đ mà mình không biết là app nào. Có phải ,gemini-3.1-flash-lite,1,5,354,33,0.81,,"{""gemini-3.1-flash-lite"": {""in"": 354, ""out"": 33}}"

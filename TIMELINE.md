@@ -25,7 +25,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [ ] G1 · cả nhóm · 18:00–18:20 tổng hợp: phỏng vấn + số khảo sát đến lúc đó → chốt lát cắt + vẽ sơ đồ cùng nhau
 - [x] ~~D1 · N · `spec.md` §4 sơ đồ + công cụ + chỗ chặn rủi ro + chỗ người duyệt — trước 19:00~~ ✅ 15:32 · [spec.md](spec.md)
 - [x] ~~D2 · N · `spec.md` §5 ≥6 chỗ khó + 2 câu tấn công~~ ✅ 15:32 · [spec.md](spec.md)
-- [ ] X1 · L · `codebase/` khung chạy hết luồng với AI giả (`python run.py`) — trước 19:00
+- [x] ~~X1 · L · `codebase/` khung chạy hết luồng với AI giả (`python run.py`) — trước 19:00~~ ✅ 16:16 · 6303988 (đã nối công cụ thật của Nghĩa; B11–B12 chờ X5)
 - [x] ~~S1 · H · `spec.md` §0–§2 bài toán + bảng impact 4 hướng~~ ✅ 15:20 (agent) · ⚠ các thừa số impact đang *(tự ước tính)*, thay bằng số khảo sát lúc 09:30
 - [x] ~~V3 · T · Script sinh data synthetic có seed + nhãn (`data/gen_transactions.py`)~~ ✅ 15:20 (agent làm theo lời H; T đọc lại)
 - [x] ~~V4 · T · `data/DATA_CARD.md` bản đầu~~ ✅ 15:20 (agent) · ⚠ còn trống mục "Người kiểm" — T kiểm tay 10 chuỗi

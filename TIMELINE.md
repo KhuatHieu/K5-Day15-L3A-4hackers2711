@@ -43,7 +43,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~X2 · N · `detect_recurring` (code thuần) chạy đúng trên data synthetic~~ ✅ 15:57 · [kiểm công cụ](codebase/test_tools.py)
 - [x] ~~X6 · N · Bảng hướng dẫn huỷ ≥8 dịch vụ, có link chính thức + ngày xem; `lookup_cancel_guide`~~ ✅ 15:57 · [bảng hướng dẫn](data/cancel_guides.csv)
 - [ ] X4 · L · Nối model thật (`codebase/ai.py`), `run.py eval --try` chạy được — **tối 27/11**
-- [ ] X5 · L · Chặn rủi ro Track E (số từ công cụ, không OTP, không tư vấn đầu tư, huỷ chỉ đưa hướng dẫn)
+- [x] ~~X5 · L · Chặn rủi ro Track E (số từ công cụ, không OTP, không tư vấn đầu tư, huỷ chỉ đưa hướng dẫn)~~ ✅ 17:19 · 0c9633e (B11, B12 qua với AI giả + Claude Haiku; 13 câu khác không đổi; `codebase/test_scope.py`)
 - [ ] V6 · H+T · Bộ câu thử lên 20–30 câu (≥5 `kho`, ≥2 `tu_choi`)
 - [ ] E4 · T · Chốt khảo sát 09:30, xuất `evidence/survey/results.csv` (đã xoá thông tin cá nhân)
 - [ ] E5 · H · `evidence/summary.md`: số chính + ≥5 trích dẫn + kết luận đúng / sai / phải đổi; cập nhật bảng impact

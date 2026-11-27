@@ -1,42 +1,31 @@
-# Báo cáo đánh giá — lượt 1 → một cải tiến → lượt 2
+# Báo cáo đánh giá · Lượt 1 OpenAI
 
-> Điền ở guide bước 4.1. Lượt 1 trước **CP3 10:00 Thứ Bảy 28/11**, lượt 2 trước **CP4 14:30 Thứ Bảy 28/11**, cùng bộ câu thử, cùng cách chấm. Chấm ở rubric R5.
-> Số lấy từ `python run.py score eval/run-1.csv` (và `run-2.csv`) sau khi điền cột `pass`. **Kết quả thấp ghi thật vẫn đủ điểm.**
-> Không được: sửa chuẩn "đạt", bỏ câu thử trượt, sửa `expected` cho khớp output, sửa kết quả lượt đã chạy.
+## Kết quả
 
-## 1. Kết quả
-
-| Lượt | Run ID | Đạt / tổng | % | thuong | kho | tu_choi | So với chuẩn "đạt" |
+| Run ID | Model | Đạt / tổng | Tỷ lệ | Thường | Khó | Từ chối | Lỗi API |
 |---|---|---|---|---|---|---|---|
-| 1 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
-| 2 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
+| `run-1@20261127-183503` | `gpt-6.2-sol` | **18/20** | **90%** | 7/7 | 9/11 | 2/2 | 0 |
 
-Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-1.jsonl`, `traces/run-2.jsonl`.
+**Đạt chuẩn theo điểm chấm sơ bộ.** Tỷ lệ qua vượt mốc 70%, cả hai câu từ chối đều qua và số tiền, ngày trong 20 câu đều có căn cứ trong trace. Hiếu và nhóm có thể đối chiếu điểm từng câu trong `eval/run-1.csv` với `traces/run-1.jsonl`.
 
-## 2. Lỗi lượt 1 — gom thành nhóm có tên
+Lượt này chạy lúc 18:35 ngày 27/11/2026 (giờ Việt Nam) trên mã nguồn `2950ebd` với cấu hình nối OpenAI cục bộ, bộ dữ liệu 200 giao dịch giả lập và benchmark B01–B20. B01–B15 khớp bộ CP2. Phiếu lịch gia hạn U01 đã có trong mã nguồn ở thời điểm chạy.
 
-| Nhóm lỗi | Số câu | Câu |
+Lượt Gemini `run-1@20261127-164447` vẫn lưu riêng. B04 và B05 của lượt đó gặp HTTP 503, và cột `pass` chưa được chấm.
+
+## Kiểm tra ngày gia hạn U01
+
+| Ca | Hành vi quan sát được | Kết quả |
 |---|---|---|
-| vd: bịa nguồn *(ví dụ)* | | |
-| vd: đoán khi thiếu thông tin *(ví dụ)* | | |
-| | | |
+| B01 | Nhận ra khoản BaoThuc Pro qua Google Play, ghi 179.000đ và ngày gia hạn 29/11/2026 từ phiếu giả lập `SIM-GP-RENEWAL-001`. | Qua |
+| B13 | Cảnh báo đúng khoản BaoThuc Pro 179.000đ ngày 29/11/2026. Spotify nằm ngoài cửa sổ 3 ngày. | Qua |
 
-**≥3 lỗi cụ thể:**
+## Hai câu trượt
 
-| Câu | Input | Output | Vì sao sai |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
+| Ca | Câu trả lời đã làm được gì | Vì sao trượt |
+|---|---|---|
+| B14 · Rà định kỳ U07 | Cảnh báo đúng 15.000đ ngày 30/11/2026, giữ dịch vụ là chưa rõ và chỉ người dùng kiểm gói hoặc hỏi ví. | Hướng dẫn kiểm gói thiếu URL chính thức trong bảng nguồn theo `huong_dan_huy_co_nguon`. |
+| B19 · Hỏi cách huỷ khoản EVN | Nhận diện hoá đơn điện thiết yếu và tránh chỉ cách huỷ như thuê bao. | Câu trả lời thiếu bước an toàn để đối chiếu hoá đơn hoặc cài đặt thanh toán qua EVN hay ví. |
 
-## 3. Một lần cải tiến
+## Điểm đối chiếu cho lượt 2
 
-- Nhắm vào nhóm lỗi: __ — vì sao là nhóm **đau nhất với người dùng**: __
-- Đã sửa gì (có thể vài thay đổi cùng nhắm nhóm lỗi đó): __
-- Kết quả: nhóm lỗi đó __/__ → __/__ · tổng __% → __%
-- Câu nào **tệ đi** sau khi sửa: __
-
-## 4. Còn lại
-
-- Lỗi chưa sửa + nguy hiểm thế nào: __
-- Nếu có thêm 1 tuần: __
+Hai lỗi cùng nằm ở bước hướng dẫn sau khi phân loại được khoản trừ. Với B14, chỉ đường kiểm tra qua kênh có link chính thức khi xác định được kênh. Với B19, chỉ cách đối chiếu hoá đơn hoặc thanh toán qua kênh phù hợp và giữ nguyên hành vi tránh huỷ hoá đơn thiết yếu. Khi có cải tiến, chạy lại trên cùng 20 câu, cùng model và cùng tiêu chí để đối chiếu hai lỗi này, B01/B13 và hai ca từ chối. Lượt 2 sẽ được ghi thành một lượt riêng.

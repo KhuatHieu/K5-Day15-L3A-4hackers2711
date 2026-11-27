@@ -1,16 +1,15 @@
-# Canvas — [tên nhóm] · Track [A–F]
+# Canvas — 4hackers2711 · Track E (Tài chính)
 
 > Điền ở guide bước 1.4. CP1 17:00 Thứ Sáu 27/11: nộp bản đầu, đủ 7 dòng (dòng 4 được ghi giả thuyết + nguồn sẽ kiểm).
 > CP2 19:30 Thứ Sáu 27/11: cập nhật (số bằng chứng đầu, lát cắt đã chốt) và điền dòng "Đã đổi gì so với CP1".
-> Track F: chép thêm thẻ đề của nhóm (khung trong file track F) xuống dưới bảng này.
 
 | # | Dòng | Nhóm điền |
 |---|---|---|
-| 1 | Track + lát cắt dự kiến | |
-| 2 | Người dùng chính (một vai cụ thể — không phải "học viên nói chung") | |
-| 3 | Pain một câu: ai — đang làm gì — vướng đâu — hậu quả | |
-| 4 | Bằng chứng đầu — CP1: giả thuyết + nguồn sẽ kiểm · CP2: số đầu tiên + 1 trích dẫn | |
-| 5 | **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả) | |
-| 6 | AI tự làm đến đâu + 1 dòng lý do: sai thì ai chịu gì | |
-| 7 | Phân công có tên | |
+| 1 | Track + lát cắt dự kiến | **Track E – Tài chính**, đề E4 "Subscription & Auto-debit Guard". **Bài toán:** người dùng ví điện tử bị trừ tiền định kỳ cho một gói đăng ký / dùng thử mà họ không nhận ra là khoản gì, nên phát hiện muộn, bị trừ thêm kỳ nữa và không biết huỷ ở đâu. **Lát cắt dự kiến:** cảnh báo khoản trừ định kỳ trước lần trừ tiếp theo, kèm tên dịch vụ và cách huỷ. |
+| 2 | Người dùng chính (một vai cụ thể — không phải "học viên nói chung") | Người dùng ví MoMo / ZaloPay **đã liên kết ví làm nguồn thanh toán tự động** cho dịch vụ khác (Google Play, App Store, gói nhạc / phim / AI / game), và vừa thấy một khoản trừ mà họ không nhận ra. |
+| 3 | Pain một câu: ai — đang làm gì — vướng đâu — hậu quả | Người dùng ví **xem lịch sử giao dịch** thì thấy một khoản bị trừ tự động, **không biết đó là dịch vụ nào** (tên trên lịch sử không khớp với thứ họ nhớ đã đăng ký, thường là dùng thử đăng ký từ nhiều tháng trước), nên **trách nhầm ví, mất thời gian hỏi CSKH, và bị trừ thêm kỳ nữa** trước khi tìm ra chỗ huỷ. |
+| 4 | Bằng chứng đầu — CP1: giả thuyết + nguồn sẽ kiểm · CP2: số đầu tiên + 1 trích dẫn | **Giả thuyết** (`evidence/hypothesis.md`): ≥25% người dùng ví có ≥1 lần trong 3 tháng thấy khoản trừ tự động không nhận ra, và ≥ một nửa trong số đó phát hiện sau ≥1 tuần hoặc mất ≥15 phút để tìm ra. **Đã có (đào review):** 1.000 review 1★ mới nhất của MoMo + ZaloPay trên Google Play (18/10–26/11), nhãn do AI gắn, người đang kiểm. Khoản trừ tự động chiếm **147/1000 (14,7%)**, ZaloPay 110/500 (22,0%). Trong 147 review đó, **57 (38,8%) không biết ai trừ**, 22 trách nhầm ví (`evidence/data-mining.md`). Trích dẫn: *"cái đăng ký thì lôi ở đâu ra từ ngày 19/05/2026 rồi trừ tiền của mình vào 16/11/2026 hỏi thì không đc"* (`zalopay-089`). **Nguồn sẽ kiểm lại:** khảo sát ≥20 người (`evidence/survey/questions.md`) + phỏng vấn ≥3 người (`evidence/interviews/`). |
+| 5 | **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả) | *Một người dùng ví · có khoản trừ định kỳ mới xuất hiện trong lịch sử giao dịch · AI xác định khoản đó là của dịch vụ nào (hoặc nói "không rõ") dựa trên chu kỳ và ngày trừ kế tiếp mà code đã tính · người dùng được cảnh báo trước lần trừ tiếp theo, kèm các bước huỷ có link nguồn chính thức.* |
+| 6 | AI tự làm đến đâu + 1 dòng lý do: sai thì ai chịu gì | **Code** (không phải AI) tìm khoản lặp, tính chu kỳ, số tiền, ngày trừ kế tiếp; **quy tắc** quyết định khi nào bắn cảnh báo. **AI** chỉ đoán tên dịch vụ, giải thích, và chọn hướng dẫn huỷ từ bảng có nguồn. AI **không** tự huỷ gói, không liên hệ ai, không xin OTP. Người dùng tự quyết định huỷ hay giữ. **Lý do:** đoán sai dịch vụ thì người dùng có thể huỷ nhầm gói hoặc bỏ qua một khoản thật ra là lừa đảo. Vì vậy khi không chắc, AI phải nói "không rõ", kèm bước kiểm (Google Play / App Store → Gói thuê bao) và gợi ý báo ví nếu nghi bị lừa. |
+| 7 | Phân công có tên | **Khuất Duy Hiếu** (đội trưởng): bằng chứng, khảo sát, bảng impact, bộ câu thử, chuẩn "đạt", nộp checkpoint. **Đoàn Gia Long:** bản chạy thử (`codebase/`), nối model thật, chặn rủi ro, kiểm nhãn AI. **Nguyễn Đắc Tuấn Nghĩa:** `spec.md` §3–§5 + sơ đồ, công cụ phát hiện chu kỳ, bảng hướng dẫn huỷ có nguồn. **Trương Văn Thông:** data giao dịch synthetic + DATA_CARD, giữ khảo sát, mô phỏng chi phí. Chi tiết: `TASKS.md`, `TIMELINE.md`. |
 | — | *(CP2)* Đã đổi gì so với CP1 | |

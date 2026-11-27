@@ -6,12 +6,12 @@
 
 - Tên nhóm: 4hackers2711
 - Lớp: L3A
-- Track: ____
+- Track: E
 - Link repo: https://github.com/KhuatHieu/K5-Day15-L3A-4hackers2711
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | ____ | ____ | Đội trưởng | ____ |
+| 1 | Khuất Duy Hiếu | 2A202603560 | Đội trưởng | ____ |
 | 2 | ____ | ____ | Thành viên | ____ |
 | 3 | ____ | ____ | Thành viên | ____ |
 

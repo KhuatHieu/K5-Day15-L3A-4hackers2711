@@ -1,0 +1,2 @@
+user_id,tx_id,observed_on,next_date,cycle_unit,cycle_days,channel,source_ref
+U01,T00010,2026-11-27,2026-11-29,month,30,google_play,SIM-GP-RENEWAL-001

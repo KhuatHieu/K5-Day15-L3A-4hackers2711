@@ -3,6 +3,7 @@
 Chạy:  python data/gen_transactions.py
   → data/transactions.csv       200 giao dịch: 150 tình huống + 50 nhiễu, 11 người dùng giả
   → data/recurring_truth.csv    ĐÁP ÁN: các chuỗi trừ định kỳ / ca đặc biệt cài vào mỗi người dùng
+  → data/renewal_schedules.csv lịch gia hạn giả lập có nguồn, liên kết theo ID vừa sinh
 
 Seed cố định (SEED) → chạy lại ra đúng hai file cũ. KHÔNG có giao dịch thật của ai.
 "Hôm nay" trong mô phỏng: TODAY = 2026-11-27. Mô tả: data/DATA_CARD.md.
@@ -25,12 +26,21 @@ import argparse
 import csv
 import os
 import random
+import sys
 from datetime import date, datetime, timedelta
 
 SEED = 2711
 TODAY = date(2026, 11, 27)
 START = date(2026, 5, 28)
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+# Phiếu của kênh thanh toán GIẢ LẬP, tách riêng với đáp án dùng chấm.
+# Không suy ra lịch này từ một lần trả phí; không lấy từ tài khoản người dùng thật.
+RENEWAL_SCHEDULES = [
+    {"series_id": "U01-S1", "user_id": "U01", "observed_on": "2026-11-27",
+     "next_date": "2026-11-29", "cycle_unit": "month", "cycle_days": 30,
+     "channel": "google_play", "source_ref": "SIM-GP-RENEWAL-001"},
+]
 
 # Nơi bán DỰNG cho chi tiêu hằng ngày: (nhóm chi, [các kiểu mô tả], (min, max) nghìn đồng)
 NOISE = [
@@ -158,6 +168,8 @@ SCENARIOS = {
 
 # Chỉ lấy ý từ nội dung review; không tái dựng lịch sử tài khoản của người viết review.
 def main(argv=None):
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", default=HERE, help="Thư mục nhận dữ liệu synthetic")
     parser.add_argument("--max-rows", type=int, default=200, help="Số dòng giao dịch, không tính tiêu đề (mặc định 200)")
@@ -237,8 +249,25 @@ def main(argv=None):
         w = csv.DictWriter(f, fieldnames=list(truth[0].keys()), lineterminator="\n")
         w.writeheader()
         w.writerows(truth)
+    schedule_out = os.path.join(output_dir, "renewal_schedules.csv")
+    # Dùng danh sách giao dịch vừa sinh, không gắn cứng tx_id của bản CSV trước.
+    transaction_ids = {id(row): "T%05d" % index for index, row in enumerate(tx, 1)}
+    schedules = []
+    for schedule in RENEWAL_SCHEDULES:
+        paid = [row for row in tx if row[6] == schedule["series_id"]
+                and row[0] == schedule["user_id"] and row[3] > 0]
+        if not paid:
+            raise ValueError("Phiếu gia hạn thiếu giao dịch trả phí: " + schedule["source_ref"])
+        schedules.append({"user_id": schedule["user_id"], "tx_id": transaction_ids[id(paid[-1])],
+                          **{key: value for key, value in schedule.items()
+                             if key not in {"series_id", "user_id"}}})
+    with open(schedule_out, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["user_id", "tx_id", "observed_on", "next_date",
+                                        "cycle_unit", "cycle_days", "channel", "source_ref"], lineterminator="\n")
+        w.writeheader()
+        w.writerows(schedules)
     print("%d giao dịch · %d người dùng · %d chuỗi đáp án · seed %d" % (len(tx), len(SCENARIOS), len(truth), SEED))
-    print("→ %s · %s" % (tx_out, truth_out))
+    print("→ %s · %s · %s" % (tx_out, truth_out, schedule_out))
 
 
 if __name__ == "__main__":

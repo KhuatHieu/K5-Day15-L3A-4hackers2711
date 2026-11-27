@@ -11,6 +11,7 @@ Luồng (mỗi bước ứng với một ô trong sơ đồ §4):
     2. check_scope          Python   chặn yêu cầu ngoài phạm vi — KHUNG, X5 điền luật
     3. get_transactions     công cụ  (agent.py) chỉ đọc lịch sử của đúng mã ở đầu câu
     4. detect_recurring     công cụ  (tools.py · Nghĩa) chu kỳ, ngày dự kiến, số tiền — code, không AI
+       lookup_renewal_schedule       bổ sung lịch giả lập có nguồn khi lịch sử trả phí chưa đủ
     5. select_series        Python   chọn khoản theo câu hỏi, hoặc theo ngưỡng 3 ngày khi kiem_tra
     6. identify_service     model    CHỈ trả JSON {dich_vu, kenh, loai}; model không thấy số tiền / ngày
     7. validate             Python   kiểm JSON; sai dạng / kênh lạ → "không rõ"
@@ -26,7 +27,7 @@ from datetime import date
 from pathlib import Path
 
 from ai import call_model
-from tools import detect_recurring, lookup_cancel_guide
+from tools import detect_recurring, lookup_cancel_guide, lookup_renewal_schedule
 from tracing import note, tool
 
 AS_OF = "2026-11-27"   # "hôm nay" của dữ liệu mô phỏng (data/DATA_CARD.md)
@@ -87,6 +88,11 @@ def answer(text: str) -> dict:
         return {"output": "Mình không tìm thấy lịch sử giao dịch của %s." % user_id}
 
     series = detect_recurring(txs, AS_OF)
+    for candidate in series:
+        if candidate["evidence_status"] == "insufficient_history" and candidate["amount_vnd"] > 0:
+            schedule = lookup_renewal_schedule(user_id, candidate["tx_ids"][-1], AS_OF)
+            if schedule:
+                candidate.update(schedule)
     picked = select_series(series, text, mode)
     if not picked:
         note("dừng: không có khoản cần giải thích (%s)" % mode)
@@ -102,6 +108,8 @@ def answer(text: str) -> dict:
             parts.append(compose_duplicate(s))
             continue
         info = validate(identify_service(s))
+        if s.get("renewal_channel") in CHANNELS:
+            info["kenh"] = s["renewal_channel"]
         essential = s.get("essential_bill") or info["loai"] == "hoa_don_thiet_yeu"
         guide = None
         if info["kenh"] != "khong_ro" and not essential:
@@ -131,7 +139,7 @@ def check_scope(text: str):
 
 def select_series(series: list, text: str, mode: str) -> list:
     if mode == "kiem_tra":
-        return [s for s in series if s["evidence_status"] == "recurring" and s.get("next_date")
+        return [s for s in series if s.get("next_date")
                 and 0 <= days_until(s["next_date"]) <= WARN_DAYS]
     asked = set(re.findall(r"[a-z]{4,}", plain(text))) - STOP_WORDS
     scored = []
@@ -183,12 +191,15 @@ def compose(s: dict, info: dict, guide, essential: bool, by_id: dict) -> str:
     change = amount_change(s, by_id)
     if change:
         lines.append("- " + change)
-    if s["evidence_status"] == "recurring" and s.get("next_date"):
+    if s.get("next_date"):
         cycle = "hằng tháng" if s.get("cycle_unit") == "month" else "khoảng %d ngày một lần" % s["cycle_days"]
         d = days_until(s["next_date"])
         lines.append("- Trừ %s, lần tiếp theo dự kiến **%s**%s." % (
             cycle, fmt_date(s["next_date"]), " — ⚠ còn %d ngày" % d if 0 <= d <= WARN_DAYS else ""))
-        lines.append("  (Ngày dự kiến tính từ lịch sử giao dịch, không phải lịch thu tiền bên bán xác nhận.)")
+        if s.get("renewal_source"):
+            lines.append("  Nguồn ngày gia hạn là lịch giả lập %s." % s["renewal_source"])
+        else:
+            lines.append("  (Ngày dự kiến tính từ lịch sử giao dịch, không phải lịch thu tiền bên bán xác nhận.)")
     else:
         lines.append("- Lịch sử chưa đủ để khẳng định đây là khoản định kỳ hay đoán ngày trừ tiếp.")
     if essential:

@@ -15,7 +15,7 @@ python data/gen_transactions.py
 python -m unittest discover -s codebase -v
 ```
 
-Lệnh đầu tạo lại hai CSV synthetic. Chỉ cần thư viện chuẩn Python, không cần API hay file review trên máy để chạy. Nội dung review đã được đối chiếu khi dựng kịch bản. `--output-dir` cho phép sinh thử vào thư mục riêng. `--max-rows` mặc định 200, không tính dòng tiêu đề; nhỏ hơn 150 sẽ báo lỗi vì không được cắt mất giao dịch tình huống.
+Lệnh đầu tạo đồng bộ ba CSV: `transactions.csv`, `recurring_truth.csv`, `renewal_schedules.csv`. Chỉ cần thư viện chuẩn Python, không cần API hay file review trên máy để chạy. Nội dung review đã được đối chiếu khi dựng kịch bản. `--output-dir` cho phép sinh thử vào thư mục riêng. `--max-rows` mặc định 200, không tính dòng tiêu đề; nhỏ hơn 150 sẽ báo lỗi vì không được cắt mất giao dịch tình huống.
 
 Seed sinh giao dịch là **2711**. Nhiễu được sinh theo lịch rồi chọn lại bằng seed **2712**, giữ tối thiểu hai dòng nhiễu cho mỗi người. Cùng cấu hình và script sinh lại giống từng byte; đã đối chiếu hai lần chạy trong thư mục tạm.
 
@@ -53,13 +53,19 @@ Các cột gồm hồ sơ/persona, mã chuỗi, ví dụ mô tả, dịch vụ, 
 
 `cycle_days = 30` của lịch tháng là giá trị danh nghĩa; ngày kế tiếp theo lịch tháng, không luôn bằng ngày cuối cộng 30. U01-S1 và U04-S1 chỉ có một lần trả phí: `next_date` trong đáp án là **lịch cài trong kịch bản**, không thể suy ra từ giao dịch. Công cụ phải báo thiếu căn cứ và không đưa dự báo cho hai chuỗi này. Các ca trừ trùng hoặc thiếu lịch sử khác để trống ngày kế tiếp.
 
+## Dataset 4 · Lịch gia hạn từ kênh thanh toán giả lập
+
+[`data/renewal_schedules.csv`](renewal_schedules.csv) mô phỏng thông tin mà người dùng thấy trong mục gói thuê bao của bên thu tiền. Phiếu `SIM-GP-RENEWAL-001` là dữ liệu nhóm dựng cho BaoThuc Pro, quan sát tại ngày mô phỏng 27/11/2026. Phiếu ghi kỳ hằng tháng và ngày gia hạn 29/11/2026. Phiếu khớp với người dùng giả lập U01 và giao dịch trả phí `T00010` trong bộ 200 dòng. Dữ liệu này không đến từ tài khoản Google Play thật.
+
+`lookup_renewal_schedule` chỉ trả phiếu khớp cả hai mã trong khoảng từ ngày quan sát đến ngày gia hạn. Workflow dùng phiếu khi lịch sử trả phí chưa đủ. Bộ chấm vẫn dùng `recurring_truth.csv` riêng.
+
 ## Tương thích kỹ thuật của nhóm
 
 Giữ nguyên schema hai CSV, ngày mô phỏng và các giao dịch tình huống U01–U10. Bổ sung U11 được nhận bởi bộ đọc theo `user_id`. Sau lấy mẫu, `tx_id` được đánh lại và `tx_ids` cập nhật tương ứng; không dùng ID của v1 để đối chiếu v2.
 
 Công cụ cần tối thiểu ba lần trả phí để xác nhận chu kỳ, tách trừ trùng trong hai phút. Giữ đủ dữ liệu cho các ca đổi giá, nhiều kiểu tên, ví trả sau và thiếu căn cứ. Không thêm nhãn dịch vụ vào CSV app đọc. File đáp án không được đưa vào luồng trả lời.
 
-B01/B13 vốn kỳ vọng dự báo ngày 29/11 từ một lần trả phí, chưa khớp yêu cầu đủ căn cứ của công cụ; V3/V4 giữ nguyên ca thiếu căn cứ, không thêm giao dịch để làm câu thử qua và không sửa `expected`. Nhóm cần xử lý điểm này trong phần tích hợp/đánh giá theo quy định đã chốt.
+B01/B13 lấy ngày 29/11 từ phiếu gia hạn giả lập có nguồn `SIM-GP-RENEWAL-001`, không suy ra từ một lần trả phí hay đọc file đáp án. Nếu không có phiếu còn hiệu lực thì vẫn báo chưa đủ căn cứ. Giữ nguyên `expected` và lịch sử giao dịch. Script tự cập nhật `tx_id` trong phiếu khi số dòng nhiễu thay đổi; kiểm thử đối chiếu liên kết ở các mức 150, 200 và 240 dòng.
 
 ## Dataset 3 — cancel_guides.csv (phần X6 của Nghĩa)
 
@@ -67,7 +73,7 @@ Giữ nguyên bảng 9 kênh hướng dẫn hủy hiện có. Mỗi dòng có k�
 
 ## Kiểm tra và người duyệt
 
-Đã kiểm tự động: tái tạo hai lần giống dữ liệu hiện tại, ID duy nhất, cửa sổ ngày, số tiền, nguồn tiền, liên kết đáp án và số dòng 150 + 50. Năm kiểm thử công cụ hiện có đã qua với 17 chuỗi v2. Dùng lại bộ kiểm của đội bằng lệnh `python -m unittest discover -s codebase -v`.
+Đã kiểm tự động: tái tạo hai lần giống dữ liệu hiện tại, ID duy nhất, cửa sổ ngày, số tiền, nguồn tiền, liên kết đáp án và số dòng 150 + 50. Dùng bộ kiểm của đội bằng lệnh `python -m unittest discover -s codebase -v`, gồm kiểm công cụ trên 17 chuỗi và kiểm hồi quy lịch gia hạn.
 
 **Người kiểm:** Trương Văn Thông — đã kiểm tra và xác nhận bộ dữ liệu giả lập cùng tài liệu V3/V4 ngày 27/11/2026.
 

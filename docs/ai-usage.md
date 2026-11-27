@@ -11,7 +11,7 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 | Đào data (viết script đếm, gợi ý nhãn) | | | Kiểm tay __ dòng, khớp __ | |
 | Rà câu hỏi phỏng vấn / khảo sát | | Chỉ rà câu dẫn dắt | | |
 | Viết câu thử (benchmark) | | | Mỗi câu thử có `source`; câu thử AI viết được ghi rõ | |
-| Sinh data `synthetic` (V3/V4) | Codex | Đọc nội dung CSV review người dùng cung cấp, không dùng cột nhãn review; cập nhật script và DATA_CARD, ghi nguồn tình huống trong DATA_CARD. Tạo 200 giao dịch: 150 tình huống + 50 nhiễu theo yêu cầu. | Seed 2711, lấy mẫu nhiễu seed 2712; kiểm tự động tái tạo và liên kết 17 chuỗi; 5 kiểm thử công cụ qua. Trương Văn Thông đã kiểm tra và xác nhận bộ dữ liệu cùng tài liệu V3/V4 ngày 27/11/2026. | Trương Văn Thông |
+| Sinh data `synthetic` (V3/V4) | Codex | Đọc nội dung CSV review người dùng cung cấp, không dùng cột nhãn review; cập nhật script và DATA_CARD, ghi nguồn tình huống trong DATA_CARD. Tạo 200 giao dịch: 150 tình huống + 50 nhiễu theo yêu cầu. | Seed 2711, lấy mẫu nhiễu seed 2712; kiểm tự động tái tạo và liên kết 17 chuỗi; 11 kiểm thử công cụ và tích hợp qua; script sinh đồng bộ giao dịch, đáp án và lịch gia hạn. Trương Văn Thông đã kiểm tra và xác nhận bộ dữ liệu cùng tài liệu V3/V4 ngày 27/11/2026. | Trương Văn Thông |
 | Chấm cột `pass` bằng LLM (nếu có) | | | Kiểm tra thủ công __ câu thử, khớp __/__ | |
 | Slide, văn bản | | | | |
 

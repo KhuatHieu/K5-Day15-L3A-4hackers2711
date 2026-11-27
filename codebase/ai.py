@@ -52,7 +52,9 @@ def call_model(system: str, user: str) -> dict:
         last = (user.strip().splitlines() or [""])[-1]
         return {"text": "[câu trả lời giả — chưa nối model] " + last[:60], "model": "fake", "tokens_in": 0, "tokens_out": 0}
 
-    if MODEL_PROVIDER == "gemini":
+    if MODEL_PROVIDER == "anthropic":
+        r = call_claude(system, user)
+    elif MODEL_PROVIDER == "gemini":
         r = call_gemini(system, user)
     else:
         raise NotImplementedError(
@@ -63,6 +65,25 @@ def call_model(system: str, user: str) -> dict:
 
 SHOW_RAW = False   # đổi thành True để in nguyên phản hồi của API khi cần tìm tên trường
 URL_GEMINI = "https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent"
+URL_CLAUDE = "https://api.anthropic.com/v1/messages"
+
+
+def call_claude(system, user):
+    """Gọi Claude Messages API đúng MỘT lần (urllib, theo docs/connect-model.md mục 2.2).
+    Trả về {"text", "tokens_in", "tokens_out"}. Token lấy từ usage: input_tokens / output_tokens
+    (output_tokens của Claude đã gồm token suy nghĩ — Haiku 5.5 bật suy nghĩ sẵn).
+    effort "low": việc của model chỉ là trả JSON nhận diện dịch vụ, không cần suy nghĩ sâu → ít token hơn."""
+    body = {"model": MODEL_NAME, "max_tokens": 2048, "output_config": {"effort": "low"},
+            "messages": [{"role": "user", "content": user}]}
+    if system:
+        body["system"] = system
+    data = post_json(URL_CLAUDE, {"x-api-key": API_KEY, "anthropic-version": "2023-06-01"}, body)
+    # phản hồi có thể có khối "thinking" trước khối "text" → chỉ lấy khối text
+    text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
+    if not text:
+        raise RuntimeError("Claude không trả chữ (stop_reason=%s)" % data.get("stop_reason"))
+    u = data["usage"]
+    return {"text": text, "tokens_in": int(u["input_tokens"]), "tokens_out": int(u["output_tokens"])}
 
 
 def post_json(url, headers, body, timeout=60):

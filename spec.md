@@ -74,7 +74,9 @@ flowchart TD
     B -->|Hợp lệ| C["get_transactions: lọc lịch sử người dùng"]
     T["transactions.csv"] --> C
     C --> D["detect_recurring: chu kỳ, ngày dự kiến, số tiền đã trừ"]
-    D --> P["Python: chọn khoản theo câu hỏi hoặc theo ngưỡng 3 ngày"]
+    D -->|Có dự báo hoặc không cần tra lịch| P["Python: chọn khoản theo câu hỏi hoặc theo ngưỡng 3 ngày"]
+    D -->|Lịch sử trả phí chưa đủ| S["lookup_renewal_schedule: tra phiếu gia hạn giả lập"]
+    S --> P
     P -->|Có khoản cần giải thích| E["Model: gợi ý dịch vụ hoặc trả lời không rõ"]
     P -->|Không có khoản sắp trừ khi kiểm định kỳ| N["Báo không có cảnh báo"]
     E --> F["Python: kiểm kết quả và chọn bước tiếp"]
@@ -87,22 +89,23 @@ flowchart TD
 ```
 
 - **Hình dạng.** Workflow cố định trong `codebase/agent.py`. Thứ tự đọc lịch sử, tính chu kỳ, nhận diện và tra hướng dẫn đã biết trước nên `answer(text)` điều phối các bước đó. Một agent tự chọn công cụ hoặc nhiều agent sẽ làm đường kiểm soát khó đoán hơn trong khi luồng chỉ cần một quyết định của model.
-- **Nguồn và hợp đồng dự kiến.** Các hàm dưới đây nằm trong `codebase/tools.py` và dùng `@tool` để ghi trace. Bộ chấm dùng `data/recurring_truth.csv` để đối chiếu. Workflow chỉ lấy lịch sử từ `data/transactions.csv`.
+- **Nguồn và hợp đồng.** Các công cụ dùng `@tool` để ghi trace. Bộ chấm dùng `data/recurring_truth.csv` để đối chiếu. Workflow lấy lịch sử từ `data/transactions.csv` và có thể bổ sung lịch gia hạn từ `data/renewal_schedules.csv`.
 
 | Công cụ | Input | Output | Tác động ra ngoài? |
 |---|---|---|---|
 | `get_transactions` | `user_id` giả lập | Các dòng lịch sử của đúng người dùng, gồm mã giao dịch, thời điểm, mô tả, số tiền VND, nguồn tiền và trạng thái. | Không. Đọc CSV cục bộ. |
 | `detect_recurring` | Lịch sử một người dùng và `as_of_date` của phiên mô phỏng | Các cụm ứng viên kèm mã giao dịch làm căn cứ, số tiền đã trừ gần nhất, nguồn tiền, trạng thái căn cứ, chu kỳ và ngày kế tiếp dự kiến nếu suy ra được. | Không. Tính bằng Python. |
+| `lookup_renewal_schedule` | Mã người dùng, mã giao dịch trả phí và ngày mô phỏng | Ngày gia hạn, chu kỳ, kênh thanh toán và mã phiếu nguồn giả lập nếu có phiếu còn hiệu lực. | Không. Đọc CSV cục bộ. |
 | `lookup_cancel_guide` | Mã kênh thanh toán đã được kiểm tra | Các bước đã đối chiếu, URL trợ giúp chính thức và ngày xem. Trả rỗng nếu thiếu mục có nguồn. | Không. Đọc bảng cục bộ. |
 
 - **Quy tắc cảnh báo.** Python chỉ gắn cảnh báo cho khoản có ngày trừ dự kiến còn tối đa 3 ngày theo ngày chạy giả lập. Với `kiem_tra`, chỉ chuyển các khoản đủ điều kiện sang bước nhận diện. Với câu hỏi, vẫn giải thích khoản được hỏi khi ngoài cửa sổ cảnh báo hoặc thiếu căn cứ dự báo.
 - **Quyết định của AI.** Model đọc mô tả và các giao dịch làm căn cứ để trả về tên dịch vụ gợi ý, kênh thanh toán nếu có căn cứ, hoặc “không rõ”. Python kiểm phản hồi của model, tra hướng dẫn theo đúng kênh trong bảng và dựng câu trả lời từ các giá trị do công cụ trả về. Số tiền hiển thị là số đã trừ gần nhất. Ngày dự kiến không phải lịch thu tiền đã được bên bán xác nhận.
 - **Chặn rủi ro và quyền quyết định.** Từ chối yêu cầu ngoài phạm vi trước khi đọc lịch sử. Nếu người dùng đã nêu nền tảng, có thể kèm link trợ giúp chính thức đã kiểm để họ tự thao tác. Mô tả giao dịch là dữ liệu đầu vào. Python chỉ lấy số và ngày từ công cụ, chỉ lấy URL từ bảng đã kiểm và không đưa hướng dẫn hủy cho hóa đơn thiết yếu. Nếu biết nền tảng nhưng chưa rõ tên gói, chỉ đường đến danh sách gói để người dùng đối chiếu. Người dùng tự xác nhận đúng gói trong tài khoản và tự thực hiện mọi thao tác.
-- **Phần mô phỏng tại CP2.** Lịch sử giao dịch và thời điểm kiểm tra là giả lập. `main` đang có `search_example` và model mặc định `fake`. Sơ đồ mô tả đích tích hợp, với dữ liệu công cụ giả được ghi rõ nếu dùng để chạy thử CP2. Cảnh báo chỉ hiện trong đầu ra demo. Ca `U01-S1` có một lần dùng thử 0đ và một lần trả phí, nên nếu demo hiện ngày gia hạn từ kịch bản thì phải đánh dấu đó là dữ liệu mô phỏng. Từ hai dòng lịch sử này, công cụ phát hiện khi chạy trên CSV phải báo chưa đủ căn cứ về chu kỳ trả phí. `B01` và `B13` đang mong đợi ngày 29/11/2026. Để giữ ngày này trong kết quả CP3, cần một nguồn lịch gia hạn giả lập được ghi rõ hoặc thêm lịch sử trả phí phù hợp vào dữ liệu đầu vào. Hiếu và Thông đối chiếu điểm này trước khi chạy đánh giá.
+- **Phần mô phỏng.** Lịch sử giao dịch, ngày kiểm tra và lịch gia hạn là dữ liệu giả lập. Cảnh báo chỉ hiện trong demo. Lịch sử `U01-S1` có một lần dùng thử 0đ và một lần trả phí, nên riêng `detect_recurring` vẫn báo thiếu căn cứ. Workflow lấy ngày từ phiếu `SIM-GP-RENEWAL-001` nếu khớp người dùng và giao dịch trả phí. Câu trả lời ghi mã phiếu và nêu rõ đây là lịch giả lập.
 
 | Nguyên tắc | Chỗ áp dụng |
 |---|---|
-| G10. Thu hẹp phạm vi khi không chắc | Thiếu lịch sử thì bỏ ngày dự báo. Không rõ bên bán thì giữ “không rõ” và đưa bước kiểm tra thay cho hướng dẫn hủy một gói cụ thể. |
+| G10. Thu hẹp phạm vi khi không chắc | Nếu lịch sử chưa đủ và không có phiếu gia hạn khớp, bỏ ngày dự báo. Không rõ bên bán thì giữ “không rõ” và đưa bước kiểm tra thay cho hướng dẫn hủy một gói cụ thể. |
 | Giữ nguồn kiểm được cho từng kết quả | Giữ mã giao dịch cho mỗi cụm. Lấy chu kỳ và ngày từ công cụ Python, lấy bước hủy và URL từ bảng có nguồn. |
 | Người dùng giữ quyền quyết định | Bản chạy thử gợi ý và chỉ đường. Người dùng đối chiếu đúng gói trước khi tự thao tác trong tài khoản. |
 
@@ -152,7 +155,7 @@ Các cột dưới đây tương ứng với `id`, `type`, `source`, `input` và
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-|  |  |  |
+| 27/11 16:54 | Dùng lịch gia hạn giả lập có mã phiếu khi thiếu lịch sử trả phí. | B01, B13 của `run-1@20261127-164447` thiếu ngày gia hạn U01. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

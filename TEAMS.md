@@ -11,10 +11,10 @@
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | Khuất Duy Hiếu | 2A202603383 | Đội trưởng | ____ |
-| 2 | Đoàn Gia Long | 2A202603443 | Thành viên | ____ |
-| 3 | Nguyễn Đắc Tuấn Nghĩa | 2A202603442 | Thành viên | ____ |
-| 4 | Trương Văn Thông | 2A202603560 | Thành viên | ____ |
+| 1 | Khuất Duy Hiếu | 2A202603383 | Đội trưởng | Bằng chứng pain (đào review, khảo sát), bảng impact, bộ câu thử + chuẩn đạt, nộp checkpoint |
+| 2 | Đoàn Gia Long | 2A202603443 | Thành viên | Bản chạy thử (codebase/): luồng agent, nối model thật, chặn rủi ro |
+| 3 | Nguyễn Đắc Tuấn Nghĩa | 2A202603442 | Thành viên | Thiết kế giải pháp (spec.md §3–§5, sơ đồ), công cụ phát hiện chu kỳ, bảng hướng dẫn huỷ |
+| 4 | Trương Văn Thông | 2A202603560 | Thành viên | Dữ liệu giả lập + DATA_CARD, khảo sát, mô phỏng chi phí |
 
 **Quy tắc điền**
 - **Lớp:** `L3A` hoặc `L3B`. **Track:** một chữ `A` (EdTech), `B` (Y tế), `C` (Du lịch), `D` (Thương mại điện tử), `E` (Tài chính) hoặc `F` (Làn khác). **Link repo:** link GitHub công khai của nhóm.

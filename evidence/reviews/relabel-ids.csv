@@ -1,0 +1,550 @@
+﻿id,nhan_cu,co_cu,ly_do
+momo-001,giao_dich_loi,,có thể thiếu cờ khong_biet_ai_tru · xét cờ mới quen_huy
+momo-002,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-006,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có thể thiếu cờ khong_biet_ai_tru
+momo-008,goi_dang_ky_an,khong_biet_ai_tru,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-009,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-012,lua_dao_chan_gd,khong_biet_ai_tru,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-015,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-019,goi_dang_ky_an,do_loi_nham_vi,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-021,giao_dich_loi,neu_so_tien,có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · xét cờ mới quen_huy
+momo-023,lua_dao_chan_gd,da_lien_he_khong_xong,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-024,giao_dich_loi,da_lien_he_khong_xong,xét cờ mới quen_huy
+momo-028,giao_dich_loi,,xét cờ mới quen_huy
+momo-029,giao_dich_loi,,xét cờ mới quen_huy
+momo-031,giao_dich_loi,,xét cờ mới quen_huy
+momo-033,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-034,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-035,giao_dich_loi,,xét cờ mới quen_huy
+momo-037,giao_dich_loi,,xét cờ mới quen_huy
+momo-041,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+momo-043,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-044,giao_dich_loi,,xét cờ mới quen_huy
+momo-046,giao_dich_loi,da_lien_he_khong_xong,xét cờ mới quen_huy
+momo-047,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-048,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-049,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-050,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-051,ky_thuat_ekyc,neu_so_tien,xét cờ mới quen_huy
+momo-053,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · xét cờ mới quen_huy
+momo-055,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-057,lua_dao_chan_gd,da_lien_he_khong_xong,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-058,giao_dich_loi,,xét cờ mới quen_huy
+momo-059,giao_dich_loi,,xét cờ mới quen_huy
+momo-060,giao_dich_loi,,xét cờ mới quen_huy
+momo-062,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · xét cờ mới quen_huy
+momo-067,giao_dich_loi,da_lien_he_khong_xong,có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · xét cờ mới quen_huy
+momo-070,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-071,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-072,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-074,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · xét cờ mới quen_huy
+momo-077,giao_dich_loi,,xét cờ mới quen_huy
+momo-078,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-079,goi_dang_ky_an,da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có thể thiếu cờ khong_biet_ai_tru
+momo-084,giao_dich_loi,khong_biet_ai_tru,xét cờ mới quen_huy
+momo-086,giao_dich_loi,,có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · xét cờ mới quen_huy
+momo-087,giao_dich_loi,,xét cờ mới quen_huy
+momo-092,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-095,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-097,giao_dich_loi,,có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · xét cờ mới quen_huy
+momo-098,giao_dich_loi,,xét cờ mới quen_huy
+momo-101,giao_dich_loi,,xét cờ mới quen_huy
+momo-102,giao_dich_loi,,xét cờ mới quen_huy
+momo-103,giao_dich_loi,da_lien_he_khong_xong,xét cờ mới quen_huy
+momo-104,ky_thuat_ekyc,da_lien_he_khong_xong,xét cờ mới quen_huy
+momo-105,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-109,giao_dich_loi,,xét cờ mới quen_huy
+momo-110,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-112,lua_dao_chan_gd,neu_so_tien,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-113,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-114,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-116,giao_dich_loi,,có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1
+momo-118,tra_sau_tin_dung,da_lien_he_khong_xong,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-119,giao_dich_loi,,xét cờ mới quen_huy
+momo-120,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-121,giao_dich_loi,,xét cờ mới quen_huy
+momo-122,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-128,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-129,giao_dich_loi,da_lien_he_khong_xong;neu_so_tien,xét cờ mới quen_huy
+momo-130,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · xét cờ mới quen_huy
+momo-131,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-132,lua_dao_chan_gd,da_lien_he_khong_xong,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-133,lua_dao_chan_gd,khong_biet_ai_tru;neu_so_tien,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-135,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · xét cờ mới quen_huy
+momo-136,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-137,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-143,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-145,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-147,goi_dang_ky_an,do_loi_nham_vi;khong_biet_ai_tru;neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+momo-148,cashback_khuyen_mai,neu_so_tien,xét cờ mới quen_huy
+momo-150,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-154,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-156,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-158,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-160,giao_dich_loi,,xét cờ mới quen_huy
+momo-162,goi_dang_ky_an,do_loi_nham_vi,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-163,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-166,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-167,goi_dang_ky_an,do_loi_nham_vi;bi_tru_nhieu_ky;neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-169,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-170,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · xét cờ mới quen_huy
+momo-171,ky_thuat_ekyc,da_lien_he_khong_xong,xét cờ mới quen_huy
+momo-172,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-175,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-176,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-179,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-180,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có thể thiếu cờ khong_biet_ai_tru
+momo-182,giao_dich_loi,,xét cờ mới quen_huy
+momo-184,lua_dao_chan_gd,da_lien_he_khong_xong;neu_so_tien,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-186,giao_dich_loi,da_lien_he_khong_xong,có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1
+momo-188,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-191,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-196,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · xét cờ mới quen_huy
+momo-197,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-198,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-199,goi_dang_ky_an,do_loi_nham_vi,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-201,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-202,lua_dao_chan_gd,da_lien_he_khong_xong,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · xét cờ mới quen_huy
+momo-203,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-205,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-206,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-208,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-211,lua_dao_chan_gd,neu_so_tien,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-212,giao_dich_loi,,xét cờ mới quen_huy
+momo-213,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-214,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-216,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-218,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-220,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-222,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-223,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-224,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-225,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-228,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-235,giao_dich_loi,da_lien_he_khong_xong,xét cờ mới quen_huy
+momo-237,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-239,giao_dich_loi,da_lien_he_khong_xong;neu_so_tien,xét cờ mới quen_huy
+momo-240,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-241,giao_dich_loi,da_lien_he_khong_xong,xét cờ mới quen_huy
+momo-242,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-244,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH) · xét cờ mới quen_huy
+momo-246,giao_dich_loi,,có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-251,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-252,giao_dich_loi,,xét cờ mới quen_huy
+momo-256,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-257,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-260,giao_dich_loi,,có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-262,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-264,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-266,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-270,giao_dich_loi,,xét cờ mới quen_huy
+momo-272,giao_dich_loi,da_lien_he_khong_xong,xét cờ mới quen_huy
+momo-276,giao_dich_loi,,xét cờ mới quen_huy
+momo-277,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-283,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-284,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-285,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-286,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-291,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-296,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-297,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-298,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-299,goi_dang_ky_an,do_loi_nham_vi;neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có thể thiếu cờ khong_biet_ai_tru
+momo-303,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH) · có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · xét cờ mới quen_huy
+momo-304,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-306,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-307,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-310,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-313,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-314,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+momo-315,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-316,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-317,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH) · xét cờ mới quen_huy
+momo-318,giao_dich_loi,,xét cờ mới quen_huy
+momo-319,phi_khong_ro,,xét cờ mới quen_huy
+momo-320,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-322,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-323,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-328,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-329,tra_sau_tin_dung,da_lien_he_khong_xong;neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-330,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-334,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-335,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-338,lua_dao_chan_gd,khong_biet_ai_tru,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-339,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-340,goi_dang_ky_an,do_loi_nham_vi;da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-343,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-344,giao_dich_loi,,xét cờ mới quen_huy
+momo-345,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-346,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-348,phi_khong_ro,,xét cờ mới quen_huy
+momo-350,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-351,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-352,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-353,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-354,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có thể thiếu cờ khong_biet_ai_tru
+momo-355,giao_dich_loi,,xét cờ mới quen_huy
+momo-356,giao_dich_loi,,xét cờ mới quen_huy
+momo-358,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-359,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-360,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-361,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-362,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · có thể thiếu cờ khong_biet_ai_tru
+momo-364,cskh,,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-365,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro · xét cờ mới quen_huy
+momo-366,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-367,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-368,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có thể thiếu cờ khong_biet_ai_tru
+momo-370,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-371,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-373,giao_dich_loi,neu_so_tien,xét cờ mới quen_huy
+momo-378,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-379,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-380,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-384,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-385,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-386,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-388,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-389,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-391,goi_dang_ky_an,bi_tru_nhieu_ky;da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+momo-392,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-393,cskh,,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+momo-395,phi_khong_ro,,xét cờ mới quen_huy
+momo-396,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-402,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro · có thể thiếu cờ khong_biet_ai_tru
+momo-404,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-406,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-410,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-411,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-412,ky_thuat_ekyc,,có thể thiếu cờ khong_biet_ai_tru
+momo-413,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-415,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · xét cờ mới quen_huy
+momo-416,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-417,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-418,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-420,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-421,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-423,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-424,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-425,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-426,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-427,phi_khong_ro,,có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-429,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-430,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-432,goi_dang_ky_an,do_loi_nham_vi,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-433,giao_dich_loi,,xét cờ mới quen_huy
+momo-434,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-435,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-436,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro · xét cờ mới quen_huy
+momo-438,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-439,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-440,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-442,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-444,ky_thuat_ekyc,,có thể thiếu cờ khong_biet_ai_tru
+momo-448,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · có thể thiếu cờ khong_biet_ai_tru
+momo-449,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-451,ky_thuat_ekyc,da_lien_he_khong_xong,xét cờ mới quen_huy
+momo-452,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-453,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-454,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+momo-455,ky_thuat_ekyc,,có thể thiếu cờ khong_biet_ai_tru
+momo-456,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có thể thiếu cờ khong_biet_ai_tru
+momo-459,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-465,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+momo-466,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-469,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-470,ky_thuat_ekyc,,có thể thiếu cờ khong_biet_ai_tru
+momo-471,ky_thuat_ekyc,,có thể thiếu cờ khong_biet_ai_tru
+momo-474,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · xét cờ mới quen_huy
+momo-477,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-478,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · xét cờ mới quen_huy
+momo-485,ky_thuat_ekyc,,xét cờ mới quen_huy
+momo-487,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-488,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-491,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-494,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-495,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+momo-496,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+momo-498,goi_dang_ky_an,do_loi_nham_vi,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+momo-499,goi_dang_ky_an,do_loi_nham_vi;bi_tru_nhieu_ky;neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-001,goi_dang_ky_an,da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+zalopay-002,phi_khong_ro,,xét cờ mới quen_huy
+zalopay-003,khac_tieu_cuc,neu_so_tien,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-006,giao_dich_loi,neu_so_tien,có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1
+zalopay-007,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-008,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-010,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-013,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-016,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-017,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-018,giao_dich_loi,neu_so_tien,xét cờ mới quen_huy
+zalopay-019,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-022,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-023,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-024,goi_dang_ky_an,do_loi_nham_vi;da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-025,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-027,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-028,giao_dich_loi,neu_so_tien,xét cờ mới quen_huy
+zalopay-031,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-033,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-034,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-038,phi_khong_ro,,xét cờ mới quen_huy
+zalopay-039,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · xét cờ mới quen_huy
+zalopay-041,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · có thể thiếu cờ khong_biet_ai_tru
+zalopay-042,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-044,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-045,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-046,giao_dich_loi,neu_so_tien,xét cờ mới quen_huy
+zalopay-049,ky_thuat_ekyc,,có thể thiếu cờ khong_biet_ai_tru
+zalopay-050,lua_dao_chan_gd,khong_biet_ai_tru;neu_so_tien,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-051,phi_khong_ro,neu_so_tien,xét cờ mới quen_huy
+zalopay-054,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-059,lua_dao_chan_gd,da_lien_he_khong_xong,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-063,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-064,giao_dich_loi,neu_so_tien,xét cờ mới quen_huy
+zalopay-065,giao_dich_loi,,có thể thiếu cờ khong_biet_ai_tru · xét cờ mới quen_huy
+zalopay-067,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-071,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-072,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-074,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-079,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-080,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH) · xét cờ mới quen_huy
+zalopay-081,cskh,da_lien_he_khong_xong;neu_so_tien,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+zalopay-083,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có thể thiếu cờ khong_biet_ai_tru
+zalopay-084,phi_khong_ro,,xét cờ mới quen_huy
+zalopay-086,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-089,goi_dang_ky_an,khong_biet_ai_tru;da_lien_he_khong_xong;neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-090,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-091,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-092,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-094,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-095,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-098,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-099,phi_khong_ro,neu_so_tien,xét cờ mới quen_huy
+zalopay-101,cskh,da_lien_he_khong_xong;neu_so_tien,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+zalopay-103,lua_dao_chan_gd,neu_so_tien,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · xét cờ mới quen_huy
+zalopay-104,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-105,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-106,goi_dang_ky_an,khong_biet_ai_tru;neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-107,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-108,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-109,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-111,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-113,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-114,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-115,goi_dang_ky_an,do_loi_nham_vi,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-116,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · xét cờ mới quen_huy
+zalopay-118,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH) · xét cờ mới quen_huy
+zalopay-125,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-127,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-128,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-132,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH) · xét cờ mới quen_huy
+zalopay-134,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · xét cờ mới quen_huy
+zalopay-136,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-141,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · xét cờ mới quen_huy
+zalopay-146,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-147,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-148,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-150,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-151,cskh,,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+zalopay-155,ky_thuat_ekyc,,có thể thiếu cờ khong_biet_ai_tru
+zalopay-157,lua_dao_chan_gd,neu_so_tien,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-159,goi_dang_ky_an,khong_biet_ai_tru;neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-160,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-163,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-164,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-166,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-167,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-169,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-170,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-171,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-172,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-173,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-174,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-175,goi_dang_ky_an,bi_tru_nhieu_ky,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+zalopay-176,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-180,giao_dich_loi,neu_so_tien,xét cờ mới quen_huy
+zalopay-181,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-183,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-184,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-186,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-187,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+zalopay-189,phi_khong_ro,neu_so_tien,xét cờ mới quen_huy
+zalopay-190,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-191,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+zalopay-193,cashback_khuyen_mai,,có thể thiếu cờ khong_biet_ai_tru · xét cờ mới quen_huy
+zalopay-197,khac_tieu_cuc,neu_so_tien,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-198,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-199,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · xét cờ mới quen_huy
+zalopay-201,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-202,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-203,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-204,giao_dich_loi,,có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-207,ky_thuat_ekyc,neu_so_tien,xét cờ mới quen_huy
+zalopay-209,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có thể thiếu cờ khong_biet_ai_tru
+zalopay-212,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-215,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+zalopay-218,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+zalopay-219,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-220,phi_khong_ro,,xét cờ mới quen_huy
+zalopay-221,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có thể thiếu cờ khong_biet_ai_tru
+zalopay-224,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-225,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-226,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có thể thiếu cờ khong_biet_ai_tru
+zalopay-227,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-232,giao_dich_loi,,có thể thiếu cờ khong_biet_ai_tru
+zalopay-234,goi_dang_ky_an,neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · xét cờ mới quen_huy
+zalopay-236,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-237,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-239,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-241,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-242,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-243,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-244,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-245,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+zalopay-246,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-247,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-248,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-249,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH) · xét cờ mới quen_huy
+zalopay-250,tra_sau_tin_dung,neu_so_tien,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau) · xét cờ mới quen_huy
+zalopay-251,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+zalopay-252,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-253,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có thể thiếu cờ khong_biet_ai_tru
+zalopay-254,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+zalopay-256,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+zalopay-257,lua_dao_chan_gd,da_lien_he_khong_xong,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-258,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-261,cskh,,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+zalopay-262,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-263,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-266,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-267,giao_dich_loi,neu_so_tien,xét cờ mới quen_huy
+zalopay-268,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-269,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-270,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-272,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-278,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-279,cskh,da_lien_he_khong_xong;neu_so_tien,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+zalopay-280,khac_tieu_cuc,neu_so_tien,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-282,ky_thuat_ekyc,neu_so_tien,có thể thiếu cờ khong_biet_ai_tru
+zalopay-283,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-284,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH) · xét cờ mới quen_huy
+zalopay-289,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-290,phi_khong_ro,,xét cờ mới quen_huy
+zalopay-296,ky_thuat_ekyc,,có thể thiếu cờ khong_biet_ai_tru
+zalopay-299,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-301,giao_dich_loi,,có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · xét cờ mới quen_huy
+zalopay-302,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-303,lua_dao_chan_gd,neu_so_tien,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-306,ky_thuat_ekyc,,có thể thiếu cờ khong_biet_ai_tru
+zalopay-307,goi_dang_ky_an,khong_biet_ai_tru;da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-308,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1
+zalopay-309,giao_dich_loi,,có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · xét cờ mới quen_huy
+zalopay-310,giao_dich_loi,,có dấu hiệu trừ 2 lần / đã huỷ vẫn trừ → luật ưu tiên 1 · xét cờ mới quen_huy
+zalopay-312,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-314,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-315,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-316,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-317,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-318,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-320,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-321,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-324,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-325,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-329,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-331,goi_dang_ky_an,neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-332,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+zalopay-334,cskh,,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+zalopay-337,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-339,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-340,goi_dang_ky_an,neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · xét cờ mới quen_huy
+zalopay-341,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-343,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-345,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-350,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-351,cskh,da_lien_he_khong_xong,nhãn cskh: luật ưu tiên 5 (vấn đề tiền + CSKH)
+zalopay-352,phi_khong_ro,,xét cờ mới quen_huy
+zalopay-355,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-357,goi_dang_ky_an,da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+zalopay-359,tra_sau_tin_dung,,nhãn tra_sau_tin_dung: luật ưu tiên 2 và 4 (gói qua ví trả sau)
+zalopay-360,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-361,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-362,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-363,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-364,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-365,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-366,ky_thuat_ekyc,bi_tru_nhieu_ky,có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-367,phi_khong_ro,neu_so_tien,xét cờ mới quen_huy
+zalopay-368,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-369,goi_dang_ky_an,neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có thể thiếu cờ khong_biet_ai_tru
+zalopay-372,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-373,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-375,ky_thuat_ekyc,neu_so_tien,xét cờ mới quen_huy
+zalopay-376,goi_dang_ky_an,bi_tru_nhieu_ky,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-377,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+zalopay-379,goi_dang_ky_an,neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-381,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-384,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-393,giao_dich_loi,neu_so_tien,xét cờ mới quen_huy
+zalopay-394,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-395,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-396,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-397,phi_khong_ro,,xét cờ mới quen_huy
+zalopay-398,khac_tieu_cuc,neu_so_tien,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-400,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-402,goi_dang_ky_an,do_loi_nham_vi,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-404,goi_dang_ky_an,neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+zalopay-405,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-407,goi_dang_ky_an,da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-408,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-409,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-411,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-412,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-414,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-415,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-417,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-418,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có thể thiếu cờ khong_biet_ai_tru
+zalopay-419,phi_khong_ro,,xét cờ mới quen_huy
+zalopay-421,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-424,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-425,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · có thể thiếu cờ khong_biet_ai_tru
+zalopay-427,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-428,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên · xét cờ mới quen_huy
+zalopay-429,khac_tieu_cuc,khong_biet_ai_tru,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-430,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-431,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-433,phi_khong_ro,,xét cờ mới quen_huy
+zalopay-435,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · xét cờ mới quen_huy
+zalopay-436,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-437,khac_tieu_cuc,neu_so_tien,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-438,lua_dao_chan_gd,,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-440,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-441,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-444,lua_dao_chan_gd,da_lien_he_khong_xong,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack) · có thể thiếu cờ khong_biet_ai_tru
+zalopay-445,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-447,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-448,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-449,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-450,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-454,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-455,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-456,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-457,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-459,ky_thuat_ekyc,,xét cờ mới quen_huy
+zalopay-460,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-463,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-464,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-465,lua_dao_chan_gd,bi_tru_nhieu_ky;da_lien_he_khong_xong;neu_so_tien,nhãn lua_dao_chan_gd: luật ưu tiên 3 (chỉ khi nói rõ lừa đảo / hack)
+zalopay-468,goi_dang_ky_an,bi_tru_nhieu_ky;da_lien_he_khong_xong;neu_so_tien,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-470,goi_dang_ky_an,da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-472,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-474,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán
+zalopay-477,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-478,giao_dich_loi,,xét cờ mới quen_huy
+zalopay-480,goi_dang_ky_an,do_loi_nham_vi,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-481,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-488,khen_trung_tinh,,nhãn khen_trung_tinh: lạc đề / câu hỏi cách dùng chuyển sang khong_ro
+zalopay-490,goi_dang_ky_an,,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · có chữ 'tự trừ / tự thanh toán' → xét goi_dang_ky_an / tu_tru_khong_ro / luật ưu tiên
+zalopay-491,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền
+zalopay-495,goi_dang_ky_an,do_loi_nham_vi;da_lien_he_khong_xong,nhãn goi_dang_ky_an: siết định nghĩa: phải nêu gói / dịch vụ / nơi bán · xét cờ mới quen_huy
+zalopay-497,khac_tieu_cuc,,nhãn khac_tieu_cuc: không còn dùng cho chuyện bị trừ tiền

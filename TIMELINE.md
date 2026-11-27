@@ -15,9 +15,9 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~E1 · H · `evidence/hypothesis.md` (giả thuyết cho khảo sát)~~ ✅ 15:14 · 108e535
 - [x] ~~E2 · H+T · Tạo Google Form từ `evidence/survey/questions.md`~~ ✅ 15:28 · https://forms.gle/q7rfiWSYTywBPX2U6 · đã gửi Zalo, Slack, Facebook cá nhân
 - [ ] E2b · cả nhóm · Mỗi người gửi link form cho ≥5 người quen có dùng ví — trước 16:30
-- [ ] T0 · T · Sửa mã học viên của Thông trong `TEAMS.md` (đang trùng mã của Hiếu)
-- [ ] C0 · cả nhóm · 16:00–16:20 chốt **bài toán 1–2 câu (không có chữ AI)** + **lát cắt 1 câu** (xem `TASKS.md`)
-- [ ] C3 · cả nhóm · Điền cột "Phần việc chính" trong `TEAMS.md` (lấy từ `TASKS.md`), chạy `python run.py check`
+- [x] ~~T0 · T · Sửa mã học viên trong `TEAMS.md`~~ ✅ · c40f048
+- [x] ~~C0 · cả nhóm · chốt bài toán + lát cắt + chuẩn đạt + câu thử~~ ✅ 15:40 · biên bản `CHOT-1600.md`
+- [x] ~~C3 · cả nhóm · Điền cột "Phần việc chính" trong `TEAMS.md`~~ ✅ 15:40 · `run.py check` không lỗi
 - [x] ~~C1 · H · `canvas.md` đủ 7 dòng (bản nháp — cả nhóm xem lại lúc chốt C0)~~ ✅ 15:14 · 108e535
 - [ ] C2 · H · Push, mở repo bằng cửa sổ ẩn danh, **nộp CP1** — 16:50–16:55
 
@@ -30,8 +30,8 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~S1 · H · `spec.md` §0–§2 bài toán + bảng impact 4 hướng~~ ✅ 15:20 (agent) · ⚠ các thừa số impact đang *(tự ước tính)*, thay bằng số khảo sát lúc 09:30
 - [x] ~~V3 · T · Script sinh data synthetic có seed + nhãn (`data/gen_transactions.py`)~~ ✅ 15:20 (agent làm theo lời H; T đọc lại)
 - [x] ~~V4 · T · `data/DATA_CARD.md` bản đầu~~ ✅ 15:20 (agent) · ⚠ còn trống mục "Người kiểm" — T kiểm tay 10 chuỗi
-- [ ] V1 · H · `eval/benchmark.csv` ≥10 câu
-- [ ] V2 · H · `eval/metric_spec.yaml` ≥3 metric + **chuẩn "đạt" §7 — commit trước 19:30, KHÔNG sửa sau**
+- [x] ~~V1 · H · `eval/benchmark.csv` ≥10 câu~~ ✅ 15:40 · 15 câu
+- [x] ~~V2 · H · `eval/metric_spec.yaml` 6 metric + chuẩn "đạt" §7 (≥70%, 100% tu_choi, 0 số lệch)~~ ✅ 15:40 · **KHÔNG sửa nữa**
 - [ ] V5 · T · Người thứ hai chấm thử 5 output (≥4/5)
 - [ ] G2 · cả nhóm · 19:00–19:15 đổi chéo review X ↔ Y; `python run.py check` không lỗi
 - [ ] C4 · H · Canvas cập nhật (số đầu tiên + 1 trích dẫn + dòng "đã đổi gì so với CP1")

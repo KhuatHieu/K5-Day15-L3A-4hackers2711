@@ -76,7 +76,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [ ] K3 · T+L · ⚠ **Giá model phải khớp model chạy lượt 2.** Lượt 1 chạy `gpt-6.2-sol` nhưng `personas.yaml` chỉ có giá Claude / Gemini → thêm giá model đó từ `further-reading/model-prices.md` (≥2 mức: rẻ + mạnh)
 - [ ] K4 · T · Quy mô thật: số người dùng MoMo / ZaloPay **có link nguồn công khai** (không dùng số 700 của khoá) → chi phí / tháng 3 kịch bản; chi phí / task thành công = chi phí / phiên ÷ tỉ lệ đạt **lượt 2** · ⚠ 21:58 27/11 đã có nguồn MoMo và bảng 3 kịch bản USD; còn thiếu tỉ lệ đạt lượt 2 cùng model để chốt chi phí/task thành công.
 - [ ] S2 · T · `spec.md` §8 chi phí: điền từ `cost/cost-estimate.md`, so với impact / người / tháng ở §2 → 1 dòng "đáng làm không" · ⚠ 21:58 27/11 đã điền bản ước tính USD và kết luận tạm; chưa chốt model/lượt 2, chưa so sánh trực tiếp impact khác đơn vị tiền tệ. Người dùng yêu cầu không quy đổi sang VND.
-- [ ] S3 · L · `spec.md` §9 rủi ro & an toàn: dữ liệu (synthetic, không gửi gì thật), AI không được làm gì (OTP, huỷ thay, đầu tư, dữ liệu người khác), ai bị hại nếu sai và chặn ở đâu (`check_scope`, số từ công cụ)
+- [x] ~~S3 · L · `spec.md` §9 rủi ro & an toàn: dữ liệu (synthetic, không gửi gì thật), AI không được làm gì (OTP, huỷ thay, đầu tư, dữ liệu người khác), ai bị hại nếu sai và chặn ở đâu (`check_scope`, số từ công cụ)~~ ✅ 09:38 · 375814d
 - [ ] S4 · H · `spec.md` §10: dòng "Phân công có tên" + "Dùng AI vào việc gì" (2–3 dòng)
 - [ ] R3 · N+L · `eval/report.md` + `eval/README.md` mục 5–6: lượt 1 → lượt 2 (x/N → y/N), đổi gì, vì sao, câu nào đổi kết quả
 - [ ] D4 · H · `README.md` của repo vẫn là khung ("[Tên nhóm]", mục 0): điền tên nhóm, lát cắt, cách chạy, link các file chính; xoá mục 0

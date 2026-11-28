@@ -152,5 +152,5 @@ Nhóm dùng **Claude Code** và **Codex** làm coding agent: viết script đế
 | 4 | Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
 | 5 | Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` |
 | 6 | Mô phỏng chi phí khi dùng thật | `cost/` |
-| 7 | Slide + demo + video dự phòng | slide: [demo-slides.html](demo-slides.html) (mở bằng trình duyệt, ← → chuyển trang) · video bản chạy thử (CP3): https://youtu.be/Osshub09iA8 · video dự phòng: đang quay (`demo-video.md`) |
+| 7 | Slide + demo + video dự phòng | slide: [demo-slides.html](demo-slides.html) (mở bằng trình duyệt, ← → chuyển trang) · video bản chạy thử (CP3): https://youtu.be/Osshub09iA8 · video dự phòng: https://youtu.be/4oGxPO-StTg |
 | + | *Bonus:* người dùng thử | `validation/log.md` |

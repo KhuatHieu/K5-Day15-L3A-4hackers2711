@@ -29,7 +29,7 @@ Tệp bàn giao `demo-cp3-30s.mp4` có độ dài 30 giây, 1080p và dùng outp
 
 **Khi quay:** chỉ thu output thực tế, không sửa nội dung câu trả lời; được cắt đoạn chờ. Câu nào trả lời sai thì quay lại cả lượt, không ghép đoạn từ các lần chạy khác nhau.
 
-**Bàn giao:** YouTube "Không công khai" hoặc `demo-backup.mp4` ở thư mục gốc; mở link bằng cửa sổ ẩn danh rồi gửi Hiếu cho form CP4. Chưa đánh dấu P2 trước khi có video.
+**Bàn giao:** YouTube "Không công khai" hoặc `demo-backup.mp4` ở thư mục gốc; mở link bằng cửa sổ ẩn danh rồi gửi Hiếu cho form CP4. ✅ Đã có video: https://youtu.be/4oGxPO-StTg
 
 **Phần Thông trình bày:** dữ liệu synthetic, token lấy từ usage API, ba kịch bản chi phí. Chi phí / task thành công = chi phí / phiên ÷ tỉ lệ đạt lượt 2 (23/23 = 100%); giá `gpt-6.2-sol` 2.00 / 10.00 USD mỗi 1 triệu token (K3, `cost/personas.yaml`).
 

@@ -56,7 +56,7 @@ Mười một câu `kho` của lượt 1 phủ bốn lớp ở [spec §5](../spe
 |---|---|---|---|---|---|---|
 | Gemini, lượt trước | `run-1@20261127-164447` | `gemini-3.1-flash-lite` | Chạy cục bộ B01–B20. HTTP 503 ở B04 và B05. Xem [CSV gốc](run-gemini-1644.csv) và [trace gốc](../traces/run-gemini-1644.jsonl). | Chưa chấm | — | Chưa đánh giá |
 | 1 · OpenAI | `run-1@20261127-183503` | `gpt-6.2-sol` | Mã nguồn lượt chạy `2950ebd`, [cấu hình OpenAI](../docs/connect-model.md), 200 giao dịch giả lập. 20/20 câu chạy xong, 0 lỗi API. | 18/20 | 90% | Đạt theo điểm chấm sơ bộ |
-| 2 · OpenAI | `run-2@20261128-113802` | `gpt-6.2-sol` | Code Long `9944cd6`, bảng nguồn `d5609b5`, 23 câu, 0 lỗi API. | 11/11 đã chấm (B13–B23), chờ 12 | — | Chờ Long chấm B01–B12 |
+| 2 · OpenAI | `run-2@20261128-113802` | `gpt-6.2-sol` | Code Long `9944cd6`, bảng nguồn `d5609b5`, 23 câu, 0 lỗi API. | **23/23** | **100%** | Đạt chuẩn §7 |
 
 [Bảng chấm lượt 1](run-1.csv) · [Trace lượt 1](../traces/run-1.jsonl) · [Báo cáo](report.md). Chạy `python run.py score eval/run-1.csv` để kiểm lại điểm.
 
@@ -68,4 +68,4 @@ Mười một câu `kho` của lượt 1 phủ bốn lớp ở [spec §5](../spe
 - **B19:** Nhận đúng hoá đơn EVN là khoản thiết yếu và tránh gợi ý huỷ. Câu trả lời thiếu bước đối chiếu hoá đơn hoặc cài đặt thanh toán.
 - **B01 và B13 đều qua.** BaoThuc Pro qua Google Play, 179.000đ, ngày gia hạn 29/11/2026. Ngày khớp phiếu giả lập `SIM-GP-RENEWAL-001` trong trace.
 
-**Lượt 2.** B14 và B19 đều chuyển từ trượt sang đạt sau khi bổ sung đường dẫn kiểm tra có nguồn. Trong phần của Nghĩa, 8 câu chung B13–B20 từ 6/8 lên 8/8 và 3 câu mới đạt 3/3. Trên 23 câu chạy, mọi số tiền và ngày đều khớp trace. Chờ điểm B01–B12 để chốt tổng và kết luận CP4. [Bảng điểm](run-2.csv) · [Trace](../traces/run-2.jsonl) · [Báo cáo so sánh](report.md)
+**Lượt 2.** B14 và B19 đều chuyển từ trượt sang đạt sau khi bổ sung đường dẫn kiểm tra có nguồn. Trên 20 câu chung, điểm tăng từ **18/20 lên 20/20** (+10 điểm phần trăm). Cả 18 câu vốn đạt đều tiếp tục qua. Ba câu mới B21–B23 đạt 3/3. Toàn bộ lượt 2 đạt 9/9 câu thường, 12/12 câu khó và 2/2 câu từ chối. Mọi số tiền và ngày ở 23 câu đều khớp trace. [Bảng điểm](run-2.csv) · [Trace](../traces/run-2.jsonl) · [Báo cáo so sánh](report.md)

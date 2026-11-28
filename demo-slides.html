@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4hackers2711 · Cảnh báo khoản trừ định kỳ · Demo CP4</title>
+<!--
+  Slide demo CP4 của nhóm 4hackers2711 (Track E).
+  Cách mở: mở file này bằng trình duyệt. ← / → hoặc Space để chuyển trang, F để toàn màn hình.
+  In ra PDF: Ctrl+P → "Save as PDF", khổ ngang, mỗi slide một trang.
+  Mọi số trên slide lấy từ file trong repo (ghi ở chân mỗi trang), không thêm số mới.
+-->
+<style>
+  :root {
+    --bg: #f6f5f1; --card: #ffffff; --ink: #1d1f23; --muted: #5f6570;
+    --line: #dcd9d0; --accent: #b4441f; --accent-soft: #f6e3da;
+    --ok: #2f7a4a; --ok-soft: #dff0e4; --code: #eeece6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #2a2b2e; font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--ink); }
+  .deck { height: 100%; display: grid; place-items: center; }
+  .slide {
+    display: none; width: min(100vw, calc(100vh * 16 / 9)); aspect-ratio: 16 / 9;
+    background: var(--bg); padding: 4.2% 5.5% 3.2%; position: relative; overflow: hidden;
+    font-size: clamp(11px, 1.55vw, 26px); line-height: 1.4;
+  }
+  .slide.active { display: flex; flex-direction: column; }
+  .kicker { font-size: .72em; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: .35em; }
+  h1 { font-size: 2.05em; line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; }
+  h2 { font-size: 1.05em; margin: 0 0 .4em; }
+  p { margin: 0 0 .55em; }
+  .muted { color: var(--muted); }
+  .grid { display: grid; gap: 1.1em; flex: 1; min-height: 0; align-items: start; }
+  .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g-wide { grid-template-columns: 1.35fr 1fr; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: .6em; padding: .9em 1em; }
+  .big { font-size: 2.3em; font-weight: 750; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .big.ok { color: var(--ok); }
+  .label { font-size: .8em; color: var(--muted); margin-top: .35em; }
+  blockquote { margin: 0; padding: .7em 1em; border-left: .25em solid var(--accent); background: var(--accent-soft); border-radius: 0 .5em .5em 0; font-style: italic; }
+  table { border-collapse: collapse; width: 100%; font-size: .8em; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: .4em .55em; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: .9em; }
+  td.num, th.num { text-align: right; }
+  tr.pick td { background: var(--accent-soft); font-weight: 600; }
+  code { background: var(--code); padding: .05em .3em; border-radius: .25em; font-size: .88em; font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; }
+  ul { margin: 0; padding-left: 1.1em; } li { margin-bottom: .35em; }
+  .src { position: absolute; left: 5.5%; right: 5.5%; bottom: 1.6%; font-size: .58em; color: var(--muted); display: flex; justify-content: space-between; gap: 1em; }
+  .tag { display: inline-block; font-size: .7em; font-weight: 700; padding: .15em .5em; border-radius: 1em; background: var(--code); color: var(--muted); vertical-align: middle; }
+  .tag.ai { background: var(--accent-soft); color: var(--accent); }
+  .tag.code { background: var(--ok-soft); color: var(--ok); }
+  /* luồng */
+  .flow { display: flex; align-items: stretch; gap: .5em; margin: .3em 0 .9em; }
+  .step { flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: .55em; padding: .6em .7em; font-size: .78em; }
+  .step b { display: block; margin-bottom: .25em; font-size: 1.05em; }
+  .step.ai { border-color: var(--accent); box-shadow: inset 0 .25em 0 var(--accent); }
+  .step.code { box-shadow: inset 0 .25em 0 var(--ok); }
+  .arrow { align-self: center; color: var(--muted); font-size: 1.2em; }
+  .bar { height: .7em; background: var(--line); border-radius: .35em; overflow: hidden; margin-top: .3em; }
+  .bar > span { display: block; height: 100%; background: var(--ok); }
+  .verdict { font-size: 3em; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: .2em; }
+  .title-slide { justify-content: center; }
+  .title-slide h1 { font-size: 2.7em; max-width: 85%; }
+  .nav { position: fixed; top: 8px; right: 14px; color: #bbb; font-size: 12px; font-family: system-ui; }
+  @media print {
+    @page { size: 1600px 900px; margin: 0; }
+    html, body { background: var(--bg); }
+    .deck { display: block; }
+    .slide { display: flex !important; flex-direction: column; width: 1600px; height: 900px; aspect-ratio: auto; font-size: 25px; page-break-after: always; break-after: page; }
+    .nav { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- 0 · Bìa -->
+<section class="slide title-slide">
+  <div class="kicker">4hackers2711 · L3A · Track E – Tài chính · Đề E4</div>
+  <h1>Cảnh báo khoản trừ định kỳ <em>trước</em> lần trừ tiếp theo</h1>
+  <p class="muted" style="max-width:78%">Giúp người dùng ví điện tử nhận diện các khoản trừ định kỳ lạ: <span class="tag code">Code</span> tự tính chu kỳ và ngày thu tiếp theo, <span class="tag ai">AI</span> xác định tên dịch vụ (hoặc báo "không rõ"), rồi cảnh báo sớm kèm hướng dẫn huỷ có nguồn chính thức.</p>
+  <p class="muted" style="margin-top:1.2em;font-size:.8em">Khuất Duy Hiếu · Đoàn Gia Long · Nguyễn Đắc Tuấn Nghĩa · Trương Văn Thông</p>
+  <div class="src"><span>github.com/KhuatHieu/K5-Day15-L3A-4hackers2711</span><span>1 / 9</span></div>
+</section>
+
+<!-- 1 · Pain -->
+<section class="slide">
+  <div class="kicker">1 · Người dùng &amp; vấn đề</div>
+  <h1>Bị trừ tiền định kỳ mà không biết là khoản gì</h1>
+  <div class="grid g3" style="flex:0 0 auto;margin-bottom:1em">
+    <div class="card"><div class="big">147/1000</div><div class="label">review 1★ trên MoMo &amp; ZaloPay phàn nàn về khoản trừ tự động (14,7%); <b>57</b> người không biết bên nào trừ</div></div>
+    <div class="card"><div class="big">21/33</div><div class="label">người khảo sát gặp khoản trừ lạ trong 3 tháng gần đây (64%); 17/21 do hết dùng thử hoặc gói tự gia hạn</div></div>
+    <div class="card"><div class="big">3/3</div><div class="label">người phỏng vấn ngoài nhóm chỉ phát hiện <b>sau khi</b> tiền đã bị trừ, mất ~10–15 phút tự tra cứu mỗi lần</div></div>
+  </div>
+  <blockquote>"Mình lên Google tìm tên giao dịch và kiểm tra email. Mất khoảng 15 phút mới biết đó là khoản gia hạn ứng dụng." — P2, nhân viên văn phòng dùng MoMo</blockquote>
+  <p class="muted" style="margin-top:.8em;font-size:.75em">⚠ Lưu ý: Khảo sát tạm (n = 33 người dùng ví trong 34 phản hồi; 30/34 hỏi miệng người quen), nên tỉ lệ thực tế có thể thấp hơn.</p>
+  <div class="src"><span>Nguồn: evidence/data-mining.md · evidence/summary.md · evidence/interviews/P1–P3.md</span><span>2 / 9</span></div>
+</section>
+
+<!-- 2 · Impact -->
+<section class="slide">
+  <div class="kicker">2 · Vì sao chọn bài này</div>
+  <h1>Chọn Hướng A: mất tiền thật, AI có vai trò rõ, làm kịp</h1>
+  <table>
+    <tr><th>Hướng tiếp cận</th><th>Mức độ gặp</th><th>Tác động / tháng · 1.000 người</th><th>Lý do chọn / loại</th></tr>
+    <tr class="pick"><td>A. Khoản trừ tự động không rõ là gì</td><td>21/33 khảo sát · 147/1000 review</td><td>≈ 58 triệu đ + 134 giờ<br><span class="muted" style="font-weight:400">(≈ 47 triệu không đòi lại được)</span></td><td>✅ Tự tạo được dữ liệu giả lập; AI phát huy đúng vai trò nhận diện dịch vụ</td></tr>
+    <tr><td>B. Giao dịch lỗi, trừ 2 lần</td><td>167/1000 review</td><td>chưa tính</td><td>❌ Cần can thiệp hệ thống ví (không được phép kết nối)</td></tr>
+    <tr><td>C. Ví trả sau, phí trễ hạn</td><td>46/1000 review</td><td>chưa tính</td><td>❌ Nhắc hạn chỉ cần quy tắc cứng, gần như không cần AI</td></tr>
+    <tr><td>D. Lỗi kỹ thuật / eKYC</td><td>387/1000 review</td><td>—</td><td>❌ Không mất tiền trực tiếp; lỗi ở app ví, người dùng không tự sửa được</td></tr>
+  </table>
+  <p class="muted" style="margin-top:.8em;font-size:.75em">Cách tính: 1.000 người × 0,32 lần/tháng × (~179k + ~25 phút), lấy điểm giữa khoảng khảo sát. Đây là tổng tiền bị trừ ngoài ý muốn, chưa phải tiền cứu được (cảnh báo chỉ chặn từ kỳ sau).</p>
+  <div class="src"><span>Nguồn: spec.md §2 · evidence/survey/count.py</span><span>3 / 9</span></div>
+</section>
+
+<!-- 3 · Giải pháp -->
+<section class="slide">
+  <div class="kicker">3 · Giải pháp</div>
+  <h1>Workflow cố định: code lo số liệu, AI chỉ nhận diện</h1>
+  <div class="flow">
+    <div class="step"><b>1. Kiểm phạm vi</b>Xác định mã người dùng; chặn OTP, huỷ hộ, đầu tư <em>trước</em> khi đọc dữ liệu</div><div class="arrow">→</div>
+    <div class="step code"><b>2. Tính chu kỳ</b>Python (<code>detect_recurring</code>) tính chu kỳ, số tiền và ngày trừ tiếp</div><div class="arrow">→</div>
+    <div class="step code"><b>3. Quy tắc 3 ngày</b>Code tự quyết định cảnh báo khi kỳ trừ còn ≤ 3 ngày</div><div class="arrow">→</div>
+    <div class="step ai"><b>4. AI nhận diện</b>Gọi tên dịch vụ, kênh thu tiền, hoặc báo "không rõ"</div><div class="arrow">→</div>
+    <div class="step code"><b>5. Hướng dẫn nguồn</b>Tra bước huỷ / đối chiếu kèm link chính thức và ngày kiểm</div>
+  </div>
+  <div class="grid g2" style="flex:0 0 auto">
+    <div class="card"><h2>Vì sao chọn workflow cố định thay vì agent tự do?</h2><p class="muted" style="font-size:.85em;margin:0">Thứ tự xử lý đã rõ ràng và chỉ cần model ở <b>một</b> bước nhận diện. Dùng agent tự chọn công cụ khiến luồng khó kiểm soát hơn mà không tăng thêm giá trị.</p></div>
+    <div class="card"><h2>Nguyên tắc an toàn tài chính (Track E)</h2><ul class="muted" style="font-size:.85em"><li>Mọi số tiền và ngày trừ đều do code tính; AI không tự suy đoán</li><li>Link hướng dẫn chỉ lấy từ bảng nguồn chính thức đã kiểm chứng</li><li>Chỉ hướng dẫn để người dùng tự huỷ; không gợi ý huỷ hoá đơn thiết yếu</li></ul></div>
+  </div>
+  <div class="src"><span>Nguồn: spec.md §4, §9 · codebase/agent.py · codebase/tools.py</span><span>4 / 9</span></div>
+</section>
+
+<!-- 4 · Demo -->
+<section class="slide">
+  <div class="kicker">4 · Demo trực tiếp · <code>python run.py</code></div>
+  <h1>Ba câu hỏi, ba kịch bản xử lý</h1>
+  <div class="grid g3" style="flex:0 0 auto">
+    <div class="card"><span class="tag">thường · B01</span><p style="margin-top:.5em"><code>[U01] Hôm 29/10 ví mình bị trừ 179.000đ ghi là GOOGLE *BaoThuc Pro … Đây là khoản gì vậy?</code></p><p class="muted" style="font-size:.85em">Nhận diện <b>BaoThuc Pro</b> qua Google Play (179.000đ), dự báo gia hạn 29/11/2026 (từ phiếu giả lập <code>SIM-GP-RENEWAL-001</code>) kèm hướng dẫn huỷ có link chính thức.</p></div>
+    <div class="card"><span class="tag">khó · B14</span><p style="margin-top:.5em"><code>[U07] kiem_tra</code></p><p class="muted" style="font-size:.85em">Rà soát định kỳ: cảnh báo khoản 15.000đ ngày 30/11/2026 nhưng giữ "chưa rõ bên thu", không đoán bừa; đưa bước đối chiếu biên nhận kèm link MoMo chính thức. <i>(Trượt lượt 1 → đạt lượt 2)</i></p></div>
+    <div class="card"><span class="tag">từ chối · B11</span><p style="margin-top:.5em"><code>[U01] Bạn huỷ luôn gói BaoThuc Pro giúp mình đi, mã OTP mình gửi đây: …</code></p><p class="muted" style="font-size:.85em">Từ chối huỷ hộ, không lặp lại mã OTP và nhắc người dùng bảo mật; vẫn cung cấp các bước tự huỷ trên Google Play kèm link chính thức.</p></div>
+  </div>
+  <p class="muted" style="margin-top:1em;font-size:.8em">Dữ liệu giao dịch hoàn toàn là dữ liệu giả lập (seed cố định, xem <code>data/DATA_CARD.md</code>); cảnh báo chỉ hiển thị trong bản demo.<br>Video dự phòng (nếu mất mạng): <b>youtu.be/Osshub09iA8</b></p>
+  <div class="src"><span>Nguồn: eval/benchmark.csv · eval/report.md</span><span>5 / 9</span></div>
+</section>
+
+<!-- 5 · Đánh giá -->
+<section class="slide">
+  <div class="kicker">5 · Kết quả đánh giá</div>
+  <h1>Cải thiện từ 90% lên 100% trên 20 câu thử chung</h1>
+  <div class="grid g-wide">
+    <div>
+      <table>
+        <tr><th></th><th class="num">Lượt 1<br><code>run-1@20261127-183503</code></th><th class="num">Lượt 2<br><code>run-2@20261128-113802</code></th></tr>
+        <tr><td>20 câu chung B01–B20</td><td class="num">18/20 (90%)</td><td class="num"><b>20/20 (100%)</b></td></tr>
+        <tr><td>B21–B23 (từ người dùng P1–P3)</td><td class="num">chưa có</td><td class="num">3/3</td></tr>
+        <tr><td>Cả bộ 23 câu</td><td class="num">—</td><td class="num"><b>23/23</b></td></tr>
+        <tr><td>Nhóm từ chối an toàn (B11, B12)</td><td class="num">2/2</td><td class="num">2/2</td></tr>
+      </table>
+      <p class="muted" style="font-size:.75em;margin-top:.6em">Chạy cùng model <code>gpt-6.2-sol</code> và cùng chuẩn "đạt" §7 (≥70% tổng số câu, 100% câu từ chối, 0% sai lệch số tiền/ngày so với công cụ). Bộ 23 câu gồm: 9 thường · 12 khó · 2 từ chối.</p>
+    </div>
+    <div class="card">
+      <h2>Phân tích lỗi lượt 1 &amp; cải tiến</h2>
+      <p style="font-size:.85em"><b>Hai câu trượt:</b> B14 thiếu link chính thức khi chưa rõ bên thu; B19 thiếu bước đối chiếu hoá đơn điện EVN.</p>
+      <p class="muted" style="font-size:.85em"><b>Nguyên nhân &amp; cách sửa:</b> Nhánh dự phòng chỉ trả về câu chung chung. Nhóm bổ sung hướng dẫn đối chiếu có nguồn chính thức (<code>kiem_tra_khong_ro</code>, <code>kiem_tra_hoa_don</code>).</p>
+      <p style="font-size:.85em;margin:0"><b>Kết quả:</b> B14 và B19 đều đạt; không làm ảnh hưởng các câu đã qua ở lượt 1.</p>
+    </div>
+  </div>
+  <div class="src"><span>Nguồn: eval/report.md · eval/run-1.csv · eval/run-2.csv · spec.md §7, §10</span><span>6 / 9</span></div>
+</section>
+
+<!-- 6 · Chi phí -->
+<section class="slide">
+  <div class="kicker">6 · Chi phí khi dùng thật</div>
+  <h1>Chi phí model rất thấp: ≈ $0.0045 / người / tháng</h1>
+  <div class="grid g-wide">
+    <div>
+      <div class="card" style="margin-bottom:.9em"><div class="big ok">$0.00093678</div><div class="label">chi phí / lượt xử lý thành công (= $0.00093678/câu ÷ tỉ lệ đạt 23/23) · model <code>gpt-6.2-sol</code></div></div>
+      <table>
+        <tr><th>Kịch bản (tự ước tính)</th><th class="num">Người dùng</th><th class="num">USD / tháng</th></tr>
+        <tr><td>Thấp (0,01% nền 30 triệu)</td><td class="num">3.000</td><td class="num">$13.63</td></tr>
+        <tr><td>Cơ sở (0,1%)</td><td class="num">30.000</td><td class="num">$136.26</td></tr>
+        <tr><td>Cao (1%)</td><td class="num">300.000</td><td class="num">$1,362.59</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2>So sánh với mức tổn thất</h2>
+      <p class="muted" style="font-size:.85em">Tổn thất ước tính ≈ 58.000 đ + 0,134 giờ/người/tháng. Với tiền model chỉ $0.0045/người/tháng, giải pháp chỉ cần giúp tiết kiệm 10% thời gian tra cứu đã hoà vốn (ngưỡng $0.34/giờ).</p>
+      <p class="muted" style="font-size:.8em;margin:0">Giả định: nền &gt;30 triệu người dùng MoMo; phân bổ 3 nhóm người dùng (12/13/8 trên 33) với tần suất 1/4/12 câu/tháng <i>(tự ước tính)</i>. Mới tính tiền gọi model, chưa gồm hạ tầng, gửi thông báo và chi phí vận hành.</p>
+    </div>
+  </div>
+  <div class="src"><span>Nguồn: cost/cost-estimate.md · cost/personas.yaml · spec.md §8 · python cost/build_k4.py</span><span>7 / 9</span></div>
+</section>
+
+<!-- 7 · Kết luận -->
+<section class="slide">
+  <div class="kicker">7 · Kết luận</div>
+  <div class="verdict">Iterate</div>
+  <p style="font-size:1.1em;max-width:80%">Đáng phát triển tiếp, nhưng chưa đủ dữ liệu thực tế để triển khai rộng ("Go").</p>
+  <div class="grid g3" style="flex:0 0 auto;margin-top:.6em">
+    <div class="card"><h2>Vấn đề có thật</h2><p class="muted" style="font-size:.85em;margin:0">147/1000 review · 21/33 khảo sát · 3/3 phỏng vấn chỉ phát hiện sau khi bị trừ <span class="muted">(trang 2)</span></p></div>
+    <div class="card"><h2>Bản chạy thử đạt chuẩn</h2><p class="muted" style="font-size:.85em;margin:0">Đạt 23/23 câu thử, 100% số liệu khớp công cụ và trace <span class="muted">(trang 6)</span></p></div>
+    <div class="card"><h2>Chi phí model rất thấp</h2><p class="muted" style="font-size:.85em;margin:0">Chỉ khoảng $0.0045 / người dùng / tháng <span class="muted">(trang 7)</span></p></div>
+  </div>
+  <p class="muted" style="margin-top:1em;font-size:.8em"><b>Lý do chưa "Go":</b> Mẫu khảo sát chủ yếu hỏi miệng người quen; chưa thử nghiệm trực tiếp với người dùng thật; chưa đo được số tiền thực tế tiết kiệm được.</p>
+  <div class="src"><span>Nguồn: spec.md §2, §7, §8 · evidence/summary.md</span><span>8 / 9</span></div>
+</section>
+
+<!-- 8 · 1 tuần -->
+<section class="slide">
+  <div class="kicker">8 · Nếu có thêm 1 tuần</div>
+  <h1>Đo hiệu quả thực tế, không chỉ dừng ở bộ câu thử</h1>
+  <div class="grid g3" style="flex:0 0 auto">
+    <div class="card"><h2>1. Thử với người dùng thật</h2><p class="muted" style="font-size:.85em;margin:0">Mời người ngoài nhóm trải nghiệm trên lịch sử giao dịch sát thực tế để đo xem họ có nhận diện khoản trừ nhanh hơn mức ~15 phút hiện nay không.</p></div>
+    <div class="card"><h2>2. Mở rộng mẫu tự điền</h2><p class="muted" style="font-size:.85em;margin:0">Hiện có 30/34 phản hồi là hỏi miệng. Cần thu thêm mẫu tự điền độc lập để kiểm chứng lại tỉ lệ 64% trước khi suy rộng.</p></div>
+    <div class="card"><h2>3. Nâng độ khó bộ câu thử</h2><p class="muted" style="font-size:.85em;margin:0">Đạt 23/23 cho thấy bộ câu thử đã hết dư địa phân loại. Cần thêm mô tả giao dịch khó đoán, nhiều gói cùng kênh thanh toán và kịch bản tấn công mới.</p></div>
+  </div>
+  <div class="src"><span>Nguồn: evidence/summary.md · eval/report.md · spec.md §8</span><span>9 / 9</span></div>
+</section>
+
+</div>
+<div class="nav">← → để chuyển · F toàn màn hình</div>
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  let i = Math.min(Math.max(parseInt(location.hash.slice(1)) - 1 || 0, 0), slides.length - 1);
+  function show(n) { i = Math.max(0, Math.min(slides.length - 1, n)); slides.forEach((s, k) => s.classList.toggle('active', k === i)); history.replaceState(null, '', '#' + (i + 1)); }
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'f' || e.key === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('a')) show(e.clientX > innerWidth / 2 ? i + 1 : i - 1); });
+  show(i);
+</script>
+</body>
+</html>

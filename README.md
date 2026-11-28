@@ -8,7 +8,7 @@
 
 | Muốn xem | File |
 |---|---|
-| Bằng chứng pain (1.000 review 1★, khảo sát, 4 phỏng vấn) | [evidence/summary.md](evidence/summary.md), [evidence/data-mining.md](evidence/data-mining.md) |
+| Bằng chứng pain (1.000 review 1★, khảo sát, 3 phỏng vấn người ngoài nhóm) | [evidence/summary.md](evidence/summary.md), [evidence/data-mining.md](evidence/data-mining.md) |
 | Bài toán, impact, thiết kế, chuẩn đạt, chi phí, rủi ro, changelog | [spec.md](spec.md) §0–§10 |
 | Bản chạy thử | [codebase/agent.py](codebase/agent.py), [codebase/tools.py](codebase/tools.py), [codebase/ai.py](codebase/ai.py) |
 | Dữ liệu giả lập | [data/DATA_CARD.md](data/DATA_CARD.md) |
@@ -139,5 +139,5 @@ Nhóm dùng **Claude Code** và **Codex** làm coding agent: viết script đế
 | 4 | Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
 | 5 | Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` |
 | 6 | Mô phỏng chi phí khi dùng thật | `cost/` |
-| 7 | Slide + demo + video dự phòng | slide trong repo (PDF, PPTX, HTML…) hoặc link slide ở form CP4 · video bản chạy thử (CP3): https://youtu.be/Osshub09iA8 · video dự phòng: đang quay (`demo-video.md`) |
+| 7 | Slide + demo + video dự phòng | slide: [demo-slides.html](demo-slides.html) (mở bằng trình duyệt, ← → chuyển trang) · video bản chạy thử (CP3): https://youtu.be/Osshub09iA8 · video dự phòng: đang quay (`demo-video.md`) |
 | + | *Bonus:* người dùng thử | `validation/log.md` |

@@ -199,8 +199,8 @@ Luật theo nhóm ý trên chữ đã bỏ dấu, không so khớp nguyên văn 
 - Nếu dùng thật với giao dịch thật: mô tả giao dịch sẽ được gửi sang nhà cung cấp model. Cần thoả thuận xử lý dữ liệu, không dùng gói miễn phí có điều khoản dùng dữ liệu để huấn luyện, và che câu người dùng gõ trước khi ghi trace.
 
 ## §10. Phân công & changelog
-- Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __
-- Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`):
+- Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"; chi tiết `TASKS.md`): **Cặp X (thiết kế + bản chạy thử):** Đoàn Gia Long — luồng `agent.py`, nối model thật, chặn rủi ro Track E, §9 (X1, X3–X5, S3); Nguyễn Đắc Tuấn Nghĩa — thiết kế §3–§6, `detect_recurring`, bảng hướng dẫn huỷ có nguồn (D1–D3, X2, X6). Cải tiến lượt 2 do Long + Nghĩa (X7). **Cặp Y (bằng chứng + đánh giá + chi phí):** Khuất Duy Hiếu (đội trưởng) — giả thuyết, đào review, khảo sát, impact §1–§2, bộ câu thử + chuẩn đạt §7, tổng hợp bằng chứng, slide, nộp checkpoint (E1, E5, S1, V1, V2, P1, C2); Trương Văn Thông — dữ liệu synthetic + DATA_CARD, giữ form khảo sát, chấm đối chiếu V5, mô phỏng chi phí §8 (V3–V5, K0–K4, S2). Cả nhóm: mỗi người 1 phỏng vấn (P1–P4), chọn cải tiến R2.
+- Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`): Claude Code và Codex làm coding agent: script đếm khảo sát và gợi ý nhãn review (người kiểm tay qua `human_check.py`), code công cụ + test, gợi ý prompt nhận diện và luật `check_scope`, sinh dữ liệu synthetic, tính chi phí, nháp tài liệu. Người phụ trách mỗi phần đọc diff, chạy test / `eval` trước khi commit. Không dùng AI để tạo người trả lời, trích dẫn, hay sửa kết quả lượt đã chạy.
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
 **CP2 → CP4** (vd thu hẹp lát cắt, hỏi thêm người dùng, lần cải tiến trước lượt 2)

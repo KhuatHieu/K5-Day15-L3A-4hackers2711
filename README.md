@@ -1,35 +1,24 @@
-> Đây là khung repo nộp bài. Điền mọi chỗ `____`, giữ nguyên tên các mục. **Mục 0 xoá đi sau khi tạo repo xong.**
-> Giờ, mốc, luật, rubric: xem `README.md`, `02-guide.md`, `03-rubric.md` trong repo đề (bộ đề BTC phát).
+# 4hackers2711 — Cảnh báo khoản trừ định kỳ trước kỳ tiếp theo
 
-# [Tên nhóm] — [Tên lát cắt]
+**Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md) · L3A · Track E (Tài chính), đề E4 "Subscription & Auto-debit Guard".
 
-**Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
+**Lát cắt:** một người dùng ví (MoMo / ZaloPay) · có khoản trừ định kỳ trong lịch sử giao dịch · **code** tìm chu kỳ và ngày trừ kế tiếp, **AI** xác định đó là dịch vụ nào (hoặc nói "không rõ") · người dùng được cảnh báo trước lần trừ tiếp theo, kèm các bước huỷ có link nguồn chính thức. Chi tiết: [canvas.md](canvas.md) dòng 5, [spec.md](spec.md) §4.
+
+**Thử nhanh:** `python run.py` rồi gõ `[U01] khoản 179k này là gì?` (hỏi một khoản) hoặc `[U01] kiem_tra` (rà các khoản sắp trừ trong 3 ngày).
+
+| Muốn xem | File |
+|---|---|
+| Bằng chứng pain (1.000 review 1★, khảo sát, 4 phỏng vấn) | [evidence/summary.md](evidence/summary.md), [evidence/data-mining.md](evidence/data-mining.md) |
+| Bài toán, impact, thiết kế, chuẩn đạt, chi phí, rủi ro, changelog | [spec.md](spec.md) §0–§10 |
+| Bản chạy thử | [codebase/agent.py](codebase/agent.py), [codebase/tools.py](codebase/tools.py), [codebase/ai.py](codebase/ai.py) |
+| Dữ liệu giả lập | [data/DATA_CARD.md](data/DATA_CARD.md) |
+| Bộ câu thử, kết quả lượt 1 → lượt 2 | [eval/benchmark.csv](eval/benchmark.csv), [eval/report.md](eval/report.md), [eval/README.md](eval/README.md) |
+| Chi phí khi dùng thật | [cost/cost-estimate.md](cost/cost-estimate.md), [cost/personas.yaml](cost/personas.yaml) |
+| Ai làm gì, mốc thời gian | [TASKS.md](TASKS.md), [TIMELINE.md](TIMELINE.md) |
+
+**Kết quả chính:** lượt 1 `run-1@20261127-183503` đạt 18/20 → lượt 2 `run-2@20261128-113802` đạt 20/20 trên bộ chung, 23/23 cả bộ (model `gpt-6.2-sol`, cùng chuẩn §7). Chi phí / task thành công **$0.00093678** với `gpt-6.2-sol` (xem `cost/cost-estimate.md`).
 
 *Lát cắt = phần nhỏ nhất làm xong được trong hackathon: một người dùng · một việc · một quyết định AI · một kết quả.*
-
----
-
-## 0. Tạo repo nhóm từ khung này *(guide bước 1.0 — xoá mục này khi xong)*
-
-**Hai luật:** repo **mới, công khai (Public)** · tên `K5-Day15-<lớp>-<tên nhóm>`, vd `K5-Day15-L3A-StudyPulse` (tên nhóm viết liền, không dấu). Chép **nội dung bên trong** `starter-repo/` — `README.md`, `run.py` phải nằm ngay ở trang đầu repo.
-
-**(a) Không cần terminal — làm trên web GitHub**
-1. **New repository** → tên theo mẫu → **Public** → không tick thêm gì → tạo.
-2. Trên máy mở thư mục `starter-repo/`, **bật hiện file ẩn** (Mac Finder: `Cmd + Shift + .` · Windows: View → Show → Hidden items) để thấy `.gitignore`, `.env.example`.
-3. Trên repo vừa tạo: **Add file → Upload files** → **kéo thả** tất cả file và thư mục bên trong `starter-repo/` → **Commit changes**. Kéo thả mới giữ được thư mục con; lỗi vì nhiều file quá thì tải từng thư mục.
-4. Kiểm: có `.gitignore` chưa (hay thiếu nhất). Thiếu thì **Add file → Create new file**, tên `.gitignore`, dán nội dung từ máy.
-5. Từ giờ sửa file ngay trên web (biểu tượng bút chì → Commit). Phần code vẫn cần **một** người chạy được trên máy: trước mỗi lượt chạy tải **Code → Download ZIP** về thư mục mới (mang `.env` sang), chạy xong chỉ upload file kết quả và file vừa sửa; trong lúc đang chạy không ai sửa `eval/benchmark.csv` trên web.
-
-**(b) Dùng git**
-```bash
-git clone https://github.com/<tai-khoan>/K5-Day15-L3A-TenNhom.git
-cd K5-Day15-L3A-TenNhom
-cp -R ../duong-dan-toi/starter-repo/. .      # Windows PowerShell: Copy-Item -Recurse -Force ..\duong-dan-toi\starter-repo\* .
-git status                                   # không được có .env, data-btc/
-git add -A && git commit -m "Khung repo từ starter-repo" && git push
-```
-
-**Xong khi:** mở link repo bằng **cửa sổ ẩn danh** thấy được file (link nộp CP1) · đã mời thành viên (Settings → Collaborators) · đã điền `TEAMS.md` và `python run.py check` không báo gì ở phần "Kiểm TEAMS.md".
 
 ---
 
@@ -108,14 +97,17 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: ____ |
-|  |  |  |
+| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: `gpt-6.2-sol` (lượt 1 và lượt 2). Token lấy từ `usage` của API |
+| Tìm chu kỳ, ngày trừ kế tiếp, số tiền (`detect_recurring`) | **Thật** (code Python) | AI không tự tính số hay ngày |
+| Lịch sử giao dịch, ngày chạy, phiếu gia hạn | **Giả** (synthetic, seed cố định) | `data/`, xem `data/DATA_CARD.md`. Không dùng sao kê thật của ai |
+| Hướng dẫn huỷ / kiểm tra | **Thật** (link trang chính thức + ngày xem) | `data/cancel_guides.csv`. Bản chạy thử chỉ hướng dẫn, không tự huỷ |
+| Gửi cảnh báo cho người dùng | **Giả** | Chỉ in ra trong demo, không gửi thông báo thật |
 
 ## Dùng AI vào việc gì
 
 2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
-____
+Nhóm dùng **Claude Code** và **Codex** làm coding agent: viết script đếm khảo sát và gợi ý nhãn review, viết công cụ `detect_recurring` / `lookup_cancel_guide` cùng test, gợi ý prompt và luật chặn rủi ro, sinh dữ liệu synthetic, tính chi phí, viết nháp tài liệu. Người phụ trách từng phần đọc diff, chạy test / `eval` và kiểm tay nhãn AI (`evidence/reviews/human_check.py`) trước khi commit. Không dùng AI để tạo người được phỏng vấn, trích dẫn, câu trả lời khảo sát hay sửa kết quả các lượt đã chạy.
 
 ## File mẫu — điền ở bước nào
 
@@ -147,5 +139,5 @@ ____
 | 4 | Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
 | 5 | Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` |
 | 6 | Mô phỏng chi phí khi dùng thật | `cost/` |
-| 7 | Slide + demo + video dự phòng | slide trong repo (PDF, PPTX, HTML…) hoặc link slide ở form CP4 · link video: ____ |
+| 7 | Slide + demo + video dự phòng | slide trong repo (PDF, PPTX, HTML…) hoặc link slide ở form CP4 · video bản chạy thử (CP3): https://youtu.be/Osshub09iA8 · video dự phòng: đang quay (`demo-video.md`) |
 | + | *Bonus:* người dùng thử | `validation/log.md` |

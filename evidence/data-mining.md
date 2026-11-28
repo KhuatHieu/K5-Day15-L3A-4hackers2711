@@ -12,7 +12,7 @@
 - **Vì sao chỉ lấy 1 sao:** thử lấy review mới nhất mọi mức sao trước (500 / app, `reviews-meta.json`): 885/1000 là 5 sao, 755/1000 dài dưới 20 ký tự ("tốt", "ok"), 500 review chỉ phủ 2–8 ngày → mẫu số bị lời khen ngắn lấp. Mục tiêu là tìm **loại** pain → chọn 1 sao. Bối cảnh: trong 1000 review mới nhất mọi mức sao, 1 sao chiếm 79/1000.
 - **Đếm gì:** mỗi review đúng 1 nhãn chính + 0..n cờ phụ, theo định nghĩa trong `evidence/reviews/LABELS.md` (12 nhãn, 7 cờ, luật ưu tiên).
 - **Mẫu số:** N = 1000 = **mọi** review trong mẫu, kể cả review khen, vô nghĩa, không liên quan.
-- **Ai gắn:** AI (Gemini) gắn cả 1000 dòng theo `LABELS.md` bản 27/11 ~11:30; người kiểm 100 dòng (mục 3b). Prompt: `__` *(dán vào `evidence/reviews/` và `docs/ai-usage.md`)*.
+- **Ai gắn:** AI (Gemini) gắn cả 1000 dòng theo `LABELS.md` bản 27/11 ~11:30; người kiểm 100 dòng (mục 3b). Cách gắn: phân loại theo đúng định nghĩa và luật ưu tiên trong `evidence/reviews/LABELS.md` (chưa lưu riêng file prompt gốc).
 - **Chạy lại:** `python evidence/reviews/count_labels.py evidence/reviews/labels.csv` → ra đúng bảng ở mục 3.
 - **Trung thực về thứ tự:** bộ nhãn viết trước khi gắn. Sau lượt gắn đầu, bộ nhãn **được sửa một lần** (thêm `tu_tru_khong_ro`, siết `goi_dang_ky_an`, thêm luật ưu tiên) vì ~65 review chỉ nói "tự trừ tiền" bị gán rải rác 8 nhãn — lý do và ví dụ ở mục "Đã sửa" của `LABELS.md`; nhãn lượt 1 còn giữ ở `evidence/reviews/relabel-ids.csv` (cột `nhan_cu`). Số dưới đây là của lượt 2.
 

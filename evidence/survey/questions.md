@@ -40,13 +40,11 @@ Cài đặt Google Form: câu 2 chọn "không dùng" → chuyển tới trang n
 
 ## Lưu kết quả
 
-### Rà soát chuẩn bị CP3 · 27/11/2026
+### Chốt dữ liệu khảo sát · 28/11/2026
 
-Codex kiểm lại bản `results.csv` hiện có: 34 phản hồi, 33 người dùng ví/thẻ; 30 `hoi_mieng`, 4 `tu_dien`. Câu 4: 21/33 gặp khoản trừ lạ ít nhất một lần; 14/21 phát hiện sau ít nhất một tuần hoặc mất ít nhất 15 phút để tìm hiểu. Các số được tính lại bằng hàm `report` trong `count.py`, không thay câu trả lời.
+Nhóm chốt giữ nguyên bộ dữ liệu 34 phản hồi (`results.csv`, 33 người dùng ví/thẻ: 30 `hoi_mieng`, 4 `tu_dien`), không thu thêm hay sửa câu trả lời. Câu 4: 21/33 gặp khoản trừ lạ ít nhất một lần; 14/21 phát hiện sau ít nhất một tuần hoặc mất ít nhất 15 phút để tìm hiểu. Các số được tính lại bằng hàm `report` trong `count.py`.
 
-Hai dòng 26/30 vẫn trùng nguyên văn câu 11; chưa đủ căn cứ xoá dòng nào. Chưa xác nhận 5 người chọn học viên AI20K có thành viên nhóm hay không. Kiểm tự động không thấy mẫu email/số điện thoại trong câu 11; bước này không thay thế duyệt thủ công nội dung tự do.
-
-Thông đã gửi link trang quản trị Google Form trong phiên làm việc; công cụ không đọc được phần phản hồi cần đăng nhập. Máy hiện không có bản `raw-*` để tái xuất. Vì vậy đây là **kiểm bản tạm**, chưa phải kiểm số người lúc 22:00 (E2c), cũng chưa phải chốt lúc 09:30 ngày 28/11 (E4). Khi có bản xuất mới, đặt trong `evidence/survey/raw-*.csv`, cập nhật `TU_DIEN` theo cách thu thực tế rồi chạy `python evidence/survey/count.py <đường-dẫn-raw>`. Chỉ chốt số người ngoài nhóm sau khi Thông xác nhận thành viên nhóm và hai dòng trùng.
+Hạn chế được giữ nguyên để minh bạch: hai dòng 26/30 trùng nguyên văn câu 11 (không dùng làm trích dẫn) và chưa tách riêng 5 người chọn học viên AI20K xem có thành viên nhóm hay không. Kiểm tự động không thấy mẫu email/số điện thoại trong câu 11. Vì dữ liệu đã chốt, không cập nhật thêm bản xuất mới.
 
 - `results.csv` — do `count.py` tạo từ bản gốc: **đã xoá** giờ nộp chi tiết (chỉ giữ ngày) và toàn bộ câu 12, thêm cột `cach_thu`, `lam_sach`. Bản gốc có liên hệ **không** commit (đặt tên `raw-*.csv` để `.gitignore` chặn).
 - Số chính lấy từ câu 4, 6, 7, 9 kèm ≥3 câu trả lời nguyên văn từ câu 11 → `evidence/summary.md`. Mẫu số = số người qua câu 2 (có dùng ví). Dưới 10 người thì ghi x/n, không ghi %.

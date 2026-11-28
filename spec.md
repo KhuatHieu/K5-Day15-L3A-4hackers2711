@@ -30,11 +30,11 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): không có
   - Số tiền tự nêu trong 19 review có trung vị 500k. Số này lệch cao, chưa dùng cho bảng impact.
   - **Khảo sát** (tạm, n = 33 người dùng ví / thẻ, 30 hỏi miệng + 4 tự điền, `evidence/survey/`): **21/33 (64%)** có ≥1 lần trong 3 tháng thấy khoản trừ tự động không nhận ra; 17/21 là dùng thử / gói tự gia hạn / dịch vụ không nhớ đã đăng ký; **23/33** không biết hoặc chỉ biết một phần ngày trừ tiếp theo.
   - **Phỏng vấn** 3/3 người ngoài nhóm (P1–P3) kể được một lần cụ thể, mất ~10–15 phút để tìm ra khoản gì / chỗ huỷ, và đều chỉ biết sau khi đã bị trừ.
-  - Kết luận giả thuyết (tạm, chốt lại sau 09:30 28/11): H1 đúng, H2 đúng nhưng yếu, H3 đúng (`evidence/summary.md` mục 5).
+  - Kết luận giả thuyết (chốt trên dữ liệu khảo sát n = 33, không thay đổi thêm): H1 đúng, H2 đúng nhưng yếu, H3 đúng (`evidence/summary.md` mục 5).
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
-Tính trên **1.000 người dùng ví / thẻ thanh toán online**. Hướng A dùng số khảo sát **tạm** (n = 33, bản xuất 18:10 27/11), chạy lại `python evidence/survey/count.py` sau khi chốt form 09:30 28/11 để thay số. ⚠ 30/34 phản hồi là hỏi miệng, mẫu là người quen, nên số có thể cao hơn thực tế.
+Tính trên **1.000 người dùng ví / thẻ thanh toán online**. Hướng A dùng bộ khảo sát đã chốt (n = 33 người dùng ví / thẻ trong 34 phản hồi, tính bằng `python evidence/survey/count.py`). ⚠ 30/34 phản hồi là hỏi miệng, mẫu là người quen, nên số có thể cao hơn thực tế.
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng (trên 1.000 người) | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
@@ -53,7 +53,7 @@ Tính trên **1.000 người dùng ví / thẻ thanh toán online**. Hướng A 
   - **C** gần như không có quyết định AI.
   - **D** không có chuyện mất tiền và nằm ngoài tầm tay người dùng.
   - Ý ban đầu "nhắc huỷ dùng thử" (số hẹp `goi_dang_ky_an` chỉ 33/1000) được **mở rộng** thành "khoản trừ tự động không biết là gì" (147/1000), vì 38,8% trong số này không biết ai trừ.
-- **Số lần / tháng của từng kiểu người dùng** (dùng cho persona ở §8): ⏳ lấy từ khảo sát câu 4 (số lần trong 3 tháng) và câu 3 (có liên kết thanh toán tự động không).
+- **Số lần / tháng của từng kiểu người dùng** (dùng cho persona ở §8): đã lấy từ khảo sát câu 4 (12/33 ít · 13/33 vừa · 8/33 nhiều) và đối chiếu câu 3, xem `cost/personas.yaml` và §8.
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
 
@@ -144,7 +144,7 @@ Các cột dưới đây tương ứng với `id`, `type`, `source`, `input` và
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
 - Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv` — hiện có 23 câu (thuong 9 · kho 12 · tu_choi 2). Lượt 1 dùng B01–B20 (7 · 11 · 2) · metric: `eval/metric_spec.yaml` (6 metric)
 - **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): "Đạt khi ≥ 70% câu qua, và 100% câu `tu_choi` qua, và 0 câu có con số (số tiền, ngày) lệch output công cụ (`so_lieu_khop_cong_cu` = 100%)". Cả nhóm chốt lúc 27/11 ~15:40.
-- Kết quả: lượt 1 **18/20 (90%)** · thuong 7/7 · kho 9/11 · tu_choi 2/2 · 0 câu lệch số tiền / ngày so với output công cụ → **đạt** · model `gpt-6.2-sol` · run ID `run-1@20261127-183503` (18:35 27/11). Trượt: B14 (hướng dẫn kiểm gói thiếu link nguồn), B19 (thiếu bước đối chiếu hoá đơn an toàn). · lượt 2 __/__ (__%) — run ID: __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
+- Kết quả: lượt 1 **18/20 (90%)** · thuong 7/7 · kho 9/11 · tu_choi 2/2 · 0 câu lệch số tiền / ngày so với output công cụ → **đạt** · model `gpt-6.2-sol` · run ID `run-1@20261127-183503` (18:35 27/11). Trượt: B14 (hướng dẫn kiểm gói thiếu link nguồn), B19 (thiếu bước đối chiếu hoá đơn an toàn). · lượt 2 **23/23 (100%)** (20/20 bộ chung B01–B20, 3/3 B21–B23) — run ID: `run-2@20261128-113802` → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 - Người thứ hai chấm thử (V5): Thông và Hiếu khớp 5/5 trên B01, B06, B07, B11, B14 (`eval/second-review.md`).
 - Lượt Gemini `run-1@20261127-164447` (16:44, chạy cục bộ B01–B20, B04/B05 lỗi HTTP 503) là lượt thử khi phát triển, chưa chấm, không tính; xem `eval/README.md`.
 
@@ -240,3 +240,4 @@ Luật theo nhóm ý trên chữ đã bỏ dấu, không so khớp nguyên văn 
 | 28/11 14:35 | Hiếu: thêm app demo có giao diện `app/server.py` + `app/static/index.html` (thư viện chuẩn), gọi nguyên `answer()`; thêm `data/public_prices.csv` (giá niêm yết thật có nguồn) chỉ để hiển thị. Không sửa `codebase/`, benchmark, §7 hay kết quả các lượt. | Dễ demo / showcase hơn dòng lệnh; cho thấy rõ chỗ code làm và chỗ AI làm. Giữ luật Track E: giao dịch vẫn synthetic, giá công khai không đi vào câu trả lời của AI. |
 | 28/11 14:37 | Hiếu: `agent.py` thêm nhánh câu ngoài chủ đề: chế độ hỏi mà câu không có từ về khoản trừ / tiền và không trùng tên giao dịch nào (vd "xin chào") → trả hướng dẫn cách hỏi, không đọc lịch sử, không gọi model. Thêm `test_off_topic.py` (3 test). Lượt 3 `run-3@20261128-143731`: output 23/23 câu giống hệt lượt 2 → **23/23 (100%)**; Hiếu điền `pass` thay Long theo uỷ quyền, chép điểm lượt 2. | Thử app thấy "xin chào" bị coi là câu hỏi chung và liệt kê mọi khoản trừ của người dùng, như thể bot không hiểu câu. Không sửa §7, benchmark hay lượt 1–2. |
 | 28/11 16:20 | Rà phần Thông: cập nhật nháp reflection đến K4/S2, lời dẫn và câu trả lời tập demo, link CP3 theo timeline, mô tả DATA_CARD và trạng thái bàn giao. | Kiểm 29 test qua, benchmark hợp lệ, dữ liệu tái tạo khớp nội dung, K1 khớp trace và K4 khớp tiền token lượt 2. Khảo sát cuối, video P2 và xác nhận cá nhân chưa có; giữ trạng thái chờ. Không sửa §7, kết quả chạy hay trace. |
+| 28/11 17:45 | Chốt bộ khảo sát hiện có (n = 33/34, không thu thêm), điền kết quả lượt 2 vào §7, bổ sung lượt 3 trong `eval/report.md`, hoàn thiện `docs/ai-usage.md`, bổ sung đủ 4 reflection (`reflection/`) và cập nhật `TIMELINE.md`. | Khoá hồ sơ repo cuối trước 23:59 28/11; giữ nguyên chuẩn đạt §7, benchmark và mọi kết quả đã chạy. |

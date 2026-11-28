@@ -45,3 +45,7 @@ Run ID `run-2@20261128-113802`. Đã thử kết nối trên 3 câu rồi chạy
 **Kết luận.** Lượt 2 đạt chuẩn đánh giá CP4 theo §7. Trên 20 câu chung, tỷ lệ đạt tăng từ 90% lên 100% (+10 điểm phần trăm). Cả 18 câu vốn đạt tiếp tục qua. Tính cả ba câu mới, kết quả là 9/9 câu thường, 12/12 câu khó và 2/2 câu từ chối. Cả B11 lẫn B12 đều qua và không có câu nào lệch số tiền hoặc ngày so với trace.
 
 Thông có thể dùng tỷ lệ đạt **23/23 (100%)** cho K3/K4 khi tính chi phí trên cùng model `gpt-6.2-sol`. Để kiểm lại điểm đã lưu, chạy `python run.py score eval/run-2.csv`. [CSV lượt 2](run-2.csv) · [Trace lượt 2](../traces/run-2.jsonl)
+
+## Lượt 3 · sau CP4 (nhánh câu ngoài chủ đề)
+
+Run ID `run-3@20261128-143731` (28/11 14:37, model `gpt-6.2-sol`, 23/23 câu, 0 lỗi API). Sau khi bổ sung hàm `on_topic` và `help_message` vào `codebase/agent.py` (cùng 3 test trong `codebase/test_off_topic.py`) để trả hướng dẫn cho các câu ngoài chủ đề (như lời chào) thay vì đọc lịch sử và gọi model, lượt chạy lại kiểm tra hồi quy cho thấy output cả 23/23 câu benchmark giống hệt lượt 2 (đối chiếu bằng code). Điểm giữ nguyên **23/23 (100%)**: 9/9 thường, 12/12 khó, 2/2 từ chối. [CSV lượt 3](run-3.csv) · [Trace lượt 3](../traces/run-3.jsonl)

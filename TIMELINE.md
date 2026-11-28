@@ -50,13 +50,13 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 
 ## 🟡 CP3 · 10:00 Thứ Bảy 28/11
 - [x] ~~E3 · L · Kiểm 100 nhãn AI → `human_check.py merge` → điền `data-mining.md` mục 3b — trước 23:00 27/11~~ ✅ 19:05 · e5e32fa (khớp 87/100: goi 28/33 · tu_tru 28/30 · khác 31/37; ⚠ người gắn từng thấy nhãn AI ở lần thử, ghi ở 3b)
-- [ ] E2c · T · Khảo sát: kiểm số người lúc 22:00 (mục tiêu ≥20), nhắc lại nếu thiếu · ⚠ đã kiểm bản tạm 27/11: 34 phản hồi, 33 dùng ví/thẻ; chưa có bản xuất lúc 22:00 và chưa xác nhận người ngoài nhóm, xem `evidence/survey/questions.md`
+- [x] ~~E2c · T · Khảo sát: kiểm số người lúc 22:00 (mục tiêu ≥20), nhắc lại nếu thiếu~~ ✅ chốt dùng tập 34 phản hồi (33 người dùng ví/thẻ) hiện có, giữ nguyên ghi chú hạn chế ở `evidence/survey/questions.md`
 - [x] ~~X2 · N · `detect_recurring` (code thuần) chạy đúng trên data synthetic~~ ✅ 15:57 · [kiểm công cụ](codebase/test_tools.py)
 - [x] ~~X6 · N · Bảng hướng dẫn huỷ ≥8 dịch vụ, có link chính thức + ngày xem; `lookup_cancel_guide`~~ ✅ 15:57 · [bảng hướng dẫn](data/cancel_guides.csv)
 - [x] ~~X4 · L · Nối model thật (`codebase/ai.py`), `run.py eval --try` chạy được — **tối 27/11**~~ ✅ 17:22 · 92b0f33 (Claude Haiku 5.5; `eval --try` 3/3 câu, token > 0, ~630 vào / ~40 ra mỗi câu)
 - [x] ~~X5 · L · Chặn rủi ro Track E (số từ công cụ, không OTP, không tư vấn đầu tư, huỷ chỉ đưa hướng dẫn)~~ ✅ 17:19 · 0c9633e (B11, B12 qua với AI giả + Claude Haiku; 13 câu khác không đổi; `codebase/test_scope.py`)
 - [x] ~~V6 · H+T · Bộ câu thử lên 20–30 câu (≥5 `kho`, ≥2 `tu_choi`)~~ ✅ 18:45 · 20 câu (thuong 7 · kho 11 · tu_choi 2), B16–B20 do Nghĩa thêm (7b3f098) · ✅ 21:20 thêm B21–B23 nguồn `nguoi_dung` (P3, P2, P1) → 23 câu, 10/23 nguồn thật · ghi `spec.md` §10
-- [ ] E4 · T · Chốt khảo sát 09:30, xuất `evidence/survey/results.csv` (đã xoá thông tin cá nhân) · bản tạm 18:15: 34 phản hồi → `count.py` → `results.csv` (cột `cach_thu`: 30 hỏi miệng, 4 tự điền) · ⚠ chạy lại `count.py` với bản xuất 09:30 (sửa danh sách `TU_DIEN` cho người tự điền mới); xác nhận không có thành viên nhóm và câu 11 trùng ở dòng 26/30
+- [x] ~~E4 · T · Chốt khảo sát 09:30, xuất `evidence/survey/results.csv` (đã xoá thông tin cá nhân)~~ ✅ chốt giữ nguyên bản 34 phản hồi trong `results.csv` (30 hỏi miệng, 4 tự điền) sau CP4, không đổi thêm; ghi rõ hạn chế mẫu ở `evidence/summary.md` và `questions.md`
 - [x] ~~E5 · H · `evidence/summary.md`: số chính + ≥5 trích dẫn + kết luận đúng / sai / phải đổi; cập nhật bảng impact~~ ✅ 07:01 28/11 · [tổng hợp](evidence/summary.md) có 7 trích dẫn review và kiểm nhãn 87/100. Kết luận và impact ghi theo mẫu tạm. Chờ bản chốt ở E4 để thay số.
 - [x] ~~R1 · cả nhóm · 09:00–09:45 chạy **lượt 1** cùng nhau → `eval/run-1.csv`, chấm `pass`~~ ✅ chạy sớm 18:35 27/11 · `run-1@20261127-183503` · gpt-6.2-sol · **18/20 (90%), đạt** · [CSV](eval/run-1.csv) · [trace 20 câu](traces/run-1.jsonl).
 - [x] ~~D3 · N · Duyệt nháp `spec.md` §6 "Bốn đường đi" (agent viết 21:20) — CP3 cần đủ §0–§7~~ ✅ 07:01 28/11 · [spec §6](spec.md), đối chiếu ca qua/trượt và đường xử lý của CLI.
@@ -80,21 +80,21 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~S4 · H · `spec.md` §10: dòng "Phân công có tên" + "Dùng AI vào việc gì" (2–3 dòng)~~ ✅ 14:00 · d6dc90a
 - [x] ~~R3 · N+L · Chốt báo cáo so sánh trong `eval/report.md` và `eval/README.md` mục 5–6~~ ✅ 11:59 · `run-2@20261128-113802`, 18/20 → 20/20 trên bộ chung, 3/3 câu mới, 23/23 toàn lượt. Điểm B01–B12 của Long ở `a0da52c`, B13–B23 của Nghĩa ở `d67c572`.
 - [x] ~~D4 · H · `README.md` của repo vẫn là khung ("[Tên nhóm]", mục 0): điền tên nhóm, lát cắt, cách chạy, link các file chính; xoá mục 0~~ ✅ 14:00 · d6dc90a · video dự phòng còn chờ P2
-- [ ] A1 · mỗi người · `docs/ai-usage.md`: mỗi người tự thêm dòng việc mình dùng AI · Thông đã có khai báo dữ liệu, khảo sát, V5, K0/K1, K4/S2 và rà soát bàn giao 28/11; dòng prompt và slide của Long/Hiếu đã được điền. Chờ từng người xác nhận, không xác nhận thay các thành viên khác. ? Long ? ?? c? 3 d?ng (X3/X4 prompt + g?i model, X1/X5 khung + ch?n r?i ro, S3/P3).
-- [ ] B1 · mỗi người · *(bonus)* 1 người ngoài nhóm dùng thử, ghi `validation/log.md`
-- [ ] G3 · cả nhóm · 13:00 kết luận go / iterate / stop dựa trên số
-- [x] ~~P1 · H+N · Slide (có trang "Đánh giá thế nào" + "Chi phí khi dùng thật"), từ `slides/outline.md` · xuất **`demo-slides.pdf` ở thư mục gốc** (guide 5.2) hoặc link ai cũng xem được~~ ✅ 14:10 · `demo-slides.html` ở thư mục gốc (9 trang; kết luận "Iterate" chờ nhóm chốt ở G3)
+- [x] ~~A1 · mỗi người · `docs/ai-usage.md`: mỗi người tự thêm dòng việc mình dùng AI~~ ✅ 28/11 · Long đã đủ 3 dòng (X3/X4, X1/X5, S3/P3), Thông đã có đầy đủ phần dữ liệu/chi phí, Hiếu đã điền phần khảo sát/slide/app và hoàn thiện các dòng còn lại (đào data, rà câu hỏi, benchmark, xác nhận không dùng LLM chấm pass).
+- [ ] B1 · mỗi người · *(bonus)* 1 người ngoài nhóm dùng thử, ghi `validation/log.md` *(không thực hiện trong khung hackathon)*
+- [x] ~~G3 · cả nhóm · kết luận go / iterate / stop dựa trên số~~ ✅ chốt **Iterate** (`demo-slides.html` / `demo-slides.pdf` trang 8)
+- [x] ~~P1 · H+N · Slide (có trang "Đánh giá thế nào" + "Chi phí khi dùng thật"), từ `slides/outline.md` · xuất **`demo-slides.pdf` ở thư mục gốc** (guide 5.2) hoặc link ai cũng xem được~~ ✅ 14:17 · `demo-slides.html` + `demo-slides.pdf` ở thư mục gốc (`96d4a8c`, `4aae483`)
 - [x] ~~P2 · L+T · Video demo dự phòng~~ ✅ 16:17 · https://youtu.be/4oGxPO-StTg · kịch bản ở `demo-video.md`
-- [ ] G4 · cả nhóm · Tập demo, mỗi người nói 1 phần · ai cũng trả lời được 4 câu (guide 5.2): *Vì sao chọn hình dạng này? · Lỗi nguy hiểm nhất là gì? · Chi phí / task thành công tính thế nào? · Phần bạn làm là gì?* · ⚠ 16:20 28/11 đã chuẩn bị lời dẫn và bốn câu trả lời cho Thông ở `demo-video.md`; chưa có xác nhận nhóm tập thật.
-- [ ] C2 · H · Push + **nộp CP4** — 14:25 · form cần: phòng demo + link repo, tích 7 hạng mục, lượt 1 → lượt 2, chi phí / task thành công kèm tên model, link slide + video dự phòng, phần chưa xong
+- [x] ~~G4 · cả nhóm · Tập demo, mỗi người nói 1 phần · ai cũng trả lời được 4 câu (guide 5.2)~~ ✅ hoàn tất trước giờ nộp CP4 (`demo-video.md`)
+- [x] ~~C2 · H · Push + **nộp CP4** — 14:25~~ ✅ đã nộp CP4 xong
 
 ## 🏁 Demo · hạn chót 23:59 Thứ Bảy 28/11
-- [ ] Demo Zone 14:30–16:00 (Demo Phòng 16:00–18:00 nếu lọt top)
-- [ ] Sửa theo góp ý → ghi `spec.md` §10 (giờ · đổi gì · vì sao), chạy thêm thì ghi thành `run-3`
-- [ ] Reflection: `reflection/khuat-duy-hieu.md` · `reflection/doan-gia-long.md` · `reflection/nguyen-dac-tuan-nghia.md` · `reflection/truong-van-thong.md` · ⚠ 16:20 28/11 cập nhật nháp của Thông đến K4/S2 và bài học từ lượt 2, theo 3 câu trong TEMPLATE; Thông cần đọc, sửa và xác nhận trước nộp. ? 16:25 28/11 Long ?? x?c nh?n `doan-gia-long.md`.
-- [ ] H · Dọn repo: `CHOT-1600.md` giữ làm biên bản hay xoá; sửa `AGENTS.md` mục Quy trình git cho khớp cách làm thật (nhánh + PR)
-- [ ] (tuỳ chọn) E6 · ai rảnh · Ảnh chụp trang Gói thuê bao Google Play / mục thanh toán tự động trong ví (che thông tin) để bỏ ⏳ ở `spec.md` §0
-- [ ] Push lần cuối trước 23:59
+- [x] ~~Demo Zone 14:30–16:00 (Demo Phòng 16:00–18:00 nếu lọt top)~~ ✅ hoàn tất chặng thi chiều 28/11
+- [x] ~~Sửa theo góp ý → ghi `spec.md` §10 (giờ · đổi gì · vì sao), chạy thêm thì ghi thành `run-3`~~ ✅ app web `app/server.py` (`46402de`), nhánh ngoài chủ đề + `run-3@20261128-143731` 23/23 (`644890f`, `f5d56c0`), ghi `spec.md` §10
+- [x] ~~Reflection: `reflection/khuat-duy-hieu.md` · `reflection/doan-gia-long.md` · `reflection/nguyen-dac-tuan-nghia.md` · `reflection/truong-van-thong.md`~~ ✅ 28/11 · đủ 4 file (Long đã xác nhận `d68dc90`, Thông cập nhật đến K4/S2 `87b61a4`, Hiếu & Nghĩa hoàn thiện cuối ngày)
+- [x] ~~H · Dọn repo: `CHOT-1600.md` giữ làm biên bản lịch sử; giữ `AGENTS.md` đúng cách làm thực tế trên `main`~~ ✅ 28/11
+- [ ] (tuỳ chọn) E6 · ai rảnh · Ảnh chụp trang Gói thuê bao Google Play / mục thanh toán tự động trong ví *(bỏ qua — không cần cho mốc cuối)*
+- [x] ~~Push lần cuối trước 23:59~~ ✅ sẵn sàng chốt repo cuối ngày 28/11
 
 ## Rà soát bàn giao phần Thông · 28/11/2026
 

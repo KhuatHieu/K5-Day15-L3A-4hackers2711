@@ -80,11 +80,11 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~S4 · H · `spec.md` §10: dòng "Phân công có tên" + "Dùng AI vào việc gì" (2–3 dòng)~~ ✅ 14:00 · d6dc90a
 - [x] ~~R3 · N+L · Chốt báo cáo so sánh trong `eval/report.md` và `eval/README.md` mục 5–6~~ ✅ 11:59 · `run-2@20261128-113802`, 18/20 → 20/20 trên bộ chung, 3/3 câu mới, 23/23 toàn lượt. Điểm B01–B12 của Long ở `a0da52c`, B13–B23 của Nghĩa ở `d67c572`.
 - [x] ~~D4 · H · `README.md` của repo vẫn là khung ("[Tên nhóm]", mục 0): điền tên nhóm, lát cắt, cách chạy, link các file chính; xoá mục 0~~ ✅ 14:00 · d6dc90a · video dự phòng còn chờ P2
-- [ ] A1 · mỗi người · `docs/ai-usage.md`: mỗi người tự thêm dòng việc mình dùng AI (dòng "Prompt / thiết kế lời gọi mô hình", "Slide, văn bản" còn trống) · Thông đã có khai báo dữ liệu, khảo sát, V5, K0/K1 và tài liệu bàn giao; không xác nhận thay các thành viên khác.
+- [ ] A1 · mỗi người · `docs/ai-usage.md`: mỗi người tự thêm dòng việc mình dùng AI (dòng "Prompt / thiết kế lời gọi mô hình", "Slide, văn bản" còn trống) · Thông đã có khai báo dữ liệu, khảo sát, V5, K0/K1 và tài liệu bàn giao; không xác nhận thay các thành viên khác. · Long ✅ đã có 3 dòng (X3/X4 prompt + gọi model, X1/X5 khung + chặn rủi ro, S3/P3)
 - [ ] B1 · mỗi người · *(bonus)* 1 người ngoài nhóm dùng thử, ghi `validation/log.md`
 - [ ] G3 · cả nhóm · 13:00 kết luận go / iterate / stop dựa trên số
 - [x] ~~P1 · H+N · Slide (có trang "Đánh giá thế nào" + "Chi phí khi dùng thật"), từ `slides/outline.md` · xuất **`demo-slides.pdf` ở thư mục gốc** (guide 5.2) hoặc link ai cũng xem được~~ ✅ 14:10 · `demo-slides.html` ở thư mục gốc (9 trang; kết luận "Iterate" chờ nhóm chốt ở G3)
-- [ ] P2 · L+T · Video demo dự phòng · ⚠ 22:06 27/11 đã có kịch bản ngắn và cách bàn giao ở `demo-video.md`; còn quay video thực tế ≤2 phút và kiểm link.
+- [x] ~~P2 · L+T · Video demo dự phòng~~ ✅ 16:17 · https://youtu.be/4oGxPO-StTg · kịch bản ở `demo-video.md`
 - [ ] G4 · cả nhóm · Tập demo, mỗi người nói 1 phần · ai cũng trả lời được 4 câu (guide 5.2): *Vì sao chọn hình dạng này? · Lỗi nguy hiểm nhất là gì? · Chi phí / task thành công tính thế nào? · Phần bạn làm là gì?*
 - [ ] C2 · H · Push + **nộp CP4** — 14:25 · form cần: phòng demo + link repo, tích 7 hạng mục, lượt 1 → lượt 2, chi phí / task thành công kèm tên model, link slide + video dự phòng, phần chưa xong
 

@@ -57,6 +57,7 @@ Mười một câu `kho` của lượt 1 phủ bốn lớp ở [spec §5](../spe
 | Gemini, lượt trước | `run-1@20261127-164447` | `gemini-3.1-flash-lite` | Chạy cục bộ B01–B20. HTTP 503 ở B04 và B05. Xem [CSV gốc](run-gemini-1644.csv) và [trace gốc](../traces/run-gemini-1644.jsonl). | Chưa chấm | — | Chưa đánh giá |
 | 1 · OpenAI | `run-1@20261127-183503` | `gpt-6.2-sol` | Mã nguồn lượt chạy `2950ebd`, [cấu hình OpenAI](../docs/connect-model.md), 200 giao dịch giả lập. 20/20 câu chạy xong, 0 lỗi API. | 18/20 | 90% | Đạt theo điểm chấm sơ bộ |
 | 2 · OpenAI | `run-2@20261128-113802` | `gpt-6.2-sol` | Code Long `9944cd6`, bảng nguồn `d5609b5`, 23 câu, 0 lỗi API. | **23/23** | **100%** | Đạt chuẩn §7 |
+| 3 · OpenAI | `run-3@20261128-143731` | `gpt-6.2-sol` | Sau CP4: thêm nhánh câu ngoài chủ đề (`on_topic`, `help_message` trong `agent.py`). 23 câu, 0 lỗi API. Output 23/23 câu giống hệt lượt 2 (so bằng code). | chưa chấm | — | Cột `pass` chờ người chấm |
 
 [Bảng chấm lượt 1](run-1.csv) · [Trace lượt 1](../traces/run-1.jsonl) · [Báo cáo](report.md). Chạy `python run.py score eval/run-1.csv` để kiểm lại điểm.
 

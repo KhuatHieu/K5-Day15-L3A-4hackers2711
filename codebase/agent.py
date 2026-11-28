@@ -37,6 +37,12 @@ WARN_DAYS = 3          # quy tắc cảnh báo đã chốt: ngày trừ kế ti�
 LOAI = ("goi_dang_ky", "hoa_don_thiet_yeu", "khong_ro")
 # từ quá chung, không dùng để khớp câu hỏi với mô tả giao dịch
 STOP_WORDS = {"google", "tien", "com", "www", "bill", "intl", "thanh", "toan"}
+# Sau CP4 · câu "hỏi" không khớp tên khoản nào VÀ không có từ nào về khoản trừ (vd "xin chào") → trả lời hướng dẫn,
+# không đọc lịch sử, không gọi model. So trên chữ đã bỏ dấu (plain()); theo nhóm ý, không dò nguyên văn câu thử.
+TOPIC_RE = re.compile(
+    r"\b(tru|khoan|goi|dang ky|thanh toan|tu dong|gia han|huy|tien|phi|thue bao|hoa don|dich vu|giao dich"
+    r"|sao ke|nap|vi|the|ky|chu ky|bao nhieu|subscription|premium|app|ung dung|dung thu|hang thang|moi thang)\b"
+    r"|\d+\s*(k|d|dong|vnd)\b|\d{1,3}([.,]\d{3})+")
 
 
 # Lượt 2 · hướng dẫn KIỂM TRA dự phòng (dòng có mã bắt đầu "kiem_tra_" trong data/cancel_guides.csv).
@@ -109,6 +115,9 @@ def answer(text: str) -> dict:
 
 def answer_in_scope(text: str, user_id: str, mode: str) -> str:
     """Luồng chính (bước 3–9) cho yêu cầu trong phạm vi."""
+    if mode == "hoi" and not on_topic(text):
+        note("dừng: câu không hỏi về khoản trừ → hướng dẫn cách hỏi")
+        return help_message(user_id)
     txs = get_transactions(user_id)
     if not txs:
         note("dừng: không có lịch sử cho %s" % user_id)
@@ -212,6 +221,31 @@ def scope_notes(reasons: list, user_id: str) -> str:
         lines.append("⚠ Đừng gửi mã OTP, mật khẩu hay số thẻ cho bất kỳ ai, kể cả mình. Mình không dùng và không lưu "
                      "các thông tin này. Nếu đã lỡ gửi cho người lạ, hãy đổi mật khẩu và báo ngay cho ví / ngân hàng.")
     return "\n".join(lines)
+
+
+def on_topic(text: str) -> bool:
+    """True nếu câu có từ về khoản trừ / tiền, HOẶC có từ ≥4 chữ cái trùng tên một giao dịch của người dùng.
+    Câu chào hỏi, hỏi linh tinh → False. Chỉ dùng cho chế độ "hoi"."""
+    body = plain(re.sub(r"^\s*\[U\d{2}\]", "", text or ""))
+    if TOPIC_RE.search(body):
+        return True
+    user_id, _ = parse_input(text)
+    words = set(re.findall(r"[a-z]{4,}", body)) - STOP_WORDS
+    if not (words and user_id):
+        return False
+    with TRANSACTIONS_CSV.open(encoding="utf-8-sig", newline="") as f:
+        descs = [re.sub(r"[^a-z]", "", plain(r["description"])) for r in csv.DictReader(f) if r["user_id"] == user_id]
+    return any(w in d for w in words for d in descs)
+
+
+def help_message(user_id: str) -> str:
+    return ("Chào bạn! Mình chỉ hỗ trợ các khoản trừ tiền định kỳ trong lịch sử giao dịch của %s: "
+            "đó là khoản gì, khi nào trừ tiếp và cách tự kiểm / huỷ có nguồn chính thức.\n"
+            "Bạn có thể hỏi:\n"
+            "- `[%s] kiem_tra` để rà các khoản sắp trừ trong %d ngày tới.\n"
+            "- Hỏi về một khoản cụ thể, kèm tên trên lịch sử giao dịch hoặc số tiền, vd \"khoản Spotify này là gì?\".\n"
+            "- \"Mình đang trả tự động những gói gì?\" để xem mọi khoản định kỳ."
+            % (user_id, user_id, WARN_DAYS))
 
 
 # ---------- 5. chọn khoản ----------

@@ -17,7 +17,7 @@ python -m unittest discover -s codebase -v
 
 Lệnh đầu tạo đồng bộ ba CSV: `transactions.csv`, `recurring_truth.csv`, `renewal_schedules.csv`. Chỉ cần thư viện chuẩn Python, không cần API hay file review trên máy để chạy. Nội dung review đã được đối chiếu khi dựng kịch bản. `--output-dir` cho phép sinh thử vào thư mục riêng. `--max-rows` mặc định 200, không tính dòng tiêu đề; nhỏ hơn 150 sẽ báo lỗi vì không được cắt mất giao dịch tình huống.
 
-Seed sinh giao dịch là **2711**. Nhiễu được sinh theo lịch rồi chọn lại bằng seed **2712**, giữ tối thiểu hai dòng nhiễu cho mỗi người. Cùng cấu hình và script sinh lại giống từng byte; đã đối chiếu hai lần chạy trong thư mục tạm.
+Seed sinh giao dịch là **2711**. Nhiễu được sinh theo lịch rồi chọn lại bằng seed **2712**, giữ tối thiểu hai dòng nhiễu cho mỗi người. Cùng cấu hình và script sinh lại giống từng byte; đã đối chiếu hai lần chạy trong thư mục tạm. Rà lại trên Windows ngày 28/11: `transactions.csv` và `recurring_truth.csv` khớp từng byte với bản checkout; `renewal_schedules.csv` khớp mọi dòng, chỉ khác xuống dòng CRLF của bản checkout và LF của script.
 
 ## Dataset 1 — transactions.csv
 
@@ -49,7 +49,7 @@ Seed sinh giao dịch là **2711**. Nhiễu được sinh theo lịch rồi ch�
 
 Có **17 chuỗi đáp án** liên kết đủ **150 giao dịch tình huống** qua `tx_ids`. Các dòng còn lại trong transactions.csv là 50 giao dịch nhiễu.
 
-Các cột gồm hồ sơ/persona, mã chuỗi, ví dụ mô tả, dịch vụ, nền tảng, loại khoản, chu kỳ danh nghĩa, số lần xuất hiện, lần trừ cuối, ngày kế tiếp của kịch bản, nguồn tiền, ghi chú và danh sách ID. Chỉ người kiểm và bộ kiểm dùng file này. App không được đọc đáp án.
+Các cột gồm hồ sơ/persona, mã chuỗi, ví dụ mô tả, dịch vụ, nền tảng, loại khoản, chu kỳ danh nghĩa, số lần xuất hiện, lần trừ cuối, ngày kế tiếp của kịch bản, nguồn tiền, ghi chú và danh sách ID. Luồng `answer()` không đọc file này. Giao diện `app/server.py` hiện đọc hai cột `user_id`/`persona` để gắn nhãn danh sách hồ sơ; không lấy dịch vụ, chu kỳ hay ngày đáp án để trả lời.
 
 `cycle_days = 30` của lịch tháng là giá trị danh nghĩa; ngày kế tiếp theo lịch tháng, không luôn bằng ngày cuối cộng 30. U01-S1 và U04-S1 chỉ có một lần trả phí: `next_date` trong đáp án là **lịch cài trong kịch bản**, không thể suy ra từ giao dịch. Công cụ phải báo thiếu căn cứ và không đưa dự báo cho hai chuỗi này. Các ca trừ trùng hoặc thiếu lịch sử khác để trống ngày kế tiếp.
 
@@ -71,7 +71,7 @@ B01/B13 lấy ngày 29/11 từ phiếu gia hạn giả lập có nguồn `SIM-GP
 
 Giữ nguyên bảng 9 kênh hướng dẫn hủy hiện có. Mỗi dòng có kênh, bí danh, bước tự kiểm tra/hủy, URL trợ giúp chính thức và ngày đối chiếu. V3/V4 không thay nội dung hay xác nhận lại nguồn của bảng này.
 
-## Dataset 4 — public_prices.csv (giá niêm yết công khai, chỉ cho app demo)
+## Dataset 5 — public_prices.csv (giá niêm yết công khai, chỉ cho app demo)
 
 Dữ liệu **thật, công khai, không có thông tin cá nhân**: giá gói đăng ký đang bán tại Việt Nam (VND/tháng), mỗi dòng có `official_url` và `checked_on`. 8 dòng: Spotify (Cá nhân, Sinh viên), Google One (Lite 30 GB, Basic 100 GB, AI Pro 5 TB), iCloud+ (50 GB, 200 GB, 2 TB). Đọc ngày 28/11/2026 từ trang chính thức bằng công cụ tải trang của Claude Code (xem `docs/ai-usage.md`); chưa có người kiểm lại từng giá.
 

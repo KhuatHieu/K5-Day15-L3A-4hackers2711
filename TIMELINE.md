@@ -80,18 +80,24 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 - [x] ~~S4 · H · `spec.md` §10: dòng "Phân công có tên" + "Dùng AI vào việc gì" (2–3 dòng)~~ ✅ 14:00 · d6dc90a
 - [x] ~~R3 · N+L · Chốt báo cáo so sánh trong `eval/report.md` và `eval/README.md` mục 5–6~~ ✅ 11:59 · `run-2@20261128-113802`, 18/20 → 20/20 trên bộ chung, 3/3 câu mới, 23/23 toàn lượt. Điểm B01–B12 của Long ở `a0da52c`, B13–B23 của Nghĩa ở `d67c572`.
 - [x] ~~D4 · H · `README.md` của repo vẫn là khung ("[Tên nhóm]", mục 0): điền tên nhóm, lát cắt, cách chạy, link các file chính; xoá mục 0~~ ✅ 14:00 · d6dc90a · video dự phòng còn chờ P2
-- [ ] A1 · mỗi người · `docs/ai-usage.md`: mỗi người tự thêm dòng việc mình dùng AI (dòng "Prompt / thiết kế lời gọi mô hình", "Slide, văn bản" còn trống) · Thông đã có khai báo dữ liệu, khảo sát, V5, K0/K1 và tài liệu bàn giao; không xác nhận thay các thành viên khác.
+- [ ] A1 · mỗi người · `docs/ai-usage.md`: mỗi người tự thêm dòng việc mình dùng AI · Thông đã có khai báo dữ liệu, khảo sát, V5, K0/K1, K4/S2 và rà soát bàn giao 28/11; dòng prompt và slide của Long/Hiếu đã được điền. Chờ từng người xác nhận, không xác nhận thay các thành viên khác.
 - [ ] B1 · mỗi người · *(bonus)* 1 người ngoài nhóm dùng thử, ghi `validation/log.md`
 - [ ] G3 · cả nhóm · 13:00 kết luận go / iterate / stop dựa trên số
 - [x] ~~P1 · H+N · Slide (có trang "Đánh giá thế nào" + "Chi phí khi dùng thật"), từ `slides/outline.md` · xuất **`demo-slides.pdf` ở thư mục gốc** (guide 5.2) hoặc link ai cũng xem được~~ ✅ 14:10 · `demo-slides.html` ở thư mục gốc (9 trang; kết luận "Iterate" chờ nhóm chốt ở G3)
-- [ ] P2 · L+T · Video demo dự phòng · ⚠ 22:06 27/11 đã có kịch bản ngắn và cách bàn giao ở `demo-video.md`; còn quay video thực tế ≤2 phút và kiểm link.
-- [ ] G4 · cả nhóm · Tập demo, mỗi người nói 1 phần · ai cũng trả lời được 4 câu (guide 5.2): *Vì sao chọn hình dạng này? · Lỗi nguy hiểm nhất là gì? · Chi phí / task thành công tính thế nào? · Phần bạn làm là gì?*
+- [ ] P2 · L+T · Video demo dự phòng · ⚠ 16:20 28/11 đã cập nhật `demo-video.md`: kịch bản lượt 2, link CP3 và lời dẫn của Thông; còn quay video thực tế ≤2 phút và kiểm link. Link CP3 không được tính thay video P2.
+- [ ] G4 · cả nhóm · Tập demo, mỗi người nói 1 phần · ai cũng trả lời được 4 câu (guide 5.2): *Vì sao chọn hình dạng này? · Lỗi nguy hiểm nhất là gì? · Chi phí / task thành công tính thế nào? · Phần bạn làm là gì?* · ⚠ 16:20 28/11 đã chuẩn bị lời dẫn và bốn câu trả lời cho Thông ở `demo-video.md`; chưa có xác nhận nhóm tập thật.
 - [ ] C2 · H · Push + **nộp CP4** — 14:25 · form cần: phòng demo + link repo, tích 7 hạng mục, lượt 1 → lượt 2, chi phí / task thành công kèm tên model, link slide + video dự phòng, phần chưa xong
 
 ## 🏁 Demo · hạn chót 23:59 Thứ Bảy 28/11
 - [ ] Demo Zone 14:30–16:00 (Demo Phòng 16:00–18:00 nếu lọt top)
 - [ ] Sửa theo góp ý → ghi `spec.md` §10 (giờ · đổi gì · vì sao), chạy thêm thì ghi thành `run-3`
-- [ ] Reflection: `reflection/khuat-duy-hieu.md` · `reflection/doan-gia-long.md` · `reflection/nguyen-dac-tuan-nghia.md` · `reflection/truong-van-thong.md` · ⚠ 22:06 27/11 đã viết nháp của Thông theo 3 câu trong TEMPLATE; Thông cần đọc, sửa và xác nhận trước nộp.
+- [ ] Reflection: `reflection/khuat-duy-hieu.md` · `reflection/doan-gia-long.md` · `reflection/nguyen-dac-tuan-nghia.md` · `reflection/truong-van-thong.md` · ⚠ 16:20 28/11 cập nhật nháp của Thông đến K4/S2 và bài học từ lượt 2, theo 3 câu trong TEMPLATE; Thông cần đọc, sửa và xác nhận trước nộp.
 - [ ] H · Dọn repo: `CHOT-1600.md` giữ làm biên bản hay xoá; sửa `AGENTS.md` mục Quy trình git cho khớp cách làm thật (nhánh + PR)
 - [ ] (tuỳ chọn) E6 · ai rảnh · Ảnh chụp trang Gói thuê bao Google Play / mục thanh toán tự động trong ví (che thông tin) để bỏ ⏳ ở `spec.md` §0
 - [ ] Push lần cuối trước 23:59
+
+## Rà soát bàn giao phần Thông · 28/11/2026
+
+- [x] ~~T · Kiểm lại V3/V4, benchmark, K1/K4 và tài liệu chuẩn bị demo~~ ✅ 16:20 · chưa commit · `run.py check` không lỗi; 29/29 test qua; `score` lượt 2 và 3 đều 23/23 theo điểm đã lưu. Hai CSV giao dịch/đáp án tái tạo khớp byte; lịch gia hạn khớp nội dung, khác LF/CRLF. K1 đủ 50 phiên, token khớp trace, tổng $0.00607025; giá bình quân từ token eval lượt 2 làm tròn $0.00093678/câu. Cập nhật `data/DATA_CARD.md`, `demo-video.md`, reflection và khai báo AI; không sửa điểm hay trace.
+- E2c/E4 còn chờ bản xuất cuối hoặc xác nhận dùng bản tạm, xác nhận thành viên nhóm trong mẫu và hai dòng 26/30. Chưa đủ căn cứ đánh dấu xong.
+- P2, G4, B1, quyết định G3 và xác nhận reflection cần video, buổi tập, người dùng thử hoặc xác nhận thực tế tương ứng; không suy ra hoàn thành từ tài liệu đã chuẩn bị.

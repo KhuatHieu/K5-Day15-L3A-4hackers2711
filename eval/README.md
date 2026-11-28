@@ -11,7 +11,9 @@ Luồng demo đọc [giao dịch](../data/transactions.csv), [phiếu gia hạn 
 
 ## 2. Bộ câu thử
 
-[Benchmark](benchmark.csv) có **20 câu** ở lượt 1 gồm 7 `thuong`, 11 `kho` và 2 `tu_choi`. B11 và B12 là hai câu tấn công. So với bộ 15 câu CP2, lượt 1 dùng nguyên B01–B15 và thêm B16–B20 đã chuẩn bị cho CP3. Nguồn gồm `data_that` 7, `tu_viet` 8, `nguoi_dung` 0 và `sinh_seed` 5. Có **7/20** câu lấy ý từ review hoặc nhóm nhãn review thật, đạt mốc ≥1/3. Giao dịch dùng để chạy thử là giả lập.
+[Benchmark hiện tại](benchmark.csv) có **23 câu** (9 `thuong`, 12 `kho`, 2 `tu_choi`). B21–B23 lấy ý từ phỏng vấn P3, P2 và P1, đưa tỷ lệ nguồn người dùng hoặc dữ liệu thật lên **10/23**.
+
+Lượt 1 có **20 câu** gồm 7 `thuong`, 11 `kho` và 2 `tu_choi`. B11 và B12 là hai câu tấn công. So với bộ 15 câu CP2, lượt 1 dùng nguyên B01–B15 và thêm B16–B20 đã chuẩn bị cho CP3. Nguồn gồm `data_that` 7, `tu_viet` 8, `nguoi_dung` 0 và `sinh_seed` 5. Có **7/20** câu lấy ý từ review hoặc nhóm nhãn review thật, đạt mốc ≥1/3. Giao dịch dùng để chạy thử là giả lập.
 
 | Chiều kiểm tra | Ca đại diện |
 |---|---|
@@ -20,7 +22,7 @@ Luồng demo đọc [giao dịch](../data/transactions.csv), [phiếu gia hạn 
 | Kênh và nguồn tiền | Ví trả sau (B04), biết kênh Apple nhưng chưa rõ gói (B06), biết PayPal nhưng chưa rõ bên bán (B08). |
 | Phạm vi và quyền thao tác | Hoá đơn thiết yếu (B09, B19), yêu cầu huỷ thay và OTP (B11), xem dữ liệu hồ sơ khác và tư vấn đầu tư (B12). |
 
-Mười một câu `kho` phủ bốn lớp ở [spec §5](../spec.md).
+Mười một câu `kho` của lượt 1 phủ bốn lớp ở [spec §5](../spec.md).
 
 1. Căn cứ dữ liệu — B05, B10 (thiếu lịch sử), B15 (tránh cảnh báo ngoài cửa sổ), B20 (số đã trừ và giới hạn suy luận).
 2. Mơ hồ hoặc thiếu thông tin — B06, B08, B14.
@@ -44,7 +46,7 @@ Mười một câu `kho` phủ bốn lớp ở [spec §5](../spec.md).
 
 ## 4. Lệnh
 
-- Kiểm cấu trúc bộ câu thử và metric bằng `python run.py check`. Bộ 20 câu thuộc mốc 20–30 câu của CP3.
+- Kiểm cấu trúc bộ câu thử và metric bằng `python run.py check`. Bộ 23 câu hiện tại thuộc mốc 20–30 câu của CP3.
 - Chạy hết luồng CP2 với model giả bằng `printf '[U01] kiem_tra\n' | MODEL_PROVIDER=fake python run.py` (Bash).
 - Khi chạy một lượt với model thật, dùng `python run.py eval` để tạo `eval/run-N.csv` và `traces/run-N.jsonl`. Sau khi điền cột `pass` theo tiêu chí đã chốt, tổng hợp bằng `python run.py score eval/run-N.csv`.
 
@@ -52,9 +54,9 @@ Mười một câu `kho` phủ bốn lớp ở [spec §5](../spec.md).
 
 | Lượt | Run ID | Model | Cấu hình | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
-| Gemini, lượt trước | `run-1@20261127-164447` | `gemini-3.1-flash-lite` | Cùng 20 câu. HTTP 503 ở B04 và B05. Kết quả được lưu riêng. | Chưa chấm | — | Chưa đánh giá |
-| 1 · OpenAI | `run-1@20261127-183503` | `gpt-6.2-sol` | Mã nguồn `2950ebd`, cấu hình nối OpenAI cục bộ, 200 giao dịch giả lập. 20/20 câu chạy xong, 0 lỗi API. | 18/20 | 90% | Đạt theo điểm chấm sơ bộ |
-| 2 | Chờ chạy trên cùng 20 câu sau cải tiến. | | | | | |
+| Gemini, lượt trước | `run-1@20261127-164447` | `gemini-3.1-flash-lite` | Chạy cục bộ B01–B20. HTTP 503 ở B04 và B05. Xem [CSV gốc](run-gemini-1644.csv) và [trace gốc](../traces/run-gemini-1644.jsonl). | Chưa chấm | — | Chưa đánh giá |
+| 1 · OpenAI | `run-1@20261127-183503` | `gpt-6.2-sol` | Mã nguồn lượt chạy `2950ebd`, [cấu hình OpenAI](../docs/connect-model.md), 200 giao dịch giả lập. 20/20 câu chạy xong, 0 lỗi API. | 18/20 | 90% | Đạt theo điểm chấm sơ bộ |
+| 2 | Chờ chạy 23 câu sau cải tiến. Đối chiếu trực tiếp trên 20 câu chung B01–B20. | | | | | |
 
 [Bảng chấm lượt 1](run-1.csv) · [Trace lượt 1](../traces/run-1.jsonl) · [Báo cáo](report.md). Chạy `python run.py score eval/run-1.csv` để kiểm lại điểm.
 

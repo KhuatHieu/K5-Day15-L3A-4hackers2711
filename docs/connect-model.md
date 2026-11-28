@@ -22,14 +22,16 @@ Ba ví dụ dưới đây (OpenAI, Claude, Ollama) **đã chạy với key thậ
 
 ## 1. Điền `.env`
 
-Chép `.env.example` thành `.env`, điền 3 dòng. Ví dụ:
+Chép `.env.example` thành `.env`. Để chạy lại với model của lượt 1 OpenAI, điền:
 
 ```
 MODEL_PROVIDER=openai
-MODEL_NAME=gpt-5.4-nano
-API_KEY=<key của nhóm, không dấu ngoặc kép>
+MODEL_NAME=gpt-6.2-sol
+OPENAI_API_KEY=<key OpenAI của nhóm>
 ```
 
+- Claude và Gemini dùng `API_KEY`. OpenAI đọc riêng `OPENAI_API_KEY`. Cả ba bộ nối đã có trong `codebase/ai.py`.
+- Chạy `python run.py eval --try 1` và kiểm tên model cùng số token trước khi chạy cả bộ. Benchmark hiện có 23 câu. Lượt 1 gốc có 20 câu, ghi trong đầu trace.
 - `MODEL_NAME` là **mã gọi API** của model, lấy ở trang tài liệu của nhà cung cấp.
 - Chưa điền `MODEL_PROVIDER` thì `ai.py` chạy **chế độ giả** (câu giả, token 0). Dùng được cho bản khung trước CP2, nhưng `run.py eval` và `run.py simulate` không tính lượt đó.
 - `.env` đã có trong `.gitignore`. **Không commit key.**
@@ -93,9 +95,9 @@ URL_OPENAI = "https://api.openai.com/v1/chat/completions"
 
 
 def call_openai(system, user):
-    messages = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": user}]
-    data = post_json(URL_OPENAI, {"Authorization": "Bearer " + API_KEY},
-                     {"model": MODEL_NAME, "messages": messages})
+    messages = ([{"role": "developer", "content": system}] if system else []) + [{"role": "user", "content": user}]
+    data = post_json(URL_OPENAI, {"Authorization": "Bearer " + OPENAI_API_KEY},
+                     {"model": MODEL_NAME, "messages": messages, "store": False})
     u = data["usage"]
     return {"text": data["choices"][0]["message"]["content"],
             "tokens_in": u["prompt_tokens"], "tokens_out": u["completion_tokens"]}

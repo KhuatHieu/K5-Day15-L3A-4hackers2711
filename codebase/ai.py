@@ -14,8 +14,8 @@ Chế độ giả (mặc định khi .env chưa có MODEL_PROVIDER, hoặc MODEL
     trả một câu giả cố định, model "fake", token 0 — để luồng chạy hết từ trước CP2 (guide bước 3.2).
     Lượt `run.py eval` / `run.py simulate` chạy bằng model giả KHÔNG được tính.
 
-Nối model thật: điền .env (chép từ .env.example), rồi viết nhánh gọi API ở dưới theo docs/connect-model.md
-(có ví dụ OpenAI, Claude, model chạy trên máy, và cách nối nhà cung cấp khác). Không dán API key vào file này.
+Nối model thật: điền .env (chép từ .env.example) theo docs/connect-model.md.
+Gemini, Claude và OpenAI đã có nhánh gọi API. Không dán API key vào file này.
 """
 import json
 import os
@@ -44,6 +44,7 @@ load_env()
 MODEL_PROVIDER = (os.environ.get("MODEL_PROVIDER") or "fake").strip().lower()
 MODEL_NAME = (os.environ.get("MODEL_NAME") or "").strip()
 API_KEY = (os.environ.get("API_KEY") or "").strip()
+OPENAI_API_KEY = (os.environ.get("OPENAI_API_KEY") or "").strip()
 
 
 @model_call
@@ -56,6 +57,8 @@ def call_model(system: str, user: str) -> dict:
         r = call_claude(system, user)
     elif MODEL_PROVIDER == "gemini":
         r = call_gemini(system, user)
+    elif MODEL_PROVIDER == "openai":
+        r = call_openai(system, user)
     else:
         raise NotImplementedError(
             "chưa viết phần gọi model thật cho MODEL_PROVIDER=%s trong codebase/ai.py — xem docs/connect-model.md"
@@ -66,6 +69,7 @@ def call_model(system: str, user: str) -> dict:
 SHOW_RAW = False   # đổi thành True để in nguyên phản hồi của API khi cần tìm tên trường
 URL_GEMINI = "https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent"
 URL_CLAUDE = "https://api.anthropic.com/v1/messages"
+URL_OPENAI = "https://api.openai.com/v1/chat/completions"
 
 
 def call_claude(system, user):
@@ -95,7 +99,13 @@ def post_json(url, headers, body, timeout=60):
         with urllib.request.urlopen(req, timeout=timeout) as r:
             data = json.loads(r.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
-        raise RuntimeError("HTTP %d: %s" % (e.code, e.read().decode("utf-8", "replace")[:300]))
+        with e:
+            detail = e.read().decode("utf-8", "replace")
+        credential = headers.get("x-api-key") or headers.get("x-goog-api-key") or headers.get("Authorization", "")
+        credential = credential.removeprefix("Bearer ")
+        if credential:
+            detail = detail.replace(credential, "[ẩn]")
+        raise RuntimeError("HTTP %d: %s" % (e.code, detail[:300])) from None
     if SHOW_RAW:
         print(json.dumps(data, ensure_ascii=False, indent=2)[:3000])
     return data
@@ -118,3 +128,23 @@ def call_gemini(system, user):
     return {"text": text,
             "tokens_in": int(u.get("promptTokenCount", 0)),
             "tokens_out": int(u.get("candidatesTokenCount", 0)) + int(u.get("thoughtsTokenCount", 0))}
+
+
+def call_openai(system, user):
+    """Gọi OpenAI Chat Completions và lấy token thực tế từ usage."""
+    if not OPENAI_API_KEY or not MODEL_NAME:
+        raise ValueError("OpenAI cần OPENAI_API_KEY và MODEL_NAME trong .env hoặc môi trường")
+
+    messages = []
+    if system:
+        messages.append({"role": "developer", "content": system})
+    messages.append({"role": "user", "content": user})
+    data = post_json(URL_OPENAI, {"Authorization": "Bearer " + OPENAI_API_KEY},
+                     {"model": MODEL_NAME, "messages": messages, "store": False})
+    choices = data.get("choices") or []
+    text = choices[0]["message"].get("content") if choices else None
+    if not isinstance(text, str) or not text.strip():
+        raise RuntimeError("OpenAI không trả nội dung văn bản")
+    usage = data["usage"]
+    return {"text": text, "tokens_in": int(usage["prompt_tokens"]),
+            "tokens_out": int(usage["completion_tokens"])}

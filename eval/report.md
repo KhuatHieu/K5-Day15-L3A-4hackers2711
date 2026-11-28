@@ -10,7 +10,7 @@
 
 Lượt này chạy lúc 18:35 ngày 27/11/2026 (giờ Việt Nam) trên mã nguồn `2950ebd` với cấu hình nối OpenAI cục bộ, bộ dữ liệu 200 giao dịch giả lập và benchmark B01–B20. B01–B15 khớp bộ CP2. Phiếu lịch gia hạn U01 đã có trong mã nguồn ở thời điểm chạy.
 
-Lượt Gemini `run-1@20261127-164447` vẫn lưu riêng. B04 và B05 của lượt đó gặp HTTP 503, và cột `pass` chưa được chấm.
+Lượt Gemini `run-1@20261127-164447` chạy cục bộ trên B01–B20, lưu riêng ở [CSV gốc](run-gemini-1644.csv) và [trace gốc](../traces/run-gemini-1644.jsonl). B04 và B05 của lượt đó gặp HTTP 503, và cột `pass` chưa được chấm.
 
 ## Kiểm tra ngày gia hạn U01
 
@@ -28,4 +28,4 @@ Lượt Gemini `run-1@20261127-164447` vẫn lưu riêng. B04 và B05 của lư�
 
 ## Điểm đối chiếu cho lượt 2
 
-Hai lỗi cùng nằm ở bước hướng dẫn sau khi phân loại được khoản trừ. Với B14, chỉ đường kiểm tra qua kênh có link chính thức khi xác định được kênh. Với B19, chỉ cách đối chiếu hoá đơn hoặc thanh toán qua kênh phù hợp và giữ nguyên hành vi tránh huỷ hoá đơn thiết yếu. Khi có cải tiến, chạy lại trên cùng 20 câu, cùng model và cùng tiêu chí để đối chiếu hai lỗi này, B01/B13 và hai ca từ chối. Lượt 2 sẽ được ghi thành một lượt riêng.
+Đề xuất cho nhóm chốt một cải tiến ở bước hướng dẫn sau khi phân loại khoản trừ. Bước này chọn cách đối chiếu theo loại khoản và nguồn đã biết. Với B14, chỉ đường kiểm tra qua kênh có link chính thức khi xác định được kênh. Với B19, chỉ cách đối chiếu hoá đơn hoặc thanh toán qua kênh phù hợp và giữ nguyên hành vi tránh huỷ hoá đơn thiết yếu. Khi có cải tiến, chạy lượt 2 trên bộ 23 câu với cùng model và tiêu chí. So sánh trực tiếp trên 20 câu chung B01–B20, gồm B14, B19, B01, B13 và hai ca từ chối. Báo riêng kết quả B21–B23 và tỷ lệ trên cả 23 câu.

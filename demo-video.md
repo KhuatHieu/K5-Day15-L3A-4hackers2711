@@ -1,4 +1,18 @@
-# P2 — Kịch bản video dự phòng · Long + Thông
+# Video demo
+
+## P3 · Video CP3 30 giây
+
+Tệp bàn giao `demo-cp3-30s.mp4` có độ dài 30 giây, 1080p và dùng output thực tế của `python run.py` với OpenAI `gpt-6.2-sol`. Màn hình giữ dòng model và số token của từng ca để kiểm tra lời gọi thật. OTP mẫu được che trong phần nhập.
+
+| Giây | Ca | Nội dung |
+|---|---|---|
+| 0–10 | B01 | Nhận diện BaoThuc Pro, 179.000đ, lịch gia hạn giả lập có mã nguồn. |
+| 10–20 | B13 | Rà định kỳ và cảnh báo đúng ngày 29/11/2026. |
+| 20–30 | B11 | Từ chối huỷ hộ, nhắc giữ kín OTP và để người dùng tự thao tác. |
+
+**Link nộp CP3:** Chờ Long hoặc Hiếu đưa MP4 lên YouTube Không công khai hoặc Drive với quyền ai có link cũng xem được. Mở link bằng tab ẩn danh trước khi dán vào Form 2.
+
+## P2 · Kịch bản video dự phòng · Long + Thông
 
 **Trạng thái:** đã chuẩn bị kịch bản; chưa có video quay thực tế hoặc link công khai. Mục tiêu 90–110 giây, tối đa 2 phút.
 

@@ -39,11 +39,20 @@ LOAI = ("goi_dang_ky", "hoa_don_thiet_yeu", "khong_ro")
 STOP_WORDS = {"google", "tien", "com", "www", "bill", "intl", "thanh", "toan"}
 
 
+# Lượt 2 · hướng dẫn KIỂM TRA dự phòng (dòng có mã bắt đầu "kiem_tra_" trong data/cancel_guides.csv).
+# Không phải kênh thu tiền: model không được chọn, chỉ code dùng khi không có hướng dẫn huỷ của kênh.
+FALLBACK_PREFIX = "kiem_tra_"
+GUIDE_HOA_DON = FALLBACK_PREFIX + "hoa_don"      # hoá đơn thiết yếu: đối chiếu hoá đơn / cài đặt thanh toán
+GUIDE_KHONG_RO = FALLBACK_PREFIX + "khong_ro"    # chưa rõ nơi thu tiền: kiểm thanh toán tự động / hỗ trợ của ví
+
+
 def _channels() -> tuple:
-    """Mã kênh lấy từ bảng hướng dẫn huỷ của Nghĩa (data/cancel_guides.csv) — một danh sách dùng chung."""
+    """Mã kênh lấy từ bảng hướng dẫn huỷ của Nghĩa (data/cancel_guides.csv) — một danh sách dùng chung.
+    Bỏ các dòng hướng dẫn kiểm tra dự phòng (FALLBACK_PREFIX)."""
     path = Path(__file__).resolve().parents[1] / "data" / "cancel_guides.csv"
     with path.open(encoding="utf-8", newline="") as f:
-        return tuple(row["channel"] for row in csv.DictReader(f))
+        return tuple(row["channel"] for row in csv.DictReader(f)
+                     if not row["channel"].startswith(FALLBACK_PREFIX))
 
 
 CHANNELS = _channels()
@@ -132,8 +141,13 @@ def answer_in_scope(text: str, user_id: str, mode: str) -> str:
             info["kenh"] = s["renewal_channel"]
         essential = s.get("essential_bill") or info["loai"] == "hoa_don_thiet_yeu"
         guide = None
-        if info["kenh"] != "khong_ro" and not essential:
-            guide = lookup_cancel_guide(info["kenh"])
+        if essential:
+            guide = lookup_cancel_guide(GUIDE_HOA_DON)
+        else:
+            if info["kenh"] != "khong_ro":
+                guide = lookup_cancel_guide(info["kenh"])
+            if guide is None:
+                guide = lookup_cancel_guide(GUIDE_KHONG_RO)
         parts.append(compose(s, info, guide, essential, facts, as_of))
     return "\n\n".join(parts)
 
@@ -270,12 +284,19 @@ def compose(s: dict, info: dict, guide, essential: bool, facts: dict, as_of: str
             lines.append("  (Ngày dự kiến tính từ lịch sử giao dịch, không phải lịch thu tiền bên bán xác nhận.)")
     else:
         lines.append("- Lịch sử chưa đủ để khẳng định đây là khoản định kỳ hay đoán ngày trừ tiếp.")
+    source = ("  Nguồn: %s (kiểm ngày %s)." % (guide["official_url"], fmt_date(guide["checked_on"]))) if guide else ""
     if essential:
         lines.append("- Đây là hoá đơn thiết yếu, mình không gợi ý huỷ.")
+        if guide:
+            lines.append("- Bạn đối chiếu hoá đơn / cài đặt thanh toán theo các bước: %s" % " ".join(guide["steps"]))
+            lines.append(source)
+    elif guide and guide["channel"].startswith(FALLBACK_PREFIX):
+        lines.append("- Mình chưa xác định được nơi thu tiền. Bạn tự kiểm theo các bước: %s" % " ".join(guide["steps"]))
+        lines.append(source)
     elif guide:
         lines.append("- Người thu tiền là **%s**, ví chỉ là nguồn tiền. Bạn tự kiểm / huỷ theo các bước: %s"
                      % (guide["service"], " ".join(guide["steps"])))
-        lines.append("  Nguồn: %s (kiểm ngày %s)." % (guide["official_url"], fmt_date(guide["checked_on"])))
+        lines.append(source)
     else:
         lines.append("- Mình chưa có hướng dẫn có nguồn cho khoản này. Bạn kiểm mục gói đăng ký / thanh toán tự động "
                      "trong tài khoản của nơi bán, hoặc liên hệ kênh hỗ trợ chính thức của ví.")

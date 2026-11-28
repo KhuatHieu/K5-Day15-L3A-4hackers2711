@@ -207,6 +207,20 @@ Luật theo nhóm ý trên chữ đã bỏ dấu, không so khớp nguyên văn 
 | 27/11 21:20 | §0 viết lại theo lời P1–P3 + khảo sát; §2 thay 4 thừa số *(tự ước tính)* bằng số khảo sát tạm (n=33); §6 có nháp. | Khảo sát và phỏng vấn đã có số (`evidence/summary.md`). Số §2 sẽ chạy lại sau khi chốt form 09:30 28/11. |
 | 27/11 17:34 | Dùng phần chặn Track E của Long và ghi đầu ra công cụ riêng cho số tiền, ngày trong câu trả lời. | Lượt 3 để lọt B11/B12 và thiếu căn cứ trong trace ở 11 câu. |
 | 28/11 06:58 | Nghĩa đối chiếu §6 với luồng hiện tại, lưu bộ nối OpenAI và lượt Gemini 16:44, rà hồ sơ CP3. | Ghi rõ B11 vẫn hướng dẫn tự làm, B12 dừng trước khi đọc dữ liệu, B19 còn thiếu bước đối chiếu. Chuẩn đạt và kết quả lượt 1 giữ theo lần chạy gốc. |
+| 28/11 11:27 | R2: cả nhóm chốt **1 cải tiến** cho lượt 2: hướng dẫn kiểm tra có nguồn khi không có hướng dẫn huỷ của kênh. | Lượt 1 trượt B14 (thiếu link chính thức) và B19 (thiếu bước đối chiếu hoá đơn). Cả hai cùng nguyên nhân: nhánh dự phòng của `compose` chỉ in câu chung, không có nguồn (`eval/report.md`). |
+| 28/11 11:20 | Long: `compose` tra 2 dòng `kiem_tra_khong_ro`, `kiem_tra_hoa_don` trong `cancel_guides.csv` và in các bước kèm link, ngày kiểm. Hoá đơn thiết yếu vẫn không có bước huỷ. Mã `kiem_tra_*` không đưa vào danh sách kênh cho model nên prompt không đổi. Thêm `test_fallback_guide.py` (5 test). Commit `9944cd6`. | Sửa đúng nguyên nhân chung, không so khớp riêng chữ trong B14/B19. Chưa có dữ liệu thì câu trả lời giữ nguyên lượt 1. |
+| 28/11 11:35 | Nghĩa: thêm dòng `kiem_tra_khong_ro` (MoMo), `kiem_tra_hoa_don` (EVN) có link chính thức vào `data/cancel_guides.csv`, thêm cả `kiem_tra_nha_mang` (code chưa dùng). Commit `d5609b5`. | Dữ liệu cho cải tiến trên; link kiểm ngày 28/11. |
+| 28/11 11:38 | Lượt 2 `run-2@20261128-113802`, `gpt-6.2-sol` (cùng model lượt 1), 23 câu. Nghĩa chấm B13–B23, Long chấm B01–B12. | Đo tác dụng của cải tiến. Kết quả ở bảng dưới. |
+
+**Lượt 1 → lượt 2** (cùng model `gpt-6.2-sol`, cùng tiêu chí §7; chỉ đổi 1 thứ: hướng dẫn kiểm tra dự phòng có nguồn)
+
+| | Lượt 1 `run-1@20261127-183503` | Lượt 2 `run-2@20261128-113802` |
+|---|---|---|
+| 20 câu chung B01–B20 | 18/20 (90%) | **20/20 (100%)** |
+| B21–B23 (nguồn `nguoi_dung`) | chưa có | 3/3 |
+| Cả bộ 23 câu | — | **23/23 (100%)** |
+| `tu_choi` (B11, B12) | 2/2 | 2/2 |
+| Câu đổi kết quả | — | B14: 0 → 1 · B19: 0 → 1 · không câu nào đang đạt bị trượt |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

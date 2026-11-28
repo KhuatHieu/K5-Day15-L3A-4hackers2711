@@ -1,7 +1,44 @@
 # Chi phí khi dùng thật
 
+<!-- K4:START -->
+## Chốt K4/S2 · 28/11/2026 · gpt-6.2-sol
+
+- **Đầu vào được Thông cung cấp để chốt:** **$0.00093678/câu**. Đây là đơn giá bình quân do người dùng xác nhận, không phải kết quả mô phỏng GPT 50 phiên mới. Một phiên trong dự toán này có một câu; áp cùng đơn giá bình quân cho cả ba persona *(tự ước tính)*.
+- **Chất lượng cùng model:** **23/23 (100%)**, run ID `run-2@20261128-113802`; đối chiếu [CSV lượt 2](../eval/run-2.csv), [trace](../traces/run-2.jsonl) và [báo cáo đánh giá](../eval/report.md). Tỉ lệ trên bộ câu thử không bảo đảm tỉ lệ thực tế.
+- **Chi phí/task thành công = chi phí/câu ÷ tỉ lệ đạt = $0.00093678 ÷ 23/23 = $0.00093678.** Không dùng tỉ lệ không lỗi API của Gemini làm điểm chất lượng GPT.
+- **Quy mô công khai:** MoMo công bố **hơn 30 triệu người dùng** trong [thông cáo ngày 09/06/2026](https://www.momo.vn/tin-tuc/thong-cao-bao-chi/momo-dong-hanh-ngay-tai-chinh-so-2026-khang-dinh-8835), kiểm lại 28/11/2026. Chọn nền 30 triệu; tiếp cận 0,01% / 0,1% / 1% *(tự ước tính)*. Không cộng người dùng ZaloPay vì chưa loại trùng.
+- **Tần suất:** trọng số 12/33, 13/33, 8/33 từ khảo sát tạm câu 4; lần lượt 1, 4, 12 phiên/người/tháng *(tự ước tính)*, xem [personas.yaml](personas.yaml). Trung bình = (12 × 1 + 13 × 4 + 8 × 12) / 33 = **4.848484848 câu/người/tháng**. Tần suất sử dụng sản phẩm chưa được khảo sát đo trực tiếp.
+
+```text
+Người sử dụng = 30.000.000 × tỉ lệ tiếp cận giả định
+Câu/tháng = người sử dụng × (12 × 1 + 13 × 4 + 8 × 12) / 33
+USD/tháng = câu/tháng × 0.00093678
+USD/người/tháng = (160 / 33) × 0.00093678
+```
+
+| Kịch bản | Người (tự ước tính) | Câu/tháng (tự ước tính) | Chi phí model USD/tháng |
+|---|---:|---:|---:|
+| thấp | 3,000 | 14,545.454545 | $13.625891 |
+| cơ sở | 30,000 | 145,454.545455 | $136.258909 |
+| cao | 300,000 | 1,454,545.454545 | $1,362.589091 |
+
+**Chi phí model/người/tháng: $0.004541964**, giống nhau ở ba quy mô vì dùng chung tần suất và đơn giá. Chỉ làm tròn khi hiển thị; số câu lẻ là kỳ vọng. Nếu tần suất tăng gấp đôi thì chi phí tháng tăng gấp đôi. Nếu tỉ lệ đạt thực tế giảm còn 90% thì chi phí/task thành công thành **$0.00104087**, chưa tính retry.
+
+### So với impact §2 và kết luận S2
+
+§2 nêu tổn thất tạm **58 triệu đồng + 134 giờ/1.000 người/tháng**, tương đương **58.000 đồng + 0,134 giờ/người/tháng**; phần không đòi lại được khoảng **47.000 đồng/người/tháng**. Đây là tổn thất từ mẫu khảo sát tạm, chưa phải lợi ích sản phẩm đã chứng minh. Mức CP1 8,3 triệu đồng/1.000 người/tháng tương đương 8.300 đồng/người/tháng, cũng là giả định tham chiếu.
+
+Chi phí model **$0.004541964/người/tháng** và tổn thất tiền ở §2 khác đơn vị, nên chưa tính ROI tiền hoặc tỉ lệ lợi ích/chi phí. Không quy đổi sang VND. Có thể so theo **ngưỡng giá trị thời gian**: nếu tiết kiệm được toàn bộ 0,134 giờ thì tiền model hòa vốn khi một giờ của người dùng được định giá ít nhất **$0.033895/giờ**; nếu chỉ tiết kiệm 10% thì ngưỡng là **$0.338953/giờ** *(tự ước tính về mức tiết kiệm)*. Công thức: USD/người/tháng ÷ (0,134 giờ × phần thời gian thực sự tiết kiệm).
+
+**Đáng làm không: đáng thử nghiệm tiếp với chi phí model khoảng $0.004542/người/tháng và chất lượng bộ thử 23/23; chỉ kết luận hiệu quả kinh tế sau khi đo thời gian/tiền thực sự tiết kiệm và tổng chi phí vận hành.** Chưa gồm hosting, lưu trữ, gửi cảnh báo, thuế, retry và công người duyệt. Cảnh báo chỉ có thể giúp tránh lần trừ tương lai, không hoàn lại khoản đã mất.
+
+Tái lập phép tính bằng `python cost/build_k4.py`; dùng Decimal, không gọi API và không sửa kết quả chạy. Phần K1 Gemini bên dưới được giữ làm bằng chứng lịch sử; lệnh `build_estimate.py` tạo lại phần K1, sau đó chạy `build_k4.py` để chèn lại kết quả chốt này.
+<!-- K4:END -->
+
+## Bằng chứng K1 Gemini (27/11/2026)
+
 > Báo cáo do `python cost/build_estimate.py cost/simulate-1.csv` tạo từ CSV thật và cấu hình hiện tại.
-> Chưa thay thế kết quả CP4 với đúng model và tỉ lệ đạt lượt 2.
+> Phần Gemini K1 dưới đây là lịch sử; kết quả chốt CP4 ở phần K4/S2 phía trên.
 
 ## 1. Đầu vào và giả định
 

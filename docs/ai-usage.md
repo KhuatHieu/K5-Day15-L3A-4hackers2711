@@ -6,6 +6,7 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 
 | Việc | Công cụ AI | AI làm gì | Người kiểm/sửa gì | Ai phụ trách |
 |---|---|---|---|---|
+| Chốt K4/S2 | Codex | Dùng $0.00093678/câu do Thông cung cấp và điểm lượt 2 gpt-6.2-sol 23/23; tính bằng Decimal ba kịch bản USD/tháng, chi phí/task thành công và ngưỡng hòa vốn theo thời gian; cập nhật báo cáo, §8 và timeline. Kiểm lại nguồn MoMo công khai. | Kiểm tự động CSV lượt 2 và phép tính; không gọi API thêm, không sửa CSV/trace hay chuẩn đạt. Thông đọc diff và duyệt các giả định trước khi commit. | Trương Văn Thông |
 | Code bản chạy thử | Codex | Viết `detect_recurring`, `lookup_cancel_guide`, bộ kiểm thử và đối chiếu nguồn cho bảng hướng dẫn hủy. | Đã chạy kiểm tự động trên dữ liệu giả lập. Nghĩa đọc diff trước khi commit. | Nguyễn Đắc Tuấn Nghĩa (X2, X6) |
 | Prompt / thiết kế lời gọi mô hình | Claude Code | Gợi ý khung prompt nhận diện (chỉ trả JSON, coi mô tả là dữ liệu) và đoạn gọi API Gemini / Claude trong `ai.py`. | Long tự chọn model, sửa prompt theo output thật, chạy `eval --try` kiểm token lấy từ usage. | Đoàn Gia Long (X3, X4) |
 | Khung chạy + chặn rủi ro Track E | Claude Code | Gợi ý regex cho các nhóm ý trong `check_scope` và test mẫu. | Long thiết kế luồng X1 và 5 nhóm chặn, viết câu từ chối, chạy `test_scope.py` và B11/B12 với model thật. | Đoàn Gia Long (X1, X5) |

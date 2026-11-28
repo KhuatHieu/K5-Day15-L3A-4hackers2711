@@ -149,9 +149,19 @@ Các cột dưới đây tương ứng với `id`, `type`, `source`, `input` và
 - Lượt Gemini `run-1@20261127-164447` (16:44, chạy cục bộ B01–B20, B04/B05 lỗi HTTP 503) là lượt thử khi phát triển, chưa chấm, không tính; xem `eval/README.md`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- K1 dùng kết quả Gemini Flash-Lite: `simulate-1@20261127-215058`, 50 phiên (mỗi phiên một lượt), 49 không lỗi API và 1 timeout; token quy giá **$0.00607025**.
-- Chi phí trung bình mỗi lượt không lỗi: **$0.000123883**, tính từ usage API. Báo cáo USD: `cost/cost-estimate.md`; cấu hình và ba kịch bản gốc: `cost/personas.yaml`. Dự toán GPT giả định đã gỡ theo yêu cầu của Thông.
-- Chi phí/task thành công chưa chốt vì thiếu eval cùng model. Chưa gồm hosting, phí công cụ, thuế và công người duyệt; không quy đổi sang VND.
+- **Chốt K4/S2:** `gpt-6.2-sol`, **$0.00093678/câu** do Thông cung cấp ngày 28/11/2026; lượt 2 `run-2@20261128-113802` đạt **23/23 (100%)** theo [báo cáo đánh giá](eval/report.md). **Chi phí/task thành công = $0.00093678 ÷ (23/23) = $0.00093678**.
+- Nền quy mô: MoMo công bố [hơn 30 triệu người dùng](https://www.momo.vn/tin-tuc/thong-cao-bao-chi/momo-dong-hanh-ngay-tai-chinh-so-2026-khang-dinh-8835) (kiểm lại 28/11/2026). Chọn nền 30 triệu, tiếp cận 0,01% / 0,1% / 1% *(tự ước tính)*; không cộng ZaloPay.
+- Theo persona 12/33, 13/33, 8/33 của khảo sát tạm và tần suất 1/4/12 câu/người/tháng *(tự ước tính)*: trung bình **160/33 ≈ 4,848485 câu/người/tháng**. Áp chung đơn giá/câu do Thông cung cấp cho các persona *(tự ước tính)*; **chi phí model/người/tháng ≈ $0.004541964**.
+
+| Kịch bản | Người (tự ước tính) | Câu/tháng (tự ước tính) | Chi phí model USD/tháng |
+|---|---:|---:|---:|
+| Thấp | 3.000 | 14.545,454545 | $13.625891 |
+| Cơ sở | 30.000 | 145.454,545455 | $136.258909 |
+| Cao | 300.000 | 1.454.545,454545 | $1,362.589091 |
+
+- **So với impact §2:** tổn thất tạm tương đương **58.000 đồng + 0,134 giờ/người/tháng** (khoảng 47.000 đồng không đòi lại được), chưa phải lợi ích đã chứng minh. Không quy đổi sang VND hoặc tính ROI tiền giữa hai đơn vị khác nhau. Với tiền model **$0.004541964/người/tháng**, nếu tiết kiệm toàn bộ 0,134 giờ thì ngưỡng hòa vốn theo thời gian là **$0.033895/giờ**; nếu chỉ tiết kiệm 10% thì **$0.338953/giờ** *(tự ước tính về mức tiết kiệm)*.
+- **Đáng làm không:** đáng thử nghiệm tiếp với chi phí model khoảng **$0.004542/người/tháng** và bộ thử đạt **23/23**; cần đo lợi ích thực sự và tổng chi phí vận hành trước khi kết luận hiệu quả kinh tế.
+- Báo cáo và công thức: [cost/cost-estimate.md](cost/cost-estimate.md), tái lập bằng `python cost/build_k4.py`. Chỉ tính tiền model; chưa gồm hosting, lưu trữ, gửi cảnh báo, thuế, retry và công người duyệt. K1 Gemini 50 phiên vẫn là bằng chứng lịch sử riêng; dự toán K4 không được trình bày là một lượt mô phỏng GPT mới.
 
 ## §9. Rủi ro & an toàn
 **Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model**
@@ -211,6 +221,7 @@ Luật theo nhóm ý trên chữ đã bỏ dấu, không so khớp nguyên văn 
 | 28/11 11:20 | Long: `compose` tra 2 dòng `kiem_tra_khong_ro`, `kiem_tra_hoa_don` trong `cancel_guides.csv` và in các bước kèm link, ngày kiểm. Hoá đơn thiết yếu vẫn không có bước huỷ. Mã `kiem_tra_*` không đưa vào danh sách kênh cho model nên prompt không đổi. Thêm `test_fallback_guide.py` (5 test). Commit `9944cd6`. | Sửa đúng nguyên nhân chung, không so khớp riêng chữ trong B14/B19. Chưa có dữ liệu thì câu trả lời giữ nguyên lượt 1. |
 | 28/11 11:35 | Nghĩa: thêm dòng `kiem_tra_khong_ro` (MoMo), `kiem_tra_hoa_don` (EVN) có link chính thức vào `data/cancel_guides.csv`, thêm cả `kiem_tra_nha_mang` (code chưa dùng). Commit `d5609b5`. | Dữ liệu cho cải tiến trên; link kiểm ngày 28/11. |
 | 28/11 11:38 | Lượt 2 `run-2@20261128-113802`, `gpt-6.2-sol` (cùng model lượt 1), 23 câu. Nghĩa chấm B13–B23, Long chấm B01–B12. | Đo tác dụng của cải tiến. Kết quả ở bảng dưới. |
+| 28/11 13:52 | Thông: chốt K4/S2, bổ sung `cost/build_k4.py`, báo cáo chi phí và §8 theo $0.00093678/câu; tính ba quy mô và ngưỡng hòa vốn theo thời gian, không quy đổi VND. | Thông cung cấp đơn giá gpt-6.2-sol và yêu cầu dùng tỷ lệ đạt lượt 2 23/23; CSV đã lưu xác nhận điểm. Giữ nguyên bằng chứng K1, eval/trace và §7. |
 
 **Lượt 1 → lượt 2** (cùng model `gpt-6.2-sol`, cùng tiêu chí §7; chỉ đổi 1 thứ: hướng dẫn kiểm tra dự phòng có nguồn)
 

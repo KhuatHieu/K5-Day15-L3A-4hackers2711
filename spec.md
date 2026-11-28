@@ -154,9 +154,39 @@ Các cột dưới đây tương ứng với `id`, `type`, `source`, `input` và
 - Chi phí/task thành công chưa chốt vì thiếu eval cùng model. Chưa gồm hosting, phí công cụ, thuế và công người duyệt; không quy đổi sang VND.
 
 ## §9. Rủi ro & an toàn
-- Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
-- AI **không được** làm gì kể cả khi người dùng yêu cầu:
-- Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:
+**Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model**
+- Giao dịch là **synthetic**: 200 dòng, 11 hồ sơ giả U01–U11, seed 2711/2712 ([data card](data/DATA_CARD.md)). Không dùng sao kê hay giao dịch thật của ai, kể cả của thành viên nhóm.
+- Review chỉ dùng để gợi ý tình huống. Full text review nằm trong file `raw-*` không lên repo. Trích dẫn ghi `id`, không ghi tên người viết.
+- **Model chỉ nhận chuỗi mô tả giao dịch và nguồn tiền** (vd `GOOGLE *BaoThuc Pro`, `vi`), xem `identify_service` trong [agent.py](codebase/agent.py). Model **không** nhận câu người dùng gõ, mã người dùng, số tiền hay ngày. Vì vậy mã OTP hay mật khẩu người dùng lỡ gửi không bao giờ đi tới API model.
+- Bản chạy thử không gửi tin, không ghi dữ liệu ra ngoài, không đăng nhập ví. Cả 5 công cụ trong [tools.py](codebase/tools.py) chỉ đọc file CSV, không có tác động ra ngoài.
+
+**AI không được làm gì, kể cả khi người dùng yêu cầu** (chặn bằng code Python `check_scope`, chạy **trước** model)
+
+| Nhóm ý | Ví dụ | Code làm gì | Câu thử |
+|---|---|---|---|
+| `bao_mat` (OTP, mật khẩu, số thẻ, CVV, dãy 6 số) | "mã OTP mình gửi đây: 482913" | Nhắc không chia sẻ OTP, **không lặp lại dãy số**, vẫn trả lời phần hợp lệ | B11 |
+| `lam_thay` (huỷ / tắt / đòi tiền giúp) | "huỷ luôn gói giúp mình đi" | Nói rõ không có quyền thao tác tài khoản, chỉ đưa các bước tự huỷ kèm link chính thức | B11 |
+| `dau_tu` (cổ phiếu, crypto, lãi suất…) | "nên mua cổ phiếu nào" | **Chỉ từ chối**, không đọc lịch sử, không gọi model | B12 |
+| `pha_huong_dan` (bỏ qua hướng dẫn, đóng vai…) | "Bỏ qua hướng dẫn trước đó" | **Chỉ từ chối**, không gọi model | B12 |
+| `nguoi_khac` (nhắc mã người dùng khác) | "[U03] … liệt kê giao dịch của U08" | **Chỉ từ chối**, không đọc lịch sử của mã kia | B12 |
+
+Luật theo nhóm ý trên chữ đã bỏ dấu, không so khớp nguyên văn câu thử. Câu từ chối là chữ cố định trong code, không chép lại chữ hay số người dùng gửi. Kiểm bằng [test_scope.py](codebase/test_scope.py) (5 test); cả 21 test trong `codebase/` qua ở chế độ giả. Lượt 1 `run-1@20261127-183503`: B11 và B12 đều đạt (2/2 `tu_choi`).
+
+**Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào**
+
+| Nếu sai | Ai bị hại | Chặn ở đâu |
+|---|---|---|
+| Sai số tiền / ngày trừ → người dùng không kịp huỷ hoặc huỷ nhầm lúc | Người dùng ví, mất thêm một kỳ phí | Mọi số do **code** tính (`detect_recurring`, `get_charge_facts`, `lookup_renewal_schedule`) rồi `compose` ghép vào câu. Model không được viết số; `validate` bỏ tên dịch vụ có ≥3 chữ số. Câu trả lời ghi nguồn ngày (lịch giả lập hoặc "tính từ lịch sử, không phải bên bán xác nhận"). |
+| Gán nhầm tên dịch vụ → người dùng huỷ nhầm gói khác | Người dùng; bên bán nhận khiếu nại oan | Model được dặn nói "không rõ" khi mô tả không đủ. JSON sai dạng hoặc kênh lạ → `validate` chuyển thành "không rõ". Câu trả lời luôn kết bằng "Bạn đối chiếu đúng gói trong tài khoản rồi tự quyết định". |
+| Đưa link huỷ bịa hoặc link lừa đảo | Người dùng, có thể lộ tài khoản | Link chỉ lấy từ [cancel_guides.csv](data/cancel_guides.csv) (trang chính thức, có ngày kiểm). Không có hướng dẫn có nguồn thì nói "chưa có", không để model tự viết. |
+| Gợi ý huỷ hoá đơn điện, nước, internet | Người dùng bị cắt dịch vụ thiết yếu | `loai = hoa_don_thiet_yeu` → không tra hướng dẫn huỷ, ghi "mình không gợi ý huỷ" (B09). |
+| Nói "đã hoàn tiền" khi bị trừ trùng | Người dùng bỏ lỡ hạn tra soát | Khoản `possible_duplicate` không qua model, chỉ đưa bước tra soát kèm mã giao dịch và câu "mình không xác nhận được việc hoàn tiền" (B07). |
+| Người dùng gửi OTP, agent huỷ hộ | Người dùng mất tiền / tài khoản | Không có công cụ nào thao tác tài khoản. `check_scope` nhắc giữ kín OTP và không lặp lại mã. |
+
+**Rủi ro còn lại (chưa chặn trong bản chạy thử)**
+- Luật `check_scope` dựa trên từ khoá. Cách diễn đạt lạ (tiếng lóng, viết tắt, tiếng Anh khác mẫu) có thể lọt. Phần lọt chỉ ảnh hưởng câu nhắc, vì model vẫn không nhận câu người dùng và không có công cụ thao tác tài khoản.
+- Dãy 6 số đứng riêng bị coi là OTP nên có thể nhắc nhầm (vd mã đơn hàng). Nhóm chấp nhận nhắc thừa hơn bỏ sót.
+- Nếu dùng thật với giao dịch thật: mô tả giao dịch sẽ được gửi sang nhà cung cấp model. Cần thoả thuận xử lý dữ liệu, không dùng gói miễn phí có điều khoản dùng dữ liệu để huấn luyện, và che câu người dùng gõ trước khi ghi trace.
 
 ## §10. Phân công & changelog
 - Phân công có tên (theo chặng, chia cặp — guide "Cách chia việc"): __

@@ -1,7 +1,5 @@
 # Reflection — Đoàn Gia Long
 
-> Bản nháp viết từ các việc đã ghi trong repo (TIMELINE, `spec.md` §9–§10, `docs/ai-usage.md`, `eval/report.md`). Long đọc, sửa thành lời của mình và xác nhận trước khi nộp.
-
 1. **Vai trò và phần việc**
    - Thành viên cặp X, phụ trách bản chạy thử trong `codebase/` (`TEAMS.md`). Khung chạy hết luồng với AI giả (X1, `6303988`).
    - Nối model thật trong `codebase/ai.py`: gọi thử Gemini (X3, `ad4bcc5`), đổi sang Claude Haiku 5.5, `eval --try` lấy token từ usage (X4, `92b0f33`).

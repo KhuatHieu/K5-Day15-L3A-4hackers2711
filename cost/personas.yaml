@@ -47,5 +47,14 @@ prices:             # USD / 1 triệu token — chép từ further-reading/model
     input: 2.00
     output: 12.00
     source: "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview · Standard, prompt <=200k token, output gồm thinking · xem 27/11/2026; chỉ so sánh giá trên token Flash-Lite"
+  # K3 · Long 28/11: model chạy lượt 2 (run-2@20261128-113802) + một mức rẻ cùng hãng để so sánh.
+  - model: gpt-6.2-sol
+    input: 2.00
+    output: 10.00
+    source: "further-reading/model-prices.md của repo đề (BTC tra 25/11/2026) · https://developers.openai.com/api/docs/pricing · Standard, short context, tầng gợi ý Lớn · model chạy lượt 2"
+  - model: gpt-6-luna
+    input: 0.10
+    output: 0.50
+    source: "further-reading/model-prices.md của repo đề (BTC tra 25/11/2026) · https://developers.openai.com/api/docs/pricing · Standard, short context ≤272K token vào, tầng gợi ý Nhỏ · chỉ so sánh giá, chưa chạy eval"
 
 # Chỉ báo cáo bằng USD theo yêu cầu của Thông, không quy đổi tiền Việt.

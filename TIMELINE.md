@@ -91,7 +91,7 @@ Tên viết tắt: **H** = Hiếu · **L** = Long · **N** = Nghĩa · **T** = T
 ## 🏁 Demo · hạn chót 23:59 Thứ Bảy 28/11
 - [ ] Demo Zone 14:30–16:00 (Demo Phòng 16:00–18:00 nếu lọt top)
 - [ ] Sửa theo góp ý → ghi `spec.md` §10 (giờ · đổi gì · vì sao), chạy thêm thì ghi thành `run-3`
-- [ ] Reflection: `reflection/khuat-duy-hieu.md` · `reflection/doan-gia-long.md` · `reflection/nguyen-dac-tuan-nghia.md` · `reflection/truong-van-thong.md` · ⚠ 22:06 27/11 đã viết nháp của Thông theo 3 câu trong TEMPLATE; Thông cần đọc, sửa và xác nhận trước nộp.
+- [ ] Reflection: `reflection/khuat-duy-hieu.md` · `reflection/doan-gia-long.md` · `reflection/nguyen-dac-tuan-nghia.md` · `reflection/truong-van-thong.md` · ⚠ 22:06 27/11 đã viết nháp của Thông theo 3 câu trong TEMPLATE; Thông cần đọc, sửa và xác nhận trước nộp. · 16:25 28/11 đã có nháp `doan-gia-long.md`, Long cần đọc, sửa và xác nhận.
 - [ ] H · Dọn repo: `CHOT-1600.md` giữ làm biên bản hay xoá; sửa `AGENTS.md` mục Quy trình git cho khớp cách làm thật (nhánh + PR)
 - [ ] (tuỳ chọn) E6 · ai rảnh · Ảnh chụp trang Gói thuê bao Google Play / mục thanh toán tự động trong ví (che thông tin) để bỏ ⏳ ở `spec.md` §0
 - [ ] Push lần cuối trước 23:59

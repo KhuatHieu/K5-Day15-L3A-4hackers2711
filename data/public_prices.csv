@@ -1,0 +1,9 @@
+service,plan,price_vnd,period,match_keywords,official_url,checked_on,note
+Spotify,Premium Cá nhân,65000,tháng,spotify,https://www.spotify.com/vn-vi/premium/,2026-11-28,Giá thường sau ưu đãi người mới; trang VN hiển thị VND
+Spotify,Premium Sinh viên,33000,tháng,spotify,https://www.spotify.com/vn-vi/premium/,2026-11-28,Cần xác minh sinh viên; trang VN hiển thị VND
+Google One,Lite 30 GB,19000,tháng,google one,https://one.google.com/about/plans?hl=vi&gl=VN,2026-11-28,Trang hl=vi gl=VN
+Google One,Basic 100 GB,45000,tháng,google one,https://one.google.com/about/plans?hl=vi&gl=VN,2026-11-28,Trang hl=vi gl=VN
+Google One,Google AI Pro 5 TB,489000,tháng,google one,https://one.google.com/about/plans?hl=vi&gl=VN,2026-11-28,Trang hl=vi gl=VN
+iCloud+,50 GB,25000,tháng,icloud,https://support.apple.com/en-us/108047,2026-11-28,Dòng Vietnam (VND) đã gồm thuế
+iCloud+,200 GB,89000,tháng,icloud,https://support.apple.com/en-us/108047,2026-11-28,Dòng Vietnam (VND) đã gồm thuế
+iCloud+,2 TB,299000,tháng,icloud,https://support.apple.com/en-us/108047,2026-11-28,Dòng Vietnam (VND) đã gồm thuế

@@ -237,4 +237,5 @@ Luật theo nhóm ý trên chữ đã bỏ dấu, không so khớp nguyên văn 
 
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
-|  |  |  |
+| 28/11 14:35 | Hiếu: thêm app demo có giao diện `app/server.py` + `app/static/index.html` (thư viện chuẩn), gọi nguyên `answer()`; thêm `data/public_prices.csv` (giá niêm yết thật có nguồn) chỉ để hiển thị. Không sửa `codebase/`, benchmark, §7 hay kết quả các lượt. | Dễ demo / showcase hơn dòng lệnh; cho thấy rõ chỗ code làm và chỗ AI làm. Giữ luật Track E: giao dịch vẫn synthetic, giá công khai không đi vào câu trả lời của AI. |
+| 28/11 14:37 | Hiếu: `agent.py` thêm nhánh câu ngoài chủ đề: chế độ hỏi mà câu không có từ về khoản trừ / tiền và không trùng tên giao dịch nào (vd "xin chào") → trả hướng dẫn cách hỏi, không đọc lịch sử, không gọi model. Thêm `test_off_topic.py` (3 test). Lượt 3 `run-3@20261128-143731`: output 23/23 câu giống hệt lượt 2, cột `pass` chờ người chấm. | Thử app thấy "xin chào" bị coi là câu hỏi chung và liệt kê mọi khoản trừ của người dùng, như thể bot không hiểu câu. Không sửa §7, benchmark hay lượt 1–2. |

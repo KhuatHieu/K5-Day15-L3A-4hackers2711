@@ -71,6 +71,14 @@ B01/B13 lấy ngày 29/11 từ phiếu gia hạn giả lập có nguồn `SIM-GP
 
 Giữ nguyên bảng 9 kênh hướng dẫn hủy hiện có. Mỗi dòng có kênh, bí danh, bước tự kiểm tra/hủy, URL trợ giúp chính thức và ngày đối chiếu. V3/V4 không thay nội dung hay xác nhận lại nguồn của bảng này.
 
+## Dataset 4 — public_prices.csv (giá niêm yết công khai, chỉ cho app demo)
+
+Dữ liệu **thật, công khai, không có thông tin cá nhân**: giá gói đăng ký đang bán tại Việt Nam (VND/tháng), mỗi dòng có `official_url` và `checked_on`. 8 dòng: Spotify (Cá nhân, Sinh viên), Google One (Lite 30 GB, Basic 100 GB, AI Pro 5 TB), iCloud+ (50 GB, 200 GB, 2 TB). Đọc ngày 28/11/2026 từ trang chính thức bằng công cụ tải trang của Claude Code (xem `docs/ai-usage.md`); chưa có người kiểm lại từng giá.
+
+- Không đưa vào: Netflix (trang giá bị timeout), YouTube Premium và ChatGPT (trang không hiện giá VND đọc được). Không đoán giá.
+- Chỉ `app/server.py` đọc file này để hiện cạnh khoản trừ có tên khớp (`match_keywords`) và ở tab "Bảng giá công khai". **Không** đi vào `answer()`, eval hay simulate, nên không đổi kết quả lượt 1 / lượt 2.
+- Giá có thể đổi; app luôn hiện ngày xem và link nguồn.
+
 ## Kiểm tra và người duyệt
 
 Đã kiểm tự động: tái tạo hai lần giống dữ liệu hiện tại, ID duy nhất, cửa sổ ngày, số tiền, nguồn tiền, liên kết đáp án và số dòng 150 + 50. Dùng bộ kiểm của đội bằng lệnh `python -m unittest discover -s codebase -v`, gồm kiểm công cụ trên 17 chuỗi và kiểm hồi quy lịch gia hạn.

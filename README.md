@@ -22,6 +22,19 @@
 
 ---
 
+## App demo có giao diện
+
+```
+python app/server.py        # mở http://127.0.0.1:8000
+```
+
+Chỉ dùng thư viện chuẩn, không cần `pip install`. App gọi đúng `answer()` trong `codebase/agent.py` (cùng model trong `.env`), nên câu trả lời giống `python run.py`.
+- **Ví của tôi:** chọn người dùng giả lập U01–U11, xem lịch sử giao dịch, các khoản định kỳ do code phát hiện (chu kỳ, ngày trừ kế tiếp, cảnh báo ≤3 ngày), bấm "Hỏi AI" hoặc thử 2 câu tấn công. Mỗi câu trả lời có mục "Luồng xử lý" cho thấy bước nào là code, bước nào gọi AI, bao nhiêu token.
+- **Bằng chứng & kết quả:** số review, khảo sát, phỏng vấn, lượt 1 → lượt 2, chi phí, kèm file nguồn.
+- **Bảng giá công khai:** giá thật đang bán tại VN của Spotify, Google One, iCloud+ (link chính thức + ngày xem, `data/public_prices.csv`).
+
+Lịch sử giao dịch vẫn là synthetic (`data/DATA_CARD.md`); không dùng sao kê thật của ai.
+
 ## Nhóm làm gì, khung làm gì
 
 | Nhóm quyết định và viết | Khung làm sẵn (không cần sửa) |
